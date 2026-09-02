@@ -39,7 +39,7 @@ An immersive, web-based interactive experience exploring Indian classical and fo
 - **Responsive design** with glassmorphism aesthetics
 
 ## 🚀 Live Demo
-Visit: [https://purushub.github.io/diversity/](https://purushub.github.io/diversity)
+Visit: [https://purushub.github.io/diversity/](https://purushub.github.io/diversity/)
 
 ## 📝 License
 Educational use — IB Performing Arts curriculum activity.

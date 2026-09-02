@@ -27,14 +27,14 @@ const SimState = {
       team: 'Team Alpha',
       completed: false,
       xp: 100,
-      videoId: 'JWhA3ldZcyY',
-      videoTitle: 'Classical Bharatanatyam: Nritta & Abhinaya Recital',
-      videoTradition: 'Classical (Natya Shastra Heritage)',
+      videoId: 'R3n0N6PZq-E',
+      videoTitle: 'Kalakshetra Bharatanatyam: Nritta & Alarippu Recital',
+      videoTradition: 'Classical (Natya Shastra Temple & Stage Heritage)',
       videoHighlights: [
-        'Aramandi (demi-plié) grounded balance',
-        'Sharp angular Nataraja gestures',
-        'Complex Jathi rhythmic footwork',
-        'Expressive Drishti (eye movement language)'
+        'Aramandi (demi-plié) grounded balance and triangle geometry',
+        'Sharp angular Nataraja gestures with precise Hasta Mudras',
+        'Complex Jathi rhythmic footwork on Adi Tala beats',
+        'Expressive Drishti (Natyashastra eye movement language)'
       ]
     },
     {
@@ -50,14 +50,14 @@ const SimState = {
       team: 'Team Beta',
       completed: false,
       xp: 100,
-      videoId: '7GzZl710w3I',
-      videoTitle: 'Kathak Dance: Lightning Chakkars & Tatkar Rhythms',
-      videoTradition: 'Classical (Storytelling & Court Dance)',
+      videoId: 'UBYqv21c0Yk',
+      videoTitle: 'Classical Kathak: Taal Dhamaar & Teental Tatkar Rhythms',
+      videoTradition: 'Classical (Storytelling & Mughal/Hindu Court Heritage)',
       videoHighlights: [
-        'Rapid pirouette Chakkars (multiple revolutions)',
-        'Ghungroo bell-sync Tatkar footwork',
-        'Sudden dramatic freeze-frames (Sama)',
-        'Delicate Nazakat hand gestures'
+        'Rapid pirouette Chakkars (multiple high-velocity revolutions)',
+        'Ghungroo bell-sync Tatkar footwork on 16-beat Teental',
+        'Sudden dramatic freeze-frames (Sama landing on Beat 1)',
+        'Delicate Nazakat hand gestures and subtle Abhinaya'
       ]
     },
     {
@@ -74,13 +74,13 @@ const SimState = {
       completed: false,
       xp: 100,
       videoId: 'e_p107H9UvI',
-      videoTitle: 'Rongali Bihu: Spring Harvest Folk Celebration',
-      videoTradition: 'Folk / Harvest Festival Heritage',
+      videoTitle: 'Rongali Bihu: Assamese Spring Harvest Festival Celebration',
+      videoTradition: 'Folk / Brahmaputra Valley Harvest Heritage',
       videoHighlights: [
-        'Rapid rhythmic wrist rotations and flips',
-        'Brisk hip swaying and bounce steps',
+        'Rapid rhythmic wrist rotations and swift palm flips',
+        'Brisk hip swaying and buoyant spring bounce steps',
         'Accompaniment by Dhol drum and Pepa buffalo horn',
-        'Youthful exuberance celebrating Bohag Bihu'
+        'Youthful exuberance celebrating Bohag Bihu new year'
       ]
     },
     {
@@ -97,13 +97,13 @@ const SimState = {
       completed: false,
       xp: 100,
       videoId: 'gD3V5h75x_g',
-      videoTitle: 'Traditional Navratri Raas Garba Circle Dance',
-      videoTradition: 'Folk / Devotional Circle Dance',
+      videoTitle: 'Traditional Navratri Raas Garba: 3-Taali Circle Dance',
+      videoTradition: 'Folk / Devotional Circle Celebration',
       videoHighlights: [
-        'Concentric circular progression around the center lamp',
-        'Synchronized 3-clap rhythmic pattern (Tran Taali)',
-        'Sweeping turns and lateral foot touches',
-        'Universal communal synchronization'
+        'Concentric circular progression around the sacred center',
+        'Synchronized 3-clap rhythmic pattern (Tran Taali / Hinch)',
+        'Sweeping turns, twirls, and lateral foot touches',
+        'Universal communal harmony and shared spatial geometry'
       ]
     },
     {
@@ -114,19 +114,19 @@ const SimState = {
       hudName: 'Energy Peak Meter',
       hudMetric: 'Jump Force: 450 N',
       quest: 'High knee lifts, raised arms with shoulder bounces, shouting energetic "Haddipa!" beat cues.',
-      solkattu: 'Dhol Boom & Saap Chimta Beat',
+      solkattu: 'Dhol Boom & Saap Chimta Chaal',
       layer: 3,
       team: 'Team Epsilon',
       completed: false,
       xp: 100,
       videoId: '4Y6qgX8wKj0',
-      videoTitle: 'High-Energy Punjabi Bhangra: Folk Power & Beats',
+      videoTitle: 'High-Energy Punjabi Bhangra: Folk Power & Dhol Chaal Beats',
       videoTradition: 'Folk / Vaisakhi Harvest Celebration',
       videoHighlights: [
-        'Explosive high knee lifts and aerial jumps',
+        'Explosive high knee lifts and athletic aerial jumps',
         'Shoulder bounce (Dhamaal) with arms raised in victory',
-        'Driving Dhol bass beats and Saap accordion clapping',
-        'Vocal joy calls ("Balle Balle!", "Haddipa!")'
+        'Driving Dhol bass boom and Saap accordion rhythmic clapping',
+        'Joyous call-and-response shouts ("Balle Balle!", "Haddipa!")'
       ]
     },
     {
@@ -143,13 +143,13 @@ const SimState = {
       completed: false,
       xp: 100,
       videoId: '6xYq6U04d-s',
-      videoTitle: 'Cheraw Bamboo Dance: Rhythmic Agility & Precision',
+      videoTitle: 'Cheraw Bamboo Dance: Rhythmic Agility & Precision Matrix',
       videoTradition: 'Folk / Ancient Mizo Tribal Heritage',
       videoHighlights: [
-        'Sliding and clapping bamboo staves in 4/4 meter',
-        'Nimble stepping in and out of grid squares',
+        'Sliding and clapping horizontal bamboo staves in 4/4 meter',
+        'Nimble stepping in and out of moving grid squares',
         'Graceful arm extensions with traditional Kawrchei attire',
-        'High degree of mutual trust and timing sync'
+        'High degree of mutual trust, collective timing, and balance'
       ]
     },
     {
@@ -160,19 +160,19 @@ const SimState = {
       hudName: 'Tempo Accent Match',
       hudMetric: 'Dholak Sync: Rapid 6/8',
       quest: 'Rapid footwork synchronized to fast Dholak beat, combined with expressive facial storytelling.',
-      solkattu: 'Dha-Ge-Na-Tin Fast Shuffle',
+      solkattu: 'Dha-Ge-Na-Tin Fast Dholki Shuffle',
       layer: 3,
       team: 'Team Eta',
       completed: false,
       xp: 100,
-      videoId: 'j70-W3K5E00',
-      videoTitle: 'Traditional Lavani: Dholki Beats & Nauvari Expressions',
-      videoTradition: 'Folk / Theatrical Musical Heritage',
+      videoId: 'tWcSBql597s',
+      videoTitle: 'Doordarshan Archives: Traditional Maharashtrian Lavani',
+      videoTradition: 'Folk / Theatrical Musical Heritage of Maharashtra',
       videoHighlights: [
         'Lightning-fast Dholki syncopated footwork (Chaal)',
         'Traditional 9-yard Nauvari saree drape & Ambada adornment',
-        'Flirtatious, witty, and powerful facial expressions (Abhinaya)',
-        'Dynamic pirouettes and dramatic pallu maneuvers'
+        'Witty, bold, and powerful facial expressions (Abhinaya)',
+        'Dynamic pirouettes and dramatic rhythmic pauses (Khadak)'
       ]
     },
     {
@@ -188,14 +188,14 @@ const SimState = {
       team: 'Team Theta',
       completed: false,
       xp: 100,
-      videoId: 'A2dYq1_w20M',
-      videoTitle: 'UNESCO Chhau Martial Dance: Leaps & Sun Masks',
-      videoTradition: 'Semi-Classical / UNESCO Intangible Heritage',
+      videoId: 'u3YLq7CVavc',
+      videoTitle: 'UNESCO Intangible Heritage: Chhau Martial Mask Dance',
+      videoTradition: 'Semi-Classical / UNESCO Intangible Cultural Heritage',
       videoHighlights: [
-        'Athletic high-elevation leaps and acrobatics (Ufli)',
-        'Iconic painted masks representing mythological gods and beasts',
+        'Athletic high-elevation leaps, somersaults, and acrobatics (Ufli)',
+        'Iconic handcrafted masks representing gods, demons, and beasts',
         'Martial combat postures with sword (Talwar) and shield (Dhal)',
-        'Powerful Nagara war drum beats and horn fanfares'
+        'Thunderous Nagara war drum rolls and stirring Shehnai fanfares'
       ]
     }
   ],
@@ -567,53 +567,93 @@ function renderPhase1() {
   const rasaData = {
     shringara: {
       name: '1. Shringara (Love & Aesthetic Beauty)',
-      desc: 'The essence of attraction, beauty, and affection. Portrayed with gentle neck movement (Griva Bheda), soft gaze, and universal aesthetic devotion.',
-      cue: 'Head Tilt: 15° | Gaze: Gentle Romance'
+      bhava: 'Sthayi Bhava: Rati (Pleasure & Love)',
+      drishti: 'Drishti Bheda: Snigdha & Kantam (Affectionate & Radiant Gaze)',
+      bhru: 'Bhru Bheda: Sahaja / Pathana (Gentle, naturally curved brows)',
+      mukha: 'Mukharaga: Prasanna (Serene, glowing facial aura)',
+      desc: 'The master of all Rasas (Rasaraja). The portrayal of universal beauty, romance, and aesthetic connection. Embody gentle neck articulation (Sundari Griva) and subtle inward joy.',
+      cue: 'Gaze: Snigdha Romance | Bhru: Gentle Arc | Resonance: 99%'
     },
     hasya: {
-      name: '2. Hasya (Joy & Laughter)',
-      desc: 'The expression of happiness, laughter, and delight. Portrayed with sparkling eyes, elevated cheeks, and radiant smiles from festive harvest lore.',
-      cue: 'Smile Arc: +30% | Gaze: Sparkling Delight'
+      name: '2. Hasya (Joy & Mirthful Laughter)',
+      bhava: 'Sthayi Bhava: Hasa (Laughter & Cheer)',
+      drishti: 'Drishti Bheda: Vikasita (Blooming, wide sparkling eyes)',
+      bhru: 'Bhru Bheda: Utkshepa (Elevated, animated eyebrows)',
+      mukha: 'Mukharaga: Smita / Hasita (Radiant smile with visible joy)',
+      desc: 'The celebration of humor, festivity, and pure joy. Wide twinkling eyes, raised cheekbones, and playful rhythmic head shakes capturing communal festival delight.',
+      cue: 'Gaze: Sparkling Delight | Smile Arc: +35% | Resonance: 98%'
     },
     karuna: {
-      name: '3. Karuna (Compassion & Sorrow)',
-      desc: 'The feeling of empathy, kindness, and sorrow for others. Portrayed with tender drooping posture and deep empathetic resonance.',
-      cue: 'Shoulder Drop: 5% | Gaze: Tender Empathy'
+      name: '3. Karuna (Compassion & Pathos)',
+      bhava: 'Sthayi Bhava: Shoka (Sorrow & Empathetic Grief)',
+      drishti: 'Drishti Bheda: Deena (Tender, sorrowful downcast gaze)',
+      bhru: 'Bhru Bheda: Nipatana (Slightly furrowed, drooping brows)',
+      mukha: 'Mukharaga: Malina (Soft, melancholic stillness)',
+      desc: 'The profound emotion of empathy, mercy, and compassion for all living beings. Relaxed drooped shoulders, soft chest contraction, and deep heartfelt stillness.',
+      cue: 'Gaze: Deena Empathy | Posture: Soft Contour | Resonance: 97%'
     },
     raudra: {
-      name: '4. Raudra (Fury & Anger)',
-      desc: 'The power of anger that arises from injustice or ego. Depicted with fiery intense gaze, flaring nostrils, and fierce martial energy.',
-      cue: 'Jaw Clench: Max | Gaze: Red Fiery Focus'
+      name: '4. Raudra (Fury & Righteous Wrath)',
+      bhava: 'Sthayi Bhava: Krodha (Anger & Fierce Outrage)',
+      drishti: 'Drishti Bheda: Krura (Fierce, unblinking red-hot gaze)',
+      bhru: 'Bhru Bheda: Bhrukuti (Deeply contracted, menacing brows)',
+      mukha: 'Mukharaga: Rakta (Flushed, intense martial fire)',
+      desc: 'The cosmic fury against injustice and discord. Flaring nostrils, firmly locked jaw, expanded martial chest, and explosive warrior energy.',
+      cue: 'Gaze: Krura Fury | Jaw Clench: Locked | Resonance: 100%'
     },
     veera: {
-      name: '5. Veera (Courage & Valor)',
-      desc: 'The spirit of bravery, confidence, and inner strength. Broad upright chest, firm jawline, and steady piercing heroic gaze (Drishti).',
-      cue: 'Chest Expansion: +15% | Eye Focus: Fixed Valor'
+      name: '5. Veera (Courage & Heroic Valor)',
+      bhava: 'Sthayi Bhava: Utsaha (Dynamic Energy & Enthusiasm)',
+      drishti: 'Drishti Bheda: Dheera (Steadfast, fearless, noble gaze)',
+      bhru: 'Bhru Bheda: Rechita (One brow proudly raised in confidence)',
+      mukha: 'Mukharaga: Tejasvi (Luminous, confident dignity)',
+      desc: 'The spirit of undaunted courage, leadership, and nobility. Broad open chest, lifted chin, unwavering eye focus, and resolute heroic posture.',
+      cue: 'Gaze: Dheera Valor | Chest Flare: +20% | Resonance: 99%'
     },
     bhayanaka: {
-      name: '6. Bhayanaka (Fear & Vigilance)',
-      desc: 'The emotion of fear, anxiety, and apprehension. Alert scanning gaze, rapid breathing, and defensive posture in the presence of awe.',
-      cue: 'Eye Flutter: Alert | Gaze: Defensive Vigilance'
+      name: '6. Bhayanaka (Fear & Alert Vigilance)',
+      bhava: 'Sthayi Bhava: Bhaya (Dread & Cosmic Awe)',
+      drishti: 'Drishti Bheda: Bhayanaka (Wide, rapidly darting pupils)',
+      bhru: 'Bhru Bheda: Kampita (Trembling, highly elevated brows)',
+      mukha: 'Mukharaga: Shushka (Pale, guarded defensive posture)',
+      desc: 'The instinct of vigilance and reverence before overwhelming cosmic power. Rapid breath, tense pulled-back neck, and quick defensive scanning.',
+      cue: 'Gaze: Darting Vigilance | Breath: Accelerated | Resonance: 96%'
     },
     bibhatsa: {
-      name: '7. Bibhatsa (Disgust & Aversion)',
-      desc: 'The feeling of aversion or repulsion towards something unpleasant. Wrinkled nose and turned head symbolizing the rejection of untruth.',
-      cue: 'Head Turn: 45° | Gaze: Critical Aversion'
+      name: '7. Bibhatsa (Disgust & Discernment)',
+      bhava: 'Sthayi Bhava: Jugupsa (Aversion & Rejection of Untruth)',
+      drishti: 'Drishti Bheda: Jugupsita (Narrowed eyes turning away)',
+      bhru: 'Bhru Bheda: Kunchita (Curled, wrinkled brow and nose bridge)',
+      mukha: 'Mukharaga: Vikrita (Averted face, pursed lips)',
+      desc: 'The philosophical rejection of falsity and decay. Wrinkled nose bridge, turned head (Paravritta Griva), and hand shielding against unharmonious influences.',
+      cue: 'Gaze: Aversion Turn | Nose Wrinkle: Active | Resonance: 97%'
     },
     adbhuta: {
-      name: '8. Adbhuta / Aashcharya (Wonder & Surprise)',
-      desc: 'The sense of awe, surprise, and astonishment. Wide curved eyes, elevated eyebrows, and open soft breath expressing cosmic fascination.',
-      cue: 'Eyebrow Elevation: +25% | Gaze: Expansive Wonder'
+      name: '8. Adbhuta / Aashcharya (Wonder & Cosmic Awe)',
+      bhava: 'Sthayi Bhava: Vismaya (Astonishment & Wonder)',
+      drishti: 'Drishti Bheda: Vismita (Expansively dilated pupils looking upward)',
+      bhru: 'Bhru Bheda: Utkshepa (Both eyebrows high in cosmic wonder)',
+      mukha: 'Mukharaga: Vismita (Slightly parted lips, breathless awe)',
+      desc: 'The overwhelming realization of life’s infinite mystery and interconnected universe. Wide luminous eyes, lifted brows, and suspended breath.',
+      cue: 'Gaze: Expansive Wonder | Eyebrows: +30% Lift | Resonance: 99%'
     },
     aashcharya: {
-      name: '8. Adbhuta / Aashcharya (Wonder & Surprise)',
-      desc: 'The sense of awe, surprise, and astonishment. Wide curved eyes, elevated eyebrows, and open soft breath expressing cosmic fascination.',
-      cue: 'Eyebrow Elevation: +25% | Gaze: Expansive Wonder'
+      name: '8. Adbhuta / Aashcharya (Wonder & Cosmic Awe)',
+      bhava: 'Sthayi Bhava: Vismaya (Astonishment & Wonder)',
+      drishti: 'Drishti Bheda: Vismita (Expansively dilated pupils looking upward)',
+      bhru: 'Bhru Bheda: Utkshepa (Both eyebrows high in cosmic wonder)',
+      mukha: 'Mukharaga: Vismita (Slightly parted lips, breathless awe)',
+      desc: 'The overwhelming realization of life’s infinite mystery and interconnected universe. Wide luminous eyes, lifted brows, and suspended breath.',
+      cue: 'Gaze: Expansive Wonder | Eyebrows: +30% Lift | Resonance: 99%'
     },
     shanta: {
-      name: '9. Shanta (Peace & Serenity)',
-      desc: 'The state of calmness, contentment, and inner peace. Gently curved eyelids, centered breath, and soft facial tranquility.',
-      cue: 'Breath Cycle: 4s Steady | Gaze: Centered Peace'
+      name: '9. Shanta (Peace & Universal Harmony)',
+      bhava: 'Sthayi Bhava: Sama (Tranquility & Liberation)',
+      drishti: 'Drishti Bheda: Shanta (Half-closed, centered meditative gaze)',
+      bhru: 'Bhru Bheda: Sama (Completely calm, leveled eyebrows)',
+      mukha: 'Mukharaga: Prasanta (Blissful stillness, glowing serenity)',
+      desc: 'The ultimate synthesis and resolution of all emotions into pure stillness. Relaxed muscles, gentle rhythmic breathing, and transcendent unity with the One.',
+      cue: 'Gaze: Meditative Shanta | Breath: 4s Deep Cycle | Resonance: 100%'
     }
   };
 
@@ -639,14 +679,22 @@ function renderPhase1() {
     rasaContainer.innerHTML = `
       <div class="ar-hud-overlay">
         <span>Abhinaya Facial Vector</span>
-        <span>Resonance: 98%</span>
+        <span>Natyashastra Heritage</span>
       </div>
       ${DanceVectors.getRasaVector(key)}
       <div class="ar-angle-tracker">${currentRasa.cue}</div>
     `;
     rasaDesc.innerHTML = `
-      <h4>${currentRasa.name}</h4>
-      <p>${currentRasa.desc}</p>
+      <div class="rasa-desc-card">
+        <h4>${currentRasa.name}</h4>
+        <div class="rasa-natyashastra-grid">
+          <div class="rasa-grid-item"><strong>${currentRasa.bhava}</strong></div>
+          <div class="rasa-grid-item"><span>👁️</span> ${currentRasa.drishti}</div>
+          <div class="rasa-grid-item"><span>✨</span> ${currentRasa.bhru}</div>
+          <div class="rasa-grid-item"><span>🎨</span> ${currentRasa.mukha}</div>
+        </div>
+        <p style="margin-top: 0.65rem; line-height: 1.55;">${currentRasa.desc}</p>
+      </div>
     `;
   }
 

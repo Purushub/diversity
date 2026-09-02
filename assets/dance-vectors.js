@@ -218,30 +218,33 @@ const DanceVectors = {
   getRasaVector: function(rasaId) {
     const key = rasaId === 'aashcharya' ? 'adbhuta' : rasaId;
     const rasaImgMap = {
-      shringara: { title: '1. Shringara (Love / Beauty)', src: 'assets/rasa_shringara.png', color: '#ec4899', tag: 'Drishti: Gentle Romance' },
-      hasya: { title: '2. Hasya (Joy / Laughter)', src: 'assets/rasa_hasya.png', color: '#fbbf24', tag: 'Drishti: Radiant Delight' },
-      karuna: { title: '3. Karuna (Compassion / Sorrow)', src: 'assets/rasa_karuna.png', color: '#38bdf8', tag: 'Drishti: Tender Empathy' },
-      raudra: { title: '4. Raudra (Fury / Righteous Anger)', src: 'assets/rasa_raudra.png', color: '#ef4444', tag: 'Drishti: Fiery Intensity' },
-      veera: { title: '5. Veera (Courage / Valor)', src: 'assets/rasa_veera.png', color: '#f59e0b', tag: 'Drishti: Piercing Valor' },
-      bhayanaka: { title: '6. Bhayanaka (Fear / Vigilance)', src: 'assets/rasa_bhayanaka.png', color: '#8b5cf6', tag: 'Drishti: Alert Vigilance' },
-      bibhatsa: { title: '7. Bibhatsa (Aversion / Discernment)', src: 'assets/rasa_bibhatsa.png', color: '#6366f1', tag: 'Drishti: Rejection of Untruth' },
-      adbhuta: { title: '8. Adbhuta (Wonder / Cosmic Awe)', src: 'assets/rasa_adbhuta.png', color: '#06b6d4', tag: 'Drishti: Expansive Wonder' },
-      shanta: { title: '9. Shanta (Peace / Equanimity)', src: 'assets/rasa_shanta.png', color: '#10b981', tag: 'Drishti: Inward Serenity' }
+      shringara: { title: '1. Shringara (Love / Beauty)', bhava: 'Sthayi Bhava: Rati (Love)', src: 'assets/rasa_shringara.png', color: '#ec4899', tag: 'Drishti: Gentle Romance' },
+      hasya: { title: '2. Hasya (Joy / Laughter)', bhava: 'Sthayi Bhava: Hasa (Mirth)', src: 'assets/rasa_hasya.png', color: '#fbbf24', tag: 'Drishti: Radiant Delight' },
+      karuna: { title: '3. Karuna (Compassion / Sorrow)', bhava: 'Sthayi Bhava: Shoka (Grief)', src: 'assets/rasa_karuna.png', color: '#38bdf8', tag: 'Drishti: Tender Empathy' },
+      raudra: { title: '4. Raudra (Fury / Righteous Anger)', bhava: 'Sthayi Bhava: Krodha (Fury)', src: 'assets/rasa_raudra.png', color: '#ef4444', tag: 'Drishti: Fiery Intensity' },
+      veera: { title: '5. Veera (Courage / Valor)', bhava: 'Sthayi Bhava: Utsaha (Heroism)', src: 'assets/rasa_veera.png', color: '#f59e0b', tag: 'Drishti: Piercing Valor' },
+      bhayanaka: { title: '6. Bhayanaka (Fear / Vigilance)', bhava: 'Sthayi Bhava: Bhaya (Fear)', src: 'assets/rasa_bhayanaka.png', color: '#8b5cf6', tag: 'Drishti: Alert Vigilance' },
+      bibhatsa: { title: '7. Bibhatsa (Aversion / Discernment)', bhava: 'Sthayi Bhava: Jugupsa (Disgust)', src: 'assets/rasa_bibhatsa.png', color: '#6366f1', tag: 'Drishti: Rejection of Untruth' },
+      adbhuta: { title: '8. Adbhuta (Wonder / Cosmic Awe)', bhava: 'Sthayi Bhava: Vismaya (Awe)', src: 'assets/rasa_adbhuta.png', color: '#06b6d4', tag: 'Drishti: Expansive Wonder' },
+      shanta: { title: '9. Shanta (Peace / Equanimity)', bhava: 'Sthayi Bhava: Sama (Tranquility)', src: 'assets/rasa_shanta.png', color: '#10b981', tag: 'Drishti: Inward Serenity' }
     };
 
     const info = rasaImgMap[key] || rasaImgMap.veera;
 
     return `
       <div class="rasa-card-display-wrapper">
-        <div class="rasa-card-frame" style="border-color: ${info.color};">
+        <div class="rasa-card-frame" style="border-color: ${info.color}; box-shadow: 0 0 20px ${info.color}33;">
           <img src="${info.src}" alt="${info.title}" class="rasa-card-img" />
-          <div class="ar-hud-corner tl"></div>
-          <div class="ar-hud-corner tr"></div>
-          <div class="ar-hud-corner bl"></div>
-          <div class="ar-hud-corner br"></div>
-          <div class="ar-scanner-beam"></div>
+          <div class="ar-hud-corner tl" style="border-color: ${info.color};"></div>
+          <div class="ar-hud-corner tr" style="border-color: ${info.color};"></div>
+          <div class="ar-hud-corner bl" style="border-color: ${info.color};"></div>
+          <div class="ar-hud-corner br" style="border-color: ${info.color};"></div>
+          <div class="ar-scanner-beam" style="background: linear-gradient(180deg, transparent, ${info.color}66, transparent);"></div>
+          <div class="rasa-bhava-tag" style="background: rgba(15, 23, 42, 0.85); color: ${info.color}; border: 1px solid ${info.color}44;">
+            ${info.bhava}
+          </div>
         </div>
-        <div class="rasa-photo-badge" style="border-color: ${info.color}; color: ${info.color};">
+        <div class="rasa-photo-badge" style="border-color: ${info.color}; color: ${info.color}; background: ${info.color}15;">
           ${info.title}
         </div>
       </div>

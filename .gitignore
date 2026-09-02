@@ -1,6 +1,3 @@
-# Large video files (too big for GitHub)
-*.mp4
-
 # OS files
 Thumbs.db
 .DS_Store
@@ -12,4 +9,9 @@ desktop.ini
 
 # Reference docs
 Unity in Diversity, or many in the one/
+
 pdf_summary.txt
+
+# Root raw video drafts (assets/ are tracked)
+/scene.mp4
+/Generate_video_*.mp4
