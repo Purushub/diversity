@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rhythm Odyssey: Many in the One | IB Dance Matrix Simulation</title>
+  <meta name="description" content="Gamified classroom simulation for IB students demonstrating Unity in Diversity through regional Indian classical and tribal dance rhythms." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="freeze-flash-overlay" id="freezeFlashOverlay"></div>
+
+  <div class="app-container">
+    <!-- Main Simulation Header & Branding -->
+    <header class="main-header">
+      <div class="header-top-row">
+        <div class="brand-badge">
+          <div class="brand-logo-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 2a10 10 0 0 1 10 10c0 5.52-4.48 10-10 10S2 17.52 2 12"/>
+              <path d="M12 6v6l4 2"/>
+            </svg>
+          </div>
+          <div class="brand-titles">
+            <h1>Rhythm Odyssey</h1>
+            <div class="brand-subtitle">Antigravity Simulation Engine • "Many in the One"</div>
+          </div>
+        </div>
+
+        <div class="pedagogy-tags">
+          <button id="btnPlayIntroCinematic" onclick="openIntroCinematicModal()" class="badge-tag" style="cursor: pointer; background: linear-gradient(135deg, rgba(99, 102, 241, 0.25), rgba(219, 39, 119, 0.25)); border-color: var(--accent-magenta); color: #fff; font-weight: 700;">
+            <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            🎬 Intro Cinematic
+          </button>
+          <button id="btnStartWalkthrough" onclick="openWalkthroughTour(0)" class="badge-tag highlight" style="cursor: pointer; background: linear-gradient(135deg, rgba(245, 158, 11, 0.3), rgba(225, 29, 72, 0.3)); border-color: var(--accent-gold); color: #fff; font-weight: 800;">
+            <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="12 8 8 12 12 16 12 8"/><polyline points="16 12 12 8 12 16"/></svg>
+            🚀 Guided Walkthrough
+          </button>
+          <button id="btnThemeToggle" onclick="toggleTheme()" class="badge-tag" style="cursor: pointer; background: rgba(255, 255, 255, 0.08); border-color: rgba(255, 255, 255, 0.2); color: var(--text-main);">
+            <svg class="svg-icon" id="themeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+            <span id="themeToggleLabel">Light Mode</span>
+          </button>
+          <button id="btnMuteAudio" class="badge-tag" style="cursor: pointer; background: rgba(6, 182, 212, 0.2); border-color: #06b6d4; color: #67e8f9;">
+            <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+            Sound On
+          </button>
+        </div>
+      </div>
+
+      <!-- Master Unity XP HUD -->
+      <div class="master-hud">
+        <div class="hud-stat-box">
+          <div class="hud-stat-icon">
+            <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l1.9 4.8a2 2 0 001.3 1.3L20 11l-4.8 1.9a2 2 0 00-1.3 1.3L12 19l-1.9-4.8a2 2 0 00-1.3-1.3L4 11l4.8-1.9a2 2 0 001.3-1.3L12 3z"/></svg>
+          </div>
+          <div class="hud-stat-data">
+            <div class="hud-stat-label">Class Unity XP</div>
+            <div class="hud-stat-value" id="hudXpValue">0 / 800 XP</div>
+            <div class="xp-progress-bar-bg">
+              <div class="xp-progress-bar-fill" id="hudXpFill"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hud-stat-box">
+          <div class="hud-stat-icon">
+            <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+          </div>
+          <div class="hud-stat-data">
+            <div class="hud-stat-label">Mudra Badges</div>
+            <div class="hud-stat-value" id="hudBadgesValue">0 / 8 Unlocked</div>
+          </div>
+        </div>
+
+        <div class="hud-stat-box">
+          <div class="hud-stat-icon">
+            <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <div class="hud-stat-data">
+            <div class="hud-stat-label">Rhythm Streak</div>
+            <div class="hud-stat-value" id="hudStreakValue">1.0x Multiplier</div>
+          </div>
+        </div>
+
+        <div class="hud-stat-box">
+          <div class="hud-stat-icon">
+            <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+          </div>
+          <div class="hud-stat-data">
+            <div class="hud-stat-label">Simulation State</div>
+            <div class="hud-stat-value" id="hudFusionValue" style="color: #06b6d4;">Level 1: Calibration</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick-Start Pedagogical Activity Roadmap Banner -->
+      <div class="classroom-roadmap-banner">
+        <div class="roadmap-header-bar" onclick="toggleRoadmapAccordion()">
+          <div class="roadmap-title-area">
+            <div class="roadmap-badge">⏱️ Classroom Protocol (45-50 Min Total)</div>
+            <h4>Step-by-Step Activity Instructions & Facilitator Guide</h4>
+          </div>
+          <div class="roadmap-toggle-action">
+            <span id="roadmapToggleText">View Step-by-Step Checklist</span>
+            <span id="roadmapToggleArrow" class="roadmap-arrow">▼</span>
+          </div>
+        </div>
+
+        <div class="roadmap-content-body" id="roadmapContentBody">
+          <div class="inquiry-statement-box">
+            <strong>IB Statement of Inquiry:</strong> "How do rhythmic structures and non-verbal gestural languages enable distinct regional identities to collaborate into unified harmony ('Many in the One')?"
+          </div>
+
+          <div class="roadmap-steps-grid">
+            <div class="roadmap-step-card" onclick="switchPhase('phase1')">
+              <div class="step-num-circle">1</div>
+              <div class="step-info-col">
+                <h5>Phase 1: Rhythm Lab</h5>
+                <span class="step-time-tag">5-7 Min • Whole Class</span>
+                <p>Calibrate non-verbal vocabulary. Practice 3 Hastamudras (Pataka, Tripataka, Mayura) & 3 Rasas with AR spatial cues.</p>
+              </div>
+            </div>
+
+            <div class="roadmap-step-card" onclick="switchPhase('phase2')">
+              <div class="step-num-circle">2</div>
+              <div class="step-info-col">
+                <h5>Phase 2: Regional Quests</h5>
+                <span class="step-time-tag">15 Min • 8 Squads</span>
+                <p>Form 8 teams. Click your dance card to watch the video, practice your Solkattu loop, and decode the physical quest for +100 XP.</p>
+              </div>
+            </div>
+
+            <div class="roadmap-step-card" onclick="switchPhase('phase3')">
+              <div class="step-num-circle">3</div>
+              <div class="step-info-col">
+                <h5>Phase 3: Fusion Symphony</h5>
+                <span class="step-time-tag">15 Min • Orchestration</span>
+                <p>Layer Base Claps, Melodic Accents, and Martial Leaps together. Strike the 3-second 'Synthesis Freeze' on the final beat.</p>
+              </div>
+            </div>
+
+            <div class="roadmap-step-card" onclick="switchPhase('scorecard')">
+              <div class="step-num-circle">4</div>
+              <div class="step-info-col">
+                <h5>Phase 4: Scorecard & Debrief</h5>
+                <span class="step-time-tag">10 Min • Assessment</span>
+                <p>Record team synchronization scores, print the physical portfolio, and complete the Socratic reflection prompts.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="roadmap-footer-actions">
+            <button class="btn-launch-tour-inline" onclick="openWalkthroughTour(0)">
+              🚀 Launch Interactive Step-by-Step Tour
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Navigation Tab Bar -->
+    <nav class="nav-tab-bar">
+      <button class="nav-tab-btn active" data-target="phase2">
+        <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        Phase 2: Regional Quest Cards
+        <span class="badge-pill">8 Forms</span>
+      </button>
+
+      <button class="nav-tab-btn" data-target="phase1">
+        <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"/><line x1="16" y1="8" x2="2" y2="22"/><line x1="17.5" y1="15" x2="9" y2="15"/></svg>
+        Phase 1: The Rhythm Lab
+      </button>
+
+      <button class="nav-tab-btn" data-target="phase3">
+        <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+        Phase 3: Antigravity Fusion Symphony
+        <span class="badge-pill" style="background: rgba(16, 185, 129, 0.2); color: #10b981;">Many in the One</span>
+      </button>
+
+      <button class="nav-tab-btn" data-target="scorecard">
+        <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        Team Scorecard & HUD
+      </button>
+
+      <button class="nav-tab-btn" data-target="debrief">
+        <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+        Socratic Debrief & IB Rubric
+      </button>
+    </nav>
+
+    <!-- ========================================================== -->
+    <!-- PHASE 2: REGIONAL QUEST CHALLENGE (8-MATRIX CARDS) -->
+    <!-- ========================================================== -->
+    <section id="phase2" class="sim-phase-section active">
+      <div class="section-header-banner">
+        <div class="phase-number-tag">Phase 02 • Regional Matrix</div>
+        <h2>Regional Quest Challenge</h2>
+        <p>
+          Form 8 regional quest teams. Each team decodes their traditional movement mechanics, practices the authentic rhythm cue, and unlocks their regional fragment to power the full-class Cultural Motion Engine.
+        </p>
+      </div>
+
+      <!-- 8 Dynamic Cards Grid -->
+      <div class="quest-matrix-grid" id="questMatrixGrid">
+        <!-- Injected via app.js -->
+      </div>
+    </section>
+
+    <!-- ========================================================== -->
+    <!-- PHASE 1: THE RHYTHM LAB (Foundational Deconstruction) -->
+    <!-- ========================================================== -->
+    <section id="phase1" class="sim-phase-section">
+      <div class="section-header-banner">
+        <div class="phase-number-tag">Phase 01 • Foundational Deconstruction</div>
+        <h2>The Rhythm Lab: Gestural & Emotional Resonance</h2>
+        <p>
+          Before moving into regional dances, explore the universal non-verbal building blocks: <strong>Hastamudra</strong> (hand gesture language) and <strong>Rasa & Abhinaya</strong> (facial and emotional expression).
+        </p>
+      </div>
+
+      <div class="rhythm-lab-grid">
+        <!-- Mudra Studio Panel -->
+        <div class="lab-panel-card">
+          <h3>
+            <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"/><line x1="16" y1="8" x2="2" y2="22"/><line x1="17.5" y1="15" x2="9" y2="15"/></svg>
+            1. Hastamudra (Hand Gesture Language)
+          </h3>
+          <div class="mudra-selector-row">
+            <button class="choice-chip-btn active btn-mudra-choice" data-mudra="pataka">Pataka (Flat Palm)</button>
+            <button class="choice-chip-btn btn-mudra-choice" data-mudra="tripataka">Tripataka (3-Finger)</button>
+            <button class="choice-chip-btn btn-mudra-choice" data-mudra="mayura">Mayura (Peacock)</button>
+          </div>
+
+          <div class="interactive-preview-viewport" id="mudraPreviewContainer">
+            <!-- Dynamic SVG Injected -->
+          </div>
+
+          <div class="lab-description-box" id="mudraDescContainer">
+            <!-- Dynamic Info Injected -->
+          </div>
+        </div>
+
+        <!-- Rasa Studio Panel -->
+        <div class="lab-panel-card">
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.8rem;">
+            <h3 style="margin-bottom: 0;">
+              <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+              2. Rasa & Abhinaya (Expressive Resonance)
+            </h3>
+            <button id="btnOpenNavarasaModal" onclick="openNavarasaModal()" class="badge-tag" style="cursor: pointer; background: rgba(245, 158, 11, 0.15); border-color: var(--accent-gold); color: var(--accent-gold-bright); font-size: 0.75rem; font-weight: 700;">
+              🌸 9-Rasa Mandala Matrix
+            </button>
+          </div>
+          <div class="rasa-selector-row">
+            <button class="choice-chip-btn active gold btn-rasa-choice" data-rasa="veera">5. Veera (Courage)</button>
+            <button class="choice-chip-btn gold btn-rasa-choice" data-rasa="adbhuta">8. Adbhuta (Wonder)</button>
+            <button class="choice-chip-btn gold btn-rasa-choice" data-rasa="shanta">9. Shanta (Peace)</button>
+            <button class="choice-chip-btn gold btn-rasa-choice" data-rasa="raudra">4. Raudra (Anger)</button>
+            <button class="choice-chip-btn gold btn-rasa-choice" data-rasa="hasya">2. Hasya (Joy)</button>
+            <button class="choice-chip-btn gold btn-rasa-choice" data-rasa="shringara">1. Shringara (Love)</button>
+            <button class="choice-chip-btn gold btn-rasa-choice" data-rasa="karuna">3. Karuna (Compassion)</button>
+            <button class="choice-chip-btn gold btn-rasa-choice" data-rasa="bhayanaka">6. Bhayanaka (Fear)</button>
+            <button class="choice-chip-btn gold btn-rasa-choice" data-rasa="bibhatsa">7. Bibhatsa (Disgust)</button>
+          </div>
+
+          <div class="interactive-preview-viewport" id="rasaPreviewContainer">
+            <!-- Dynamic SVG / Photo Injected -->
+          </div>
+
+          <div class="lab-description-box gold" id="rasaDescContainer">
+            <!-- Dynamic Info Injected -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================== -->
+    <!-- PHASE 3: ANTIGRAVITY FUSION SYMPHONY ("MANY IN THE ONE") -->
+    <!-- ========================================================== -->
+    <section id="phase3" class="sim-phase-section">
+      <div class="section-header-banner">
+        <div class="phase-number-tag">Phase 03 • Orchestration Protocol</div>
+        <h2>The Antigravity Fusion Symphony ("Many in the One")</h2>
+        <p>
+          Simultaneously harmonize all 8 regional traditions. Layer the base grounding rhythm, melodic accents, and high-energy martial leaps before striking the universal Synthesis Freeze.
+        </p>
+      </div>
+
+      <div class="symphony-stage-container">
+        <!-- Canvas Visualizer & HUD -->
+        <div class="symphony-visualizer-box">
+          <canvas id="symphonyCanvas"></canvas>
+          <div class="symphony-hud-meter">
+            <span class="symphony-status-badge" id="symphonyStatusBadge">Status: Standby • Activate Layers Below</span>
+            <div style="display: flex; align-items: center; gap: 1rem;">
+              <span style="font-size: 0.8rem; color: #94a3b8;">Master Tempo:</span>
+              <input type="range" id="tempoSlider" min="70" max="130" value="90" style="accent-color: #f59e0b; width: 100px;" />
+              <span id="tempoDisplayVal" style="font-family: 'Space Grotesk'; color: #fde047; font-weight: 700; font-size: 0.85rem;">90 BPM</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3 Layers Multi-Track Mixer Grid -->
+        <div class="layers-orchestrator-grid">
+          <!-- Layer 1 -->
+          <div class="layer-channel-card" id="cardLayer1">
+            <div class="layer-card-header">
+              <div class="layer-title-group">
+                <h4>Layer 1: The Base Rhythm</h4>
+                <span>Grounding 8-Beat Clap & Step Cycle</span>
+              </div>
+              <span class="badge-tag" style="color: #06b6d4; border-color: rgba(6, 182, 212, 0.4);">Beats 1 - 8</span>
+            </div>
+            <div class="dance-tags-cluster">
+              <span class="dance-tag-item">Cheraw (Mizoram)</span>
+              <span class="dance-tag-item">Garba (Gujarat)</span>
+            </div>
+            <button class="layer-toggle-btn" id="btnToggleLayer1">
+              <svg class="svg-icon" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              Activate Layer 1
+            </button>
+          </div>
+
+          <!-- Layer 2 -->
+          <div class="layer-channel-card" id="cardLayer2">
+            <div class="layer-card-header">
+              <div class="layer-title-group">
+                <h4>Layer 2: Melodic Accents</h4>
+                <span>Spins, Geometric Holds & Wrist Flips</span>
+              </div>
+              <span class="badge-tag" style="color: #f59e0b; border-color: rgba(245, 158, 11, 0.4);">Beats 1 - 4</span>
+            </div>
+            <div class="dance-tags-cluster">
+              <span class="dance-tag-item">Kathak (North India)</span>
+              <span class="dance-tag-item">Bharatanatyam (Tamil Nadu)</span>
+              <span class="dance-tag-item">Bihu (Assam)</span>
+            </div>
+            <button class="layer-toggle-btn" id="btnToggleLayer2">
+              <svg class="svg-icon" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              Activate Layer 2
+            </button>
+          </div>
+
+          <!-- Layer 3 -->
+          <div class="layer-channel-card" id="cardLayer3">
+            <div class="layer-card-header">
+              <div class="layer-title-group">
+                <h4>Layer 3: High-Energy Peak</h4>
+                <span>Athletic Jumps, Dhol Beats & Martial Leaps</span>
+              </div>
+              <span class="badge-tag" style="color: #db2777; border-color: rgba(219, 39, 119, 0.4);">Beats 5 - 8</span>
+            </div>
+            <div class="dance-tags-cluster">
+              <span class="dance-tag-item">Bhangra (Punjab)</span>
+              <span class="dance-tag-item">Lavani (Maharashtra)</span>
+              <span class="dance-tag-item">Chhau (Jharkhand/Odisha)</span>
+            </div>
+            <button class="layer-toggle-btn" id="btnToggleLayer3">
+              <svg class="svg-icon" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              Activate Layer 3
+            </button>
+          </div>
+        </div>
+
+        <!-- Synthesis Freeze Action Panel -->
+        <div class="synthesis-freeze-panel">
+          <div class="freeze-info-text">
+            <h3>Protocol: The Synthesis Freeze</h3>
+            <p>
+              When all 3 layers are synchronized in the classroom, trigger the universal finale: All 8 regional teams strike their iconic Mudra on the exact final beat, holding 3 seconds of unified silence.
+            </p>
+          </div>
+          <div class="freeze-actions-row" style="display: flex; gap: 0.8rem; align-items: center; flex-wrap: wrap;">
+            <button class="btn-synthesis-freeze" id="btnSynthesisFreeze">
+              <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              Strike Synthesis Freeze!
+            </button>
+            <button class="btn-card-action" onclick="openFusionCelebrationModal()" style="padding: 0.85rem 1.35rem; background: linear-gradient(135deg, rgba(219, 39, 119, 0.2), rgba(99, 102, 241, 0.2)); border: 1px solid var(--accent-magenta); color: #fff; font-weight: 700; border-radius: var(--radius-md); cursor: pointer;">
+              <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              🎬 Mid-Activity Fusion Celebration
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================== -->
+    <!-- STUDENT TEAM SCORECARD & TRACKING SHEET -->
+    <!-- ========================================================== -->
+    <section id="scorecard" class="sim-phase-section">
+      <div class="section-header-banner">
+        <div class="phase-number-tag">Classroom Facilitation • Assessment</div>
+        <h2>Student Team Scorecard & XP Tracker</h2>
+        <p>
+          Facilitators can record team Mudra mastery and tempo synchronization scores for each regional squad. Use the print function to generate physical records for classroom portfolios.
+        </p>
+      </div>
+
+      <div class="scorecard-container">
+        <div class="scorecard-header-bar">
+          <div style="font-family: 'Cinzel', serif; font-size: 1.25rem; font-weight: 700; color: #fff;">
+            Official Simulation Ledger
+          </div>
+          <button class="action-cta-btn secondary" id="btnPrintScorecard">
+            <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+            Print Scorecard
+          </button>
+        </div>
+
+        <div class="scorecard-table-wrapper">
+          <table class="scorecard-table">
+            <thead>
+              <tr>
+                <th>Team Identifier</th>
+                <th>Assigned Regional Tradition</th>
+                <th>Mudra Mastery (1-5)</th>
+                <th>Tempo Sync (1-5)</th>
+                <th>XP Earned (Max 100)</th>
+              </tr>
+            </thead>
+            <tbody id="scorecardTableBody">
+              <!-- Dynamically populated via app.js -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================== -->
+    <!-- SOCRATIC DEBRIEF & IB RUBRIC MATRIX -->
+    <!-- ========================================================== -->
+    <section id="debrief" class="sim-phase-section">
+      <div class="section-header-banner">
+        <div class="phase-number-tag">Inquiry & Reflection • IB PYP / MYP Criteria</div>
+        <h2>Socratic Debrief & Assessment Matrix</h2>
+        <p>
+          Guide students to deconstruct their experience through inquiry questions on cultural language, geography, and how individual diversity strengthens the unified whole.
+        </p>
+      </div>
+
+      <!-- 4 Reflection Prompts -->
+      <div class="debrief-grid">
+        <div class="inquiry-prompt-card">
+          <div class="inquiry-number-badge">Inquiry 01 • Non-Verbal Language</div>
+          <h4>Dance as Cultural Language</h4>
+          <p style="color: var(--text-muted); font-size: 0.85rem;">
+            Despite speaking different regional languages across India, how did hand gestures (Mudras) and rhythms allow us to communicate and understand each other instantly without speaking?
+          </p>
+          <textarea id="debrief-q1" class="inquiry-textarea" placeholder="Record student reflection here..."></textarea>
+        </div>
+
+        <div class="inquiry-prompt-card">
+          <div class="inquiry-number-badge">Inquiry 02 • Physical Geography</div>
+          <h4>Environmental Connections</h4>
+          <p style="color: var(--text-muted); font-size: 0.85rem;">
+            Look at Bihu (harvest), Cheraw (bamboo), and Chhau (martial/nature). How do physical geography and local landscapes shape the movement style of each region?
+          </p>
+          <textarea id="debrief-q2" class="inquiry-textarea" placeholder="Record student reflection here..."></textarea>
+        </div>
+
+        <div class="inquiry-prompt-card">
+          <div class="inquiry-number-badge">Inquiry 03 • Synthesis Principle</div>
+          <h4>Deconstructing "Many in the One"</h4>
+          <p style="color: var(--text-muted); font-size: 0.85rem;">
+            When all 8 dance forms performed together in Phase 3, did individual dances lose their unique identity, or did their uniqueness make the whole symphony richer?
+          </p>
+          <textarea id="debrief-q3" class="inquiry-textarea" placeholder="Record student reflection here..."></textarea>
+        </div>
+
+        <div class="inquiry-prompt-card">
+          <div class="inquiry-number-badge">Inquiry 04 • Real-World Transfer</div>
+          <h4>Modern Societal Application</h4>
+          <p style="color: var(--text-muted); font-size: 0.85rem;">
+            How can our classroom apply this "Dance Matrix principle" when working in diverse project teams with people of different languages, talents, and backgrounds?
+          </p>
+          <textarea id="debrief-q4" class="inquiry-textarea" placeholder="Record student reflection here..."></textarea>
+        </div>
+      </div>
+
+      <div style="display: flex; justify-content: flex-end; margin-bottom: 2.5rem;">
+        <button class="action-cta-btn secondary" id="btnExportJournal">
+          <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Export Inquiry Journal (.txt)
+        </button>
+      </div>
+
+      <!-- IB PYP/MYP Rubric Table -->
+      <div class="rubric-card">
+        <h3 style="font-family: 'Cinzel', serif; font-size: 1.3rem; color: #fff; margin-bottom: 0.5rem;">
+          IB Assessment Rubric (PYP / MYP Criteria)
+        </h3>
+        <p style="color: var(--text-muted); font-size: 0.88rem; margin-bottom: 1rem;">
+          Evaluates student progress across NCERT and IB Learner Profile dimensions.
+        </p>
+
+        <div class="scorecard-table-wrapper">
+          <table class="rubric-table">
+            <thead>
+              <tr>
+                <th style="width: 25%;">Criteria</th>
+                <th style="width: 25%;">Developing (1-2)</th>
+                <th style="width: 25%;">Proficient (3-4)</th>
+                <th style="width: 25%;">Exemplary (5-6)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="font-weight: 700; color: #fff;">Cultural Understanding (NCERT / IB)</td>
+                <td>Identifies basic dance names; struggles to link gestures to geographic/cultural contexts.</td>
+                <td>Explains connections between dance forms, geography, and cultural expressions accurately.</td>
+                <td>Insightfully analyzes how distinct dance forms manifest "Unity in Diversity" across regions.</td>
+              </tr>
+              <tr>
+                <td style="font-weight: 700; color: #fff;">Kinesthetic Expression (Communication)</td>
+                <td>Hesitant physical movement; minimal rhythmic alignment or Mudra clarity.</td>
+                <td>Clear execution of Mudras and rhythm loops; stays synchronized with group tempo.</td>
+                <td>Expressive, highly precise posture, gesture execution, and dynamic energy in full symphony.</td>
+              </tr>
+              <tr>
+                <td style="font-weight: 700; color: #fff;">Collaborative Synthesis (Social / Thinking)</td>
+                <td>Works independently; struggles to sync rhythm with adjacent regional teams.</td>
+                <td>Collaborates well within team; synchronizes timing during multi-layered fusion phase.</td>
+                <td>Leads rhythm sync; actively helps adjust timing so all regional layers blend seamlessly.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Interactive Quest Simulator Modal -->
+  <div class="modal-backdrop" id="questModal">
+    <div class="modal-window">
+      <div class="modal-header-row">
+        <div>
+          <h3 id="modalDanceTitle" style="font-family: 'Cinzel', serif; font-size: 1.4rem;">Regional Quest</h3>
+          <div id="modalDanceRegion" style="color: var(--accent-gold); font-size: 0.82rem; font-weight: 700;">Region</div>
+        </div>
+        <button class="btn-modal-close" onclick="closeQuestModal()">✕</button>
+      </div>
+
+      <div id="modalInteractiveContent">
+        <!-- Injected via setupSimulatorLogic in app.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Dance Video Performance Showcase Modal -->
+  <div class="modal-backdrop" id="danceVideoModal">
+    <div class="modal-window video-modal-window">
+      <div class="modal-header-row">
+        <div>
+          <h3 id="videoModalTitle" style="font-family: 'Cinzel', serif; font-size: 1.4rem;">Dance Video Showcase</h3>
+          <div id="videoModalRegion" style="color: var(--accent-gold); font-size: 0.82rem; font-weight: 700;">Region • Cultural Heritage</div>
+        </div>
+        <button class="btn-modal-close" onclick="closeDanceVideoModal()">✕</button>
+      </div>
+
+      <div class="video-player-container" id="videoPlayerContainer">
+        <!-- Injected via openDanceVideoModal in app.js -->
+      </div>
+
+      <div class="video-meta-panel" id="videoMetaPanel">
+        <!-- Dynamic cultural details injected -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Entry Animation: Cinematic Storyboard Video Modal -->
+  <div class="modal-backdrop" id="cinematicIntroModal">
+    <div class="modal-window video-modal-window">
+      <div class="modal-header-row">
+        <div>
+          <h3 style="font-family: 'Cinzel', serif; font-size: 1.4rem;">🎬 Intro Cinematic: Rhythm Odyssey</h3>
+          <div style="color: var(--accent-gold); font-size: 0.82rem; font-weight: 700;">The Antigravity Simulation Journey • Many in the One</div>
+        </div>
+        <button class="btn-modal-close" onclick="closeIntroCinematicModal()">✕</button>
+      </div>
+
+      <div class="local-video-wrapper">
+        <video id="introCinematicVideo" class="local-video-player" controls preload="metadata">
+          <source src="assets/intro_cinematic.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+      <div class="video-meta-panel" style="margin-top: 1rem;">
+        <div class="video-context-card">
+          <h4>🌟 Prologue: The Universal Pulse</h4>
+          <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; margin-top: 0.35rem;">
+            Experience the opening cinematic visual journey of India's classical and tribal dance tapestry. Before spoken languages, human civilization communicated through rhythm, gesture, and shared spatial harmony.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mid Animation: Antigravity Fusion Celebration Video Modal -->
+  <div class="modal-backdrop" id="fusionCelebrationModal">
+    <div class="modal-window video-modal-window">
+      <div class="modal-header-row">
+        <div>
+          <h3 style="font-family: 'Cinzel', serif; font-size: 1.4rem;">🎉 Fusion Celebration: Many in the One</h3>
+          <div style="color: #10b981; font-size: 0.82rem; font-weight: 700;">Full Polyrhythmic Convergence • Level 3 Harmonization</div>
+        </div>
+        <button class="btn-modal-close" onclick="closeFusionCelebrationModal()">✕</button>
+      </div>
+
+      <div class="local-video-wrapper">
+        <video id="fusionCelebrationVideo" class="local-video-player" controls preload="metadata">
+          <source src="assets/fusion_celebration.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+      <div class="video-meta-panel" style="margin-top: 1rem;">
+        <div class="video-context-card">
+          <h4>✨ Milestone Achieved: Polyrhythmic Synthesis</h4>
+          <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; margin-top: 0.35rem;">
+            When individual rhythms interlock without overpowering each other, true unity is realized. All 8 regional traditions have synthesized into a single harmonious cultural heartbeat!
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navarasa (9 Emotions) Reference Matrix Modal -->
+  <div class="modal-backdrop" id="navarasaModal">
+    <div class="modal-window navarasa-modal-window">
+      <div class="modal-header-row">
+        <div>
+          <h3 style="font-family: 'Cinzel', serif; font-size: 1.4rem;">🌸 Navarasa: The 9 Classical Expressions</h3>
+          <div style="color: var(--accent-gold); font-size: 0.82rem; font-weight: 700;">Natyashastra Abhinaya & Emotional Resonance Matrix</div>
+        </div>
+        <button class="btn-modal-close" onclick="closeNavarasaModal()">✕</button>
+      </div>
+
+      <div class="navarasa-showcase-grid">
+        <div class="navarasa-img-card">
+          <img src="assets/navarasa_chart.png" alt="Navarasa in Bharatanatyam - 9 Classical Emotions" class="navarasa-full-img" />
+          <div class="navarasa-caption">Authentic Natyashastra 9-Emotion Abhinaya System ("The Essence of Life")</div>
+        </div>
+
+        <div class="navarasa-details-col">
+          <div class="navarasa-list">
+            <div class="navarasa-item-badge" onclick="selectRasaFromMandala('shringara')">
+              <span class="rasa-dot" style="background: #ec4899;"></span>
+              <div><strong>1. Shringara (Love)</strong>: The essence of attraction, beauty and affection.</div>
+            </div>
+            <div class="navarasa-item-badge" onclick="selectRasaFromMandala('hasya')">
+              <span class="rasa-dot" style="background: #fbbf24;"></span>
+              <div><strong>2. Hasya (Joy)</strong>: The expression of happiness, laughter and delight.</div>
+            </div>
+            <div class="navarasa-item-badge" onclick="selectRasaFromMandala('karuna')">
+              <span class="rasa-dot" style="background: #38bdf8;"></span>
+              <div><strong>3. Karuna (Compassion)</strong>: The feeling of empathy, kindness and sorrow for others.</div>
+            </div>
+            <div class="navarasa-item-badge" onclick="selectRasaFromMandala('raudra')">
+              <span class="rasa-dot" style="background: #ef4444;"></span>
+              <div><strong>4. Raudra (Anger)</strong>: The power of anger that arises from injustice or ego.</div>
+            </div>
+            <div class="navarasa-item-badge" onclick="selectRasaFromMandala('veera')">
+              <span class="rasa-dot" style="background: #f59e0b;"></span>
+              <div><strong>5. Veera (Courage)</strong>: The spirit of bravery, confidence and inner strength.</div>
+            </div>
+            <div class="navarasa-item-badge" onclick="selectRasaFromMandala('bhayanaka')">
+              <span class="rasa-dot" style="background: #8b5cf6;"></span>
+              <div><strong>6. Bhayanaka (Fear)</strong>: The emotion of fear, anxiety and apprehension.</div>
+            </div>
+            <div class="navarasa-item-badge" onclick="selectRasaFromMandala('bibhatsa')">
+              <span class="rasa-dot" style="background: #6366f1;"></span>
+              <div><strong>7. Bibhatsa (Disgust)</strong>: The feeling of aversion or repulsion towards something unpleasant.</div>
+            </div>
+            <div class="navarasa-item-badge" onclick="selectRasaFromMandala('adbhuta')">
+              <span class="rasa-dot" style="background: #06b6d4;"></span>
+              <div><strong>8. Adbhuta (Wonder)</strong>: The sense of awe, surprise and astonishment.</div>
+            </div>
+            <div class="navarasa-item-badge" onclick="selectRasaFromMandala('shanta')">
+              <span class="rasa-dot" style="background: #10b981;"></span>
+              <div><strong>9. Shanta (Peace)</strong>: The state of calmness, contentment and inner peace.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Interactive Step-by-Step Walkthrough Tour Modal -->
+  <div class="modal-backdrop" id="walkthroughTourModal">
+    <div class="modal-window tour-modal-window">
+      <div class="modal-header-row">
+        <div class="tour-header-titles">
+          <div class="tour-step-badge" id="tourStepBadge">Step 1 of 5</div>
+          <h3 id="tourStepTitle" style="font-family: 'Cinzel', serif; font-size: 1.35rem;">1. Foundational Non-Verbal Rhythm Lab</h3>
+        </div>
+        <button class="btn-modal-close" onclick="closeWalkthroughTour()">✕</button>
+      </div>
+
+      <!-- Tour Step Pills -->
+      <div class="tour-progress-track">
+        <div class="tour-step-pill active" data-step="0" onclick="goToTourStep(0)"><span>1</span> Lab</div>
+        <div class="tour-step-pill" data-step="1" onclick="goToTourStep(1)"><span>2</span> Quests</div>
+        <div class="tour-step-pill" data-step="2" onclick="goToTourStep(2)"><span>3</span> Symphony</div>
+        <div class="tour-step-pill" data-step="3" onclick="goToTourStep(3)"><span>4</span> Scorecard</div>
+        <div class="tour-step-pill" data-step="4" onclick="goToTourStep(4)"><span>5</span> Debrief</div>
+      </div>
+
+      <!-- Tour Step Dynamic Content -->
+      <div class="tour-body-card" id="tourBodyCard">
+        <!-- Injected dynamically in app.js -->
+      </div>
+
+      <!-- Tour Navigation Footer -->
+      <div class="tour-footer-row">
+        <button class="tour-nav-btn secondary" id="btnTourPrev" onclick="prevTourStep()">
+          ← Previous
+        </button>
+        <button class="tour-jump-btn" id="btnTourJump" onclick="jumpToCurrentTourSection()">
+          Jump to This Section ↗
+        </button>
+        <button class="tour-nav-btn primary" id="btnTourNext" onclick="nextTourStep()">
+          Next Step →
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Real-Time Interactive On-Screen Guided Coach HUD -->
+  <div class="interactive-coach-hud" id="interactiveCoachHUD">
+    <div class="coach-header-row">
+      <div class="coach-mission-badge" id="coachMissionBadge">
+        <span>Mission 1 of 5</span> Rhythm Lab Calibration
+      </div>
+      <button class="btn-coach-exit" onclick="stopInteractiveTour()">Exit Tour ✕</button>
+    </div>
+
+    <div class="coach-body-content">
+      <div class="coach-avatar-icon">🧭</div>
+      <div class="coach-text-col">
+        <div class="coach-title" id="coachTitle">Step 1: Calibrate Non-Verbal Gestures</div>
+        <div class="coach-instruction-text" id="coachInstructionText">
+          Try clicking on any Mudra chip (<strong>Pataka</strong>, <strong>Tripataka</strong>, <strong>Mayura</strong>) or testing a Rasa emotion above to calibrate the AR spatial tracking sensor!
+        </div>
+        <div class="coach-status-pill" id="coachStatusPill">
+          <span>⚡ Waiting for student action...</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="coach-footer-controls">
+      <div class="coach-dots-row" id="coachDotsRow">
+        <div class="coach-dot active"></div>
+        <div class="coach-dot"></div>
+        <div class="coach-dot"></div>
+        <div class="coach-dot"></div>
+        <div class="coach-dot"></div>
+      </div>
+      <div class="coach-buttons-row">
+        <button class="btn-coach-nav secondary" id="btnCoachPrev" onclick="prevCoachMission()">⬅ Previous</button>
+        <button class="btn-coach-nav primary" id="btnCoachNext" onclick="nextCoachMission()">Next Mission ➔</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/dance-vectors.js"></script>
+  <script src="audio-engine.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
