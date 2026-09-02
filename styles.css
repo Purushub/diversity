@@ -1050,6 +1050,46 @@ body::after {
   border-radius: var(--radius-lg);
 }
 
+.video-embed-fallback-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  background: rgba(15, 23, 42, 0.95);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-md);
+  padding: 0.6rem 0.9rem;
+  margin-top: 0.65rem;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+[data-theme="light"] .video-embed-fallback-bar {
+  background: #f8fafc;
+  color: #475569;
+}
+
+.btn-direct-yt-pill {
+  background: #ff0000;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.76rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 20px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: var(--transition-smooth);
+}
+
+.btn-direct-yt-pill:hover {
+  background: #cc0000;
+  transform: translateY(-1px);
+  color: #fff;
+}
+
 /* Navarasa Modal Styles */
 .navarasa-modal-window {
   max-width: 960px;

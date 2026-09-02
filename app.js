@@ -905,33 +905,25 @@ function openDanceVideoModal(danceId) {
   if (player) {
     player.innerHTML = `
       <div class="responsive-video-frame" id="ytPlayerWrapper">
-        <img src="${dance.image}" alt="${dance.name}" class="video-poster-bg" />
-        <div class="video-poster-overlay"></div>
-        <div class="video-play-center-btn" id="btnLaunchYTIframe" title="Play Video in Player">
-          <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="6 3 20 12 6 21 6 3"/></svg>
-        </div>
+        <iframe 
+          id="ytIframeEmbed"
+          src="https://www.youtube-nocookie.com/embed/${dance.videoId}?autoplay=1&enablejsapi=1&rel=0" 
+          title="${dance.name} Authentic Dance Performance" 
+          frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          allowfullscreen>
+        </iframe>
         <div class="video-source-pill">
-          <span>Official Performance Video • ${dance.name}</span>
+          <span>✨ ${dance.name} Authentic Performance</span>
         </div>
       </div>
+      <div class="video-embed-fallback-bar">
+        <span>🎬 Playing via YouTube Secure Embed. If playback is restricted on your browser:</span>
+        <a href="https://www.youtube.com/watch?v=${dance.videoId}" target="_blank" rel="noopener noreferrer" class="btn-direct-yt-pill">
+          ▶ Watch on YouTube Directly (Full HD)
+        </a>
+      </div>
     `;
-
-    const launchBtn = document.getElementById('btnLaunchYTIframe');
-    const wrapper = document.getElementById('ytPlayerWrapper');
-    if (launchBtn && wrapper) {
-      launchBtn.addEventListener('click', () => {
-        wrapper.innerHTML = `
-          <iframe 
-            src="https://www.youtube.com/embed/${dance.videoId}?autoplay=1&rel=0" 
-            title="${dance.name} Dance Performance" 
-            frameborder="0" 
-            referrerpolicy="no-referrer"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-            allowfullscreen>
-          </iframe>
-        `;
-      });
-    }
   }
 
   if (meta) {
@@ -945,7 +937,10 @@ function openDanceVideoModal(danceId) {
             <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
           </a>
           <button class="btn-meta-solo-beat" id="btnModalPlaySolo" data-id="${dance.id}">
-            ${DanceVectors.icon('drum')} Practice Rhythm Loop
+            ${DanceVectors.icon('drum')} Practice Tabla & Bols
+          </button>
+          <button class="btn-meta-solo-beat" id="btnModalToggleVocals" style="background: rgba(236, 72, 153, 0.15); border-color: #ec4899; color: #f472b6;">
+            🎤 Vocals: ${window.RhythmEngine && window.RhythmEngine.vocalsEnabled ? 'ON' : 'OFF'}
           </button>
         </div>
       </div>
@@ -971,6 +966,16 @@ function openDanceVideoModal(danceId) {
     if (modalBeatBtn) {
       modalBeatBtn.addEventListener('click', () => {
         handleSoloPlay(dance.id, modalBeatBtn);
+      });
+    }
+
+    const vocalsToggleBtn = document.getElementById('btnModalToggleVocals');
+    if (vocalsToggleBtn) {
+      vocalsToggleBtn.addEventListener('click', () => {
+        if (window.RhythmEngine) {
+          const isNowOn = window.RhythmEngine.toggleVocals();
+          vocalsToggleBtn.textContent = `🎤 Vocals: ${isNowOn ? 'ON' : 'OFF'}`;
+        }
       });
     }
   }

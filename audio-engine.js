@@ -1,7 +1,8 @@
 /**
  * Rhythm Odyssey Web Audio Engine
- * Authentic Indian Classical & Folk Percussion Synthesizer:
+ * Authentic Indian Classical & Folk Percussion Synthesizer with Vocal Solkattu / Bol Chanting:
  * - Tabla (Bayan Ghe/Ka, Dayan Na/Tin/Tun/Tit, Composite Dha/Dhin)
+ * - Vocal Bols / Solkattu Chanting Engine (SpeechSynthesis + Acoustic Vocal Formant Synthesis)
  * - Mridangam & Nattuvangam Thaalam (Bharatanatyam)
  * - Ghungroo / Salangai Bell Shimmer (Kathak, Bharatanatyam)
  * - Punjabi Dhol & Tilli Chaal (Bhangra)
@@ -20,6 +21,7 @@ class RhythmAudioEngine {
     this.isPlaying = false;
     this.currentBeat = 0;
     this.timerId = null;
+    this.vocalsEnabled = true; // Vocal Bol chanting active by default
     this.activeLayers = {
       layer1: false, // Cheraw & Garba (Base Groove)
       layer2: false, // Kathak, Bharatanatyam, Bihu (Classical & Melodic)
@@ -30,6 +32,18 @@ class RhythmAudioEngine {
     this.droneOscs = null;
     this.masterGain = null;
     this.isMuted = false;
+
+    // Authentic Rhythmic Vocal Bols for all Dance Traditions
+    this.vocalBols = {
+      bharatanatyam: ['Ta', 'Ka', 'Dhi', 'Mi', 'Thom', 'Nam', 'Tha-Ka', 'Jha-Nu'],
+      kathak: ['Dha', 'Dhin', 'Dhin', 'Dha', 'Dha', 'Tin', 'Ta', 'Dhin'],
+      bihu: ['Dha', 'Ghe', 'Dha', 'Tit', 'Dha', 'Dhin', 'Pepa', 'Hey!'],
+      garba: ['Taali!', 'Chutki', 'Taali!', 'Hinch', 'Taali!', 'Ghoom', 'Taali!', 'He!'],
+      bhangra: ['Balle!', 'Ge', 'Balle!', 'Chaal', 'Haddipa!', 'Ge', 'Haddipa!', 'Oi!'],
+      cheraw: ['Thump', 'Clack', 'Open', 'Clack', 'Step', 'Clack', 'Jump', 'Sync!'],
+      lavani: ['Dha', 'Ge', 'Na', 'Tin', 'Tit', 'Ta', 'Dha', 'Khadak!'],
+      chhau: ['Dhum!', 'Ta', 'Dhum!', 'Ufli', 'Dha!', 'Ta', 'Nagara!', 'Shabash!']
+    };
   }
 
   init() {
@@ -57,6 +71,93 @@ class RhythmAudioEngine {
     return this.isMuted;
   }
 
+  toggleVocals() {
+    this.vocalsEnabled = !this.vocalsEnabled;
+    return this.vocalsEnabled;
+  }
+
+  // =========================================================================
+  // VOCAL SOLKATTU & BOL CHANTING ENGINE
+  // =========================================================================
+
+  /**
+   * Chants the authentic rhythmic syllable on the exact beat.
+   * Uses Web Speech Synthesis with low latency + Acoustic Formant Synthesis.
+   */
+  playVocalBol(danceId, beatIndex, time) {
+    if (!this.vocalsEnabled) return;
+    const bols = this.vocalBols[danceId] || this.vocalBols.kathak;
+    const bolText = bols[beatIndex % bols.length];
+
+    // 1. Acoustic Vocal Formant Sound Synthesis in Web Audio
+    this.synthesizeVocalFormant(time, bolText);
+
+    // 2. Browser Speech Voice Synthesis
+    if ('speechSynthesis' in window && !this.isMuted) {
+      try {
+        const utter = new SpeechSynthesisUtterance(bolText);
+        utter.rate = Math.max(1.1, (this.bpm / 90) * 1.3);
+        utter.pitch = danceId === 'bharatanatyam' || danceId === 'kathak' ? 1.15 : 1.0;
+        utter.volume = 0.7;
+        window.speechSynthesis.speak(utter);
+      } catch (e) {
+        // SpeechSynthesis silent catch
+      }
+    }
+  }
+
+  /**
+   * Synthesizes human vocal formant resonances (F1 & F2 throat/mouth resonances).
+   */
+  synthesizeVocalFormant(time, syllable) {
+    if (!this.ctx) return;
+    const osc = this.ctx.createOscillator();
+    const gain = this.ctx.createGain();
+    const f1 = this.ctx.createBiquadFilter();
+    const f2 = this.ctx.createBiquadFilter();
+
+    osc.type = 'sawtooth';
+    osc.frequency.setValueAtTime(140, time);
+    osc.frequency.exponentialRampToValueAtTime(110, time + 0.15);
+
+    f1.type = 'bandpass';
+    f2.type = 'bandpass';
+
+    // Formant frequency mapping for Indian bols
+    if (syllable.startsWith('Ta') || syllable.startsWith('Na') || syllable.startsWith('Dha')) {
+      // /a/ vowel (700 Hz, 1220 Hz)
+      f1.frequency.setValueAtTime(700, time);
+      f2.frequency.setValueAtTime(1220, time);
+    } else if (syllable.startsWith('Dhi') || syllable.startsWith('Tin') || syllable.startsWith('Mi')) {
+      // /i/ vowel (300 Hz, 2300 Hz)
+      f1.frequency.setValueAtTime(320, time);
+      f2.frequency.setValueAtTime(2200, time);
+    } else if (syllable.startsWith('Thom') || syllable.startsWith('Dhum')) {
+      // /o/ /u/ vowel (400 Hz, 800 Hz)
+      f1.frequency.setValueAtTime(420, time);
+      f2.frequency.setValueAtTime(850, time);
+    } else {
+      // General /e/ vowel (550 Hz, 1800 Hz)
+      f1.frequency.setValueAtTime(550, time);
+      f2.frequency.setValueAtTime(1750, time);
+    }
+
+    f1.Q.value = 5.0;
+    f2.Q.value = 6.0;
+
+    gain.gain.setValueAtTime(0.22, time);
+    gain.gain.exponentialRampToValueAtTime(0.0001, time + 0.16);
+
+    osc.connect(f1);
+    osc.connect(f2);
+    f1.connect(gain);
+    f2.connect(gain);
+    gain.connect(this.masterGain);
+
+    osc.start(time);
+    osc.stop(time + 0.16);
+  }
+
   // =========================================================================
   // TABLA SOUND SYNTHESIS (Bayan + Dayan)
   // =========================================================================
@@ -72,7 +173,6 @@ class RhythmAudioEngine {
     const filter = this.ctx.createBiquadFilter();
 
     osc.type = 'sine';
-    // Modulate pitch: start -> rise (palm heel press) -> natural decay
     osc.frequency.setValueAtTime(baseFreq, time);
     osc.frequency.exponentialRampToValueAtTime(baseFreq + pitchBend, time + 0.05);
     osc.frequency.exponentialRampToValueAtTime(baseFreq * 0.7, time + duration);
@@ -134,7 +234,7 @@ class RhythmAudioEngine {
     osc1.frequency.exponentialRampToValueAtTime(pitch * 0.98, time + duration);
 
     osc2.type = 'triangle';
-    osc2.frequency.setValueAtTime(pitch * 2.76, time); // Characteristic Syahi overtone
+    osc2.frequency.setValueAtTime(pitch * 2.76, time);
     osc2.frequency.exponentialRampToValueAtTime(pitch * 2.7, time + duration * 0.5);
 
     filter.type = 'bandpass';
@@ -233,7 +333,7 @@ class RhythmAudioEngine {
 
   /**
    * Composite Tabla Stroke - "Dha"
-   * Simultaneous Bayan (Ghe) + Dayan (Na). The king of Indian percussion strokes!
+   * Simultaneous Bayan (Ghe) + Dayan (Na).
    */
   playDha(time, velocity = 1.0) {
     this.playBayanGhe(time, 72, 22, 0.36, velocity);
@@ -242,7 +342,7 @@ class RhythmAudioEngine {
 
   /**
    * Composite Tabla Stroke - "Dhin"
-   * Simultaneous Bayan (Ghe) + Dayan (Tin). Melodic and deep.
+   * Simultaneous Bayan (Ghe) + Dayan (Tin).
    */
   playDhin(time, velocity = 1.0) {
     this.playBayanGhe(time, 68, 16, 0.34, velocity * 0.95);
@@ -253,10 +353,6 @@ class RhythmAudioEngine {
   // AUXILIARY INSTRUMENT SYNTHESIS
   // =========================================================================
 
-  /**
-   * Ghungroo / Salangai Ankle Bells
-   * Authentic shimmer of multi-pitch metallic brass bells.
-   */
   playGhungroo(time, intensity = 1.0) {
     if (!this.ctx) return;
     const freqs = [2600, 3400, 4400, 5900];
@@ -278,9 +374,6 @@ class RhythmAudioEngine {
     });
   }
 
-  /**
-   * Thaalam / Nattuvangam Bronze Cymbal (Bharatanatyam)
-   */
   playThaalam(time, velocity = 0.8) {
     if (!this.ctx) return;
     const osc = this.ctx.createOscillator();
@@ -300,9 +393,6 @@ class RhythmAudioEngine {
     osc.stop(time + 0.15);
   }
 
-  /**
-   * Hand Clap / Chutki (Garba / Folk)
-   */
   playClap(time, velocity = 0.85) {
     if (!this.ctx) return;
     const osc = this.ctx.createOscillator();
@@ -322,9 +412,6 @@ class RhythmAudioEngine {
     osc.stop(time + 0.05);
   }
 
-  /**
-   * Bamboo Clack / Staves (Cheraw)
-   */
   playBambooClack(time, pitch = 780, velocity = 0.9) {
     if (!this.ctx) return;
     const osc = this.ctx.createOscillator();
@@ -344,9 +431,6 @@ class RhythmAudioEngine {
     osc.stop(time + 0.05);
   }
 
-  /**
-   * Punjabi Dhol (Bhangra Bass Boom + Tilli Rim Crack)
-   */
   playPunjabiDhol(time, isBass = true, velocity = 1.0) {
     if (!this.ctx) return;
     if (isBass) {
@@ -385,9 +469,6 @@ class RhythmAudioEngine {
     }
   }
 
-  /**
-   * Nagara War Drum (Chhau Martial Dance)
-   */
   playNagara(time, velocity = 1.0) {
     if (!this.ctx) return;
     const osc = this.ctx.createOscillator();
@@ -408,9 +489,6 @@ class RhythmAudioEngine {
     osc.stop(time + 0.45);
   }
 
-  /**
-   * Pepa / Spring Flute Folk Note (Bihu)
-   */
   playPepaTone(time, noteFreq = 440, duration = 0.14) {
     if (!this.ctx) return;
     const osc = this.ctx.createOscillator();
@@ -486,6 +564,10 @@ class RhythmAudioEngine {
   // REGIONAL DANCE FORM SPECIFIC RHYTHMIC TALAS & THEKAS
   // =========================================================================
   playRegionalBeat(danceId, beatIndex, time) {
+    // 1. Play vocal Solkattu / Bol Chanting
+    this.playVocalBol(danceId, beatIndex, time);
+
+    // 2. Play acoustic percussion synthesis
     switch (danceId) {
       case 'bharatanatyam':
         if (beatIndex === 0) {
