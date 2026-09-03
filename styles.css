@@ -2144,12 +2144,11 @@ body::after {
 .map-canvas-container {
   position: relative;
   width: 100%;
-  height: 520px;
-  min-height: 520px;
-  background: #15100c url('images/india_cultural_map_bg.jpg') center center / cover no-repeat;
-  border-radius: var(--radius-lg);
+  height: 560px;
+  min-height: 560px;
+  background: #18120c url('images/india_cultural_map_bg.jpg') center top / contain no-repeat;
   overflow: hidden;
-  box-shadow: inset 0 0 35px rgba(0, 0, 0, 0.75), var(--shadow-card);
+  box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.6);
 }
 
 #symphonyCanvas {
@@ -2160,22 +2159,15 @@ body::after {
 }
 
 .map-state-quick-bar {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-  right: 10px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 0.35rem 0.45rem;
-  padding: 0.45rem 0.65rem;
-  background: rgba(10, 14, 30, 0.88);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--border-glass);
-  border-radius: var(--radius-md);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+  gap: 0.35rem 0.5rem;
+  padding: 0.75rem 1rem;
+  background: rgba(10, 14, 30, 0.95);
+  border-top: 1px solid var(--border-glass);
+  border-bottom: 1px solid var(--border-glass);
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
@@ -2218,6 +2210,74 @@ body::after {
   padding: 0.85rem 1.25rem;
   background: rgba(10, 14, 30, 0.8);
   border-top: 1px solid var(--border-glass);
+}
+
+/* Voice Persona Customizer */
+.voice-persona-customizer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.65rem;
+  background: rgba(6, 182, 212, 0.08);
+  border: 1px solid rgba(6, 182, 212, 0.25);
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius-md);
+  margin-bottom: 0.9rem;
+}
+
+.voice-select-group {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  flex: 1;
+}
+
+.voice-icon-tag {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #38bdf8;
+  white-space: nowrap;
+}
+
+.voice-persona-select {
+  background: rgba(10, 14, 30, 0.92);
+  border: 1px solid rgba(6, 182, 212, 0.4);
+  color: #f8fafc;
+  padding: 0.35rem 0.6rem;
+  border-radius: var(--radius-sm);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  outline: none;
+  width: 100%;
+  cursor: pointer;
+}
+
+.voice-persona-select:focus {
+  border-color: var(--accent-gold);
+}
+
+.btn-voice-preview {
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.25), rgba(99, 102, 241, 0.35));
+  border: 1px solid rgba(6, 182, 212, 0.5);
+  color: #cffafe;
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-sm);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  white-space: nowrap;
+  transition: var(--transition-smooth);
+}
+
+.btn-voice-preview:hover {
+  background: linear-gradient(135deg, var(--accent-peacock), var(--accent-royal));
+  color: #000;
+  transform: scale(1.04);
 }
 
 .map-hint-text {

@@ -1795,6 +1795,40 @@ function checkQuestAnswer(clickedStateId) {
 }
 
 /**
+ * Voice Persona Selector & Controller
+ */
+function changeVoicePersona(personaId) {
+  window.RhythmEngine.setVoicePersona(personaId);
+  const personaLabels = {
+    indira_natural: 'Indira (Natural Warm Indian English)',
+    aditi_hindi: 'Aditi (Melodic Hindi / English)',
+    ravi_male: 'Ravi (Clear Indian English Male)',
+    priya_natural: 'Priya (Expressive Natural English)',
+    victoria_uk: 'Victoria (Articulate British English)',
+    samantha_us: 'Samantha (Clear US English)',
+    system_best: 'Auto-Detected Best Natural Voice'
+  };
+  const label = personaLabels[personaId] || 'Selected Persona';
+  updateAISpeechBubble(`"Voice switched to ${label}. Click 'Test Voice' or select any state on the map!"`);
+}
+window.changeVoicePersona = changeVoicePersona;
+
+/**
+ * Preview Voice Assistant Speech
+ */
+function previewCurrentVoice() {
+  const sampleLines = [
+    "Namaste! I am Indira, your simulation guide for Indian culture, rhythms, and geographic diversity.",
+    "Welcome to the Pan-India Cultural Matrix! Every regional rhythm harmonizes into one unified whole.",
+    "Exploring the majestic diversity of India, from Kashmir in the north to Kanyakumari in the south!"
+  ];
+  const phrase = sampleLines[Math.floor(Math.random() * sampleLines.length)];
+  updateAISpeechBubble(`"Testing voice: ${phrase}"`);
+  window.RhythmEngine.speakVoiceAssistant(phrase, onVoiceStart, onVoiceEnd);
+}
+window.previewCurrentVoice = previewCurrentVoice;
+
+/**
  * Voice Assistant: Read Current State Dossier Aloud
  */
 function speakCurrentStateDossier() {

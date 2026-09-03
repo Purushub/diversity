@@ -77,8 +77,22 @@ class RhythmAudioEngine {
   }
 
   // =========================================================================
+  // =========================================================================
   // AI VOICE ASSISTANT SPEECH SYNTHESIS ("INDIRA")
   // =========================================================================
+
+  selectedVoicePersona = 'indira_natural';
+  selectedVoiceURI = '';
+
+  setVoicePersona(personaId, voiceURI = '') {
+    this.selectedVoicePersona = personaId || 'indira_natural';
+    this.selectedVoiceURI = voiceURI;
+  }
+
+  getAvailableVoices() {
+    if (!('speechSynthesis' in window)) return [];
+    return window.speechSynthesis.getVoices() || [];
+  }
 
   speakVoiceAssistant(text, onStart, onEnd) {
     if (!('speechSynthesis' in window)) return;
@@ -87,16 +101,73 @@ class RhythmAudioEngine {
       if (!text || this.isMuted) return;
 
       const utterance = new SpeechSynthesisUtterance(text);
-      utterance.rate = 0.98;
-      utterance.pitch = 1.05;
-      utterance.volume = 0.95;
+      const voices = window.speechSynthesis.getVoices() || [];
+      const persona = this.selectedVoicePersona || 'indira_natural';
 
-      // Select best voice if available (Indian English, UK English, or natural female/pleasant voice)
-      const voices = window.speechSynthesis.getVoices();
-      if (voices && voices.length > 0) {
-        const inVoice = voices.find(v => v.lang.includes('IN') || v.lang.includes('hi') || v.name.includes('India') || v.name.includes('Google UK English Female') || v.name.includes('Natural') || v.name.includes('Samantha') || v.name.includes('Zira'));
-        if (inVoice) utterance.voice = inVoice;
+      // Persona Profile Tuning
+      if (persona === 'indira_natural') {
+        utterance.rate = 0.94;
+        utterance.pitch = 1.08;
+        if (voices.length > 0) {
+          const matched = voices.find(v => (v.lang.includes('IN') || v.name.includes('India') || v.name.includes('Heera') || v.name.includes('Neerja')) && (v.name.includes('Female') || !v.name.includes('Male')))
+            || voices.find(v => v.lang.includes('hi') || v.lang.includes('en-IN'))
+            || voices.find(v => v.name.includes('Natural') || v.name.includes('Samantha') || v.name.includes('Google UK English Female') || v.name.includes('Zira'));
+          if (matched) utterance.voice = matched;
+        }
+      } else if (persona === 'aditi_hindi') {
+        utterance.rate = 0.90;
+        utterance.pitch = 1.15;
+        if (voices.length > 0) {
+          const matched = voices.find(v => v.lang.includes('hi') || v.name.includes('Hindi') || v.name.includes('Aditi') || v.name.includes('Kalpana'))
+            || voices.find(v => v.lang.includes('IN') || v.name.includes('India'))
+            || voices.find(v => v.name.includes('Google हिन्दी') || v.name.includes('Natural'));
+          if (matched) utterance.voice = matched;
+        }
+      } else if (persona === 'ravi_male') {
+        utterance.rate = 0.95;
+        utterance.pitch = 0.92;
+        if (voices.length > 0) {
+          const matched = voices.find(v => (v.lang.includes('IN') || v.name.includes('India') || v.name.includes('Ravi')) && v.name.includes('Male'))
+            || voices.find(v => v.lang.includes('IN') || v.name.includes('India'))
+            || voices.find(v => v.name.includes('Male') || v.name.includes('David') || v.name.includes('George') || v.name.includes('Google UK English Male'));
+          if (matched) utterance.voice = matched;
+        }
+      } else if (persona === 'priya_natural') {
+        utterance.rate = 0.98;
+        utterance.pitch = 1.05;
+        if (voices.length > 0) {
+          const matched = voices.find(v => v.name.includes('Priya') || v.name.includes('Heera') || v.lang.includes('IN'))
+            || voices.find(v => v.name.includes('Natural') || v.name.includes('Jenny') || v.name.includes('Aria') || v.name.includes('Samantha'));
+          if (matched) utterance.voice = matched;
+        }
+      } else if (persona === 'victoria_uk') {
+        utterance.rate = 0.94;
+        utterance.pitch = 1.02;
+        if (voices.length > 0) {
+          const matched = voices.find(v => v.lang.includes('GB') || v.name.includes('UK') || v.name.includes('Hazel') || v.name.includes('Victoria') || v.name.includes('George') || v.name.includes('Google UK English'));
+          if (matched) utterance.voice = matched;
+        }
+      } else if (persona === 'samantha_us') {
+        utterance.rate = 0.96;
+        utterance.pitch = 1.06;
+        if (voices.length > 0) {
+          const matched = voices.find(v => v.name.includes('Samantha') || v.name.includes('Aria') || v.name.includes('Jenny') || v.name.includes('Google US English') || (v.lang.includes('US') && v.name.includes('Female')));
+          if (matched) utterance.voice = matched;
+        }
+      } else {
+        // System best
+        utterance.rate = 0.96;
+        utterance.pitch = 1.04;
+        if (this.selectedVoiceURI && voices.length > 0) {
+          const specific = voices.find(v => v.voiceURI === this.selectedVoiceURI || v.name === this.selectedVoiceURI);
+          if (specific) utterance.voice = specific;
+        } else if (voices.length > 0) {
+          const naturalVoice = voices.find(v => v.lang.includes('IN') || v.name.includes('Natural') || v.name.includes('Google') || v.name.includes('Samantha'));
+          if (naturalVoice) utterance.voice = naturalVoice;
+        }
       }
+
+      utterance.volume = 1.0;
 
       if (onStart) utterance.onstart = onStart;
       if (onEnd) utterance.onend = onEnd;

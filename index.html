@@ -329,17 +329,17 @@
             <!-- Canvas Map Visualizer -->
             <div class="map-canvas-container" id="indiaMapContainer">
               <canvas id="symphonyCanvas"></canvas>
-              
-              <!-- Quick State Selection Chips Overlay -->
-              <div class="map-state-quick-bar" id="mapStateQuickBar">
-                <!-- Dynamically generated state chips -->
-              </div>
+            </div>
+
+            <!-- Quick State Selection Chips Dock (Placed below map so South India is 100% visible) -->
+            <div class="map-state-quick-bar" id="mapStateQuickBar">
+              <!-- Dynamically generated state chips -->
             </div>
 
             <!-- Map Bottom Info Bar -->
             <div class="map-bottom-controls-bar">
               <div class="map-hint-text">
-                💡 <em>Click any glowing state pin or polygon on the map to load its cultural and economic dossier.</em>
+                💡 <em>Click any glowing state pin on the map to load its cultural and economic dossier.</em>
               </div>
               <button class="btn-direct-yt-pill" style="background: linear-gradient(135deg, #f59e0b, #ec4899); border: none; cursor: pointer;" onclick="openFusionCelebrationModal()">
                 🎉 Pan-India Celebration
@@ -368,6 +368,26 @@
                 <div class="voice-equalizer-bars" id="voiceEqualizer">
                   <span></span><span></span><span></span><span></span><span></span>
                 </div>
+              </div>
+
+              <!-- Voice Persona & Natural Voice Options -->
+              <div class="voice-persona-customizer">
+                <div class="voice-select-group">
+                  <span class="voice-icon-tag">🎙️ Voice:</span>
+                  <select id="voicePersonaSelect" class="voice-persona-select" onchange="changeVoicePersona(this.value)">
+                    <option value="indira_natural">🇮🇳 Indira (Natural Warm Indian English - Female)</option>
+                    <option value="aditi_hindi">🇮🇳 Aditi (Melodic Indian Hindi / English - Female)</option>
+                    <option value="ravi_male">🇮🇳 Ravi (Clear Indian English - Male)</option>
+                    <option value="priya_natural">🇮🇳 Priya (Expressive Natural English - Female)</option>
+                    <option value="victoria_uk">🇬🇧 Victoria (Articulate British English - Female)</option>
+                    <option value="samantha_us">🇺🇸 Samantha (Clear US English - Female)</option>
+                    <option value="system_best">🌐 Auto-Detect Best Natural Voice</option>
+                  </select>
+                </div>
+                <button class="btn-voice-preview" onclick="previewCurrentVoice()" title="Test selected voice">
+                  <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+                  <span>Test Voice</span>
+                </button>
               </div>
 
               <!-- AI Speech Captions Display -->
