@@ -16,11 +16,12 @@ An immersive, web-based interactive experience exploring Indian classical and fo
 - **Video Performances** — Authentic dance form demonstrations
 - **Web Audio Solkattu Beats** — Rhythmic syllable patterns with real-time audio synthesis
 
-### 🗺️ Phase 3: India Diversity & Unity Map ("Many in the One")
-- **Interactive Map of India** — Dynamic geographic visualization connecting 8 regional dance traditions
-- **3-Layer Audio Mixer** — Base Rhythms, Melodic Accents, and High-Energy Martial layers
-- **Master Tempo Control** — Real-time BPM adjustment across all regions
-- **Golden Freeze Synthesis** — Synchronized 3-second silence ritual uniting all regions
+### 🗺️ Phase 3: Pan-India Geospatial Simulation Matrix ("Many in the One")
+- **Interactive Clickable Map of India** — Dynamic geographic canvas with 14 Indian states across all 6 zones (North, South, East, West, Northeast, Central)
+- **Live State Dossier HUD** — Detailed breakdowns of Major Urban Centers/Districts, Strategic Natural & Economic Resources, Cultural Specialties, and Traditional Rhythms
+- **AI Voice Assistant ("Indira")** — Interactive simulation guide with voice synthesis, animated waveform equalizer, and automatic dossier readouts
+- **AI Cultural Discovery Quest Mode** — Interactive clue-based game challenging students to locate and unlock states on the map for Class Unity XP
+- **Pan-India Synthesis Freeze** — Synchronized unity posture freeze with celebratory animation and exportable field research dossier
 
 ### 📋 Phase 4: Assessment & Reflection
 - **Rubric Scorecard** — Facilitator grading with IB criteria

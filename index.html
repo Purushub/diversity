@@ -276,112 +276,149 @@
     </section>
 
     <!-- ========================================================== -->
-    <!-- PHASE 3: INDIA DIVERSITY & UNITY MAP ("MANY IN THE ONE") -->
+    <!-- PHASE 3: PAN-INDIA GEOSPATIAL & CULTURAL MATRIX -->
     <!-- ========================================================== -->
     <section id="phase3" class="sim-phase-section">
       <div class="section-header-banner">
-        <div class="phase-number-tag">Phase 03 • Cultural Tapestry Protocol</div>
-        <h2>The India Diversity & Unity Map ("Many in the One")</h2>
+        <div class="phase-number-tag">Phase 03 • Pan-India Geospatial Simulation Matrix</div>
+        <h2>Interactive India Diversity & Unity Matrix ("Many in the One")</h2>
         <p>
-          Harmonize all 8 regional traditions across the geographic tapestry of India. Layer the base grounding rhythm, melodic accents, and high-energy martial leaps to see how regional diversity unites into one harmonious whole.
+          Click any state on the map below to inspect its major urban centers, rich natural & economic resources, cultural specialties, and authentic rhythms. Engage with the <strong>AI Voice Assistant ("Indira")</strong> to complete interactive cultural discovery quests!
         </p>
       </div>
 
-      <div class="symphony-stage-container">
-        <!-- Canvas Visualizer & HUD -->
-        <div class="symphony-visualizer-box">
-          <canvas id="symphonyCanvas"></canvas>
-          <div class="symphony-hud-meter">
-            <span class="symphony-status-badge" id="symphonyStatusBadge">Status: Standby • Activate Layers Below</span>
-            <div style="display: flex; align-items: center; gap: 1rem;">
-              <span style="font-size: 0.8rem; color: #94a3b8;">Master Tempo:</span>
-              <input type="range" id="tempoSlider" min="70" max="130" value="90" style="accent-color: #f59e0b; width: 100px;" />
-              <span id="tempoDisplayVal" style="font-family: 'Space Grotesk'; color: #fde047; font-weight: 700; font-size: 0.85rem;">90 BPM</span>
-            </div>
+      <!-- Simulation Main Interactive Stage -->
+      <div class="india-sim-wrapper">
+        <!-- Top Simulation Control Toolbar -->
+        <div class="sim-toolbar-bar">
+          <div class="sim-region-filters" id="simRegionFilters">
+            <button class="sim-filter-pill active" onclick="filterSimRegion('all')">All India (14 States)</button>
+            <button class="sim-filter-pill" onclick="filterSimRegion('north')">North India</button>
+            <button class="sim-filter-pill" onclick="filterSimRegion('west')">West India</button>
+            <button class="sim-filter-pill" onclick="filterSimRegion('south')">South India</button>
+            <button class="sim-filter-pill" onclick="filterSimRegion('east')">East India</button>
+            <button class="sim-filter-pill" onclick="filterSimRegion('northeast')">Northeast</button>
+            <button class="sim-filter-pill" onclick="filterSimRegion('central')">Central India</button>
+          </div>
+
+          <div class="sim-mode-toggle-group">
+            <button class="sim-mode-btn active" id="btnModeExplore" onclick="setSimMode('explore')">
+              🗺️ State Explorer
+            </button>
+            <button class="sim-mode-btn" id="btnModeQuest" onclick="setSimMode('quest')">
+              🎯 AI Discovery Quest
+            </button>
           </div>
         </div>
 
-        <!-- 3 Layers Multi-Track Mixer Grid -->
-        <div class="layers-orchestrator-grid">
-          <!-- Layer 1 -->
-          <div class="layer-channel-card" id="cardLayer1">
-            <div class="layer-card-header">
-              <div class="layer-title-group">
-                <h4>Layer 1: The Base Rhythm</h4>
-                <span>Grounding 8-Beat Clap & Step Cycle</span>
+        <!-- 2-Column Stage: Interactive Map (Left) & AI Voice Assistant / State Dossier (Right) -->
+        <div class="india-matrix-layout-grid">
+          
+          <!-- Column 1: Interactive Clickable India Map & Visualizer -->
+          <div class="india-map-stage-card">
+            <div class="map-card-header">
+              <div class="map-status-title-group">
+                <span class="live-dot-pulse"></span>
+                <span id="mapLiveStatusText">Interactive Geographic Matrix • Select a State to Inspect</span>
               </div>
-              <span class="badge-tag" style="color: #06b6d4; border-color: rgba(6, 182, 212, 0.4);">Beats 1 - 8</span>
+              <div class="map-explored-counter" id="mapExploredCounter">
+                <span class="explored-badge">Explored: <strong id="exploredCountNum">1</strong> / 14</span>
+              </div>
             </div>
-            <div class="dance-tags-cluster">
-              <span class="dance-tag-item">Cheraw (Mizoram)</span>
-              <span class="dance-tag-item">Garba (Gujarat)</span>
+
+            <!-- Canvas Map Visualizer -->
+            <div class="map-canvas-container" id="indiaMapContainer">
+              <canvas id="symphonyCanvas"></canvas>
+              
+              <!-- Quick State Selection Chips Overlay -->
+              <div class="map-state-quick-bar" id="mapStateQuickBar">
+                <!-- Dynamically generated state chips -->
+              </div>
             </div>
-            <button class="layer-toggle-btn" id="btnToggleLayer1">
-              <svg class="svg-icon" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-              Activate Layer 1
-            </button>
+
+            <!-- Map Bottom Info Bar -->
+            <div class="map-bottom-controls-bar">
+              <div class="map-hint-text">
+                💡 <em>Click any glowing state pin or polygon on the map to load its cultural and economic dossier.</em>
+              </div>
+              <button class="btn-direct-yt-pill" style="background: linear-gradient(135deg, #f59e0b, #ec4899); border: none; cursor: pointer;" onclick="openFusionCelebrationModal()">
+                🎉 Pan-India Celebration
+              </button>
+            </div>
           </div>
 
-          <!-- Layer 2 -->
-          <div class="layer-channel-card" id="cardLayer2">
-            <div class="layer-card-header">
-              <div class="layer-title-group">
-                <h4>Layer 2: Melodic Accents</h4>
-                <span>Spins, Geometric Holds & Wrist Flips</span>
-              </div>
-              <span class="badge-tag" style="color: #f59e0b; border-color: rgba(245, 158, 11, 0.4);">Beats 1 - 4</span>
-            </div>
-            <div class="dance-tags-cluster">
-              <span class="dance-tag-item">Kathak (North India)</span>
-              <span class="dance-tag-item">Bharatanatyam (Tamil Nadu)</span>
-              <span class="dance-tag-item">Bihu (Assam)</span>
-            </div>
-            <button class="layer-toggle-btn" id="btnToggleLayer2">
-              <svg class="svg-icon" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-              Activate Layer 2
-            </button>
-          </div>
+          <!-- Column 2: AI Voice Assistant & State Dossier HUD -->
+          <div class="state-dossier-column">
+            
+            <!-- AI Voice Assistant Simulation Module ("Indira") -->
+            <div class="voice-assistant-card" id="voiceAssistantCard">
+              <div class="voice-assistant-top">
+                <div class="ai-avatar-group">
+                  <div class="ai-avatar-core" id="aiAvatarCore">
+                    <span class="ai-avatar-pulse-ring"></span>
+                    <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+                  </div>
+                  <div class="ai-identity-text">
+                    <h4>INDIRA • Cultural Guide AI</h4>
+                    <span class="ai-sub-status" id="aiVoiceStatus">Voice Synthesis: Online • Ready</span>
+                  </div>
+                </div>
 
-          <!-- Layer 3 -->
-          <div class="layer-channel-card" id="cardLayer3">
-            <div class="layer-card-header">
-              <div class="layer-title-group">
-                <h4>Layer 3: High-Energy Peak</h4>
-                <span>Athletic Jumps, Dhol Beats & Martial Leaps</span>
+                <!-- Equalizer Waves Animation -->
+                <div class="voice-equalizer-bars" id="voiceEqualizer">
+                  <span></span><span></span><span></span><span></span><span></span>
+                </div>
               </div>
-              <span class="badge-tag" style="color: #db2777; border-color: rgba(219, 39, 119, 0.4);">Beats 5 - 8</span>
+
+              <!-- AI Speech Captions Display -->
+              <div class="ai-speech-bubble" id="aiSpeechBubble">
+                <p id="aiSpeechText">"Namaste! I am Indira, your simulation guide. Select any state on the map to explore its cities, resources, and cultural rhythms, or click 'Start AI Discovery Quest' to test your cultural knowledge!"</p>
+              </div>
+
+              <!-- Voice Assistant Action Controls -->
+              <div class="voice-actions-row">
+                <button class="btn-voice-action primary" id="btnVoiceReadDossier" onclick="speakCurrentStateDossier()">
+                  <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+                  Read Dossier Aloud
+                </button>
+                <button class="btn-voice-action secondary" id="btnVoiceNextQuest" onclick="startOrNextAIQuest()">
+                  <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                  Next AI Quest Clue
+                </button>
+                <button class="btn-voice-action icon-only" id="btnVoiceMuteToggle" onclick="toggleVoiceMute()" title="Toggle Voice Assistant Audio">
+                  <svg class="svg-icon" id="voiceMuteIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+                </button>
+              </div>
             </div>
-            <div class="dance-tags-cluster">
-              <span class="dance-tag-item">Bhangra (Punjab)</span>
-              <span class="dance-tag-item">Lavani (Maharashtra)</span>
-              <span class="dance-tag-item">Chhau (Jharkhand/Odisha)</span>
+
+            <!-- Active State Cultural & Economic Dossier HUD -->
+            <div class="state-dossier-card" id="stateDossierCard">
+              <!-- Dynamically populated via renderStateDossier(stateId) in app.js -->
             </div>
-            <button class="layer-toggle-btn" id="btnToggleLayer3">
-              <svg class="svg-icon" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-              Activate Layer 3
-            </button>
+
           </div>
         </div>
 
         <!-- Synthesis Freeze Action Panel -->
-        <div class="synthesis-freeze-panel">
+        <div class="synthesis-freeze-panel" style="margin-top: 1.5rem;">
           <div class="freeze-info-text">
-            <h3>Protocol: The Synthesis Freeze</h3>
+            <h3>Classroom Synthesis Protocol: The Unity Freeze</h3>
             <p>
-              When all 3 layers are synchronized in the classroom, trigger the universal finale: All 8 regional teams strike their iconic Mudra on the exact final beat, holding 3 seconds of unified silence.
+              When students have explored and mastered India's regional diversity across all geographical zones, trigger the Pan-India synthesis freeze: All squads strike their state's iconic posture together, holding 3 seconds of unified silence.
             </p>
           </div>
-          <div class="freeze-actions-row" style="display: flex; gap: 0.8rem; align-items: center; flex-wrap: wrap;">
+          <div class="freeze-actions-row">
             <button class="btn-synthesis-freeze" id="btnSynthesisFreeze">
               <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
               Strike Synthesis Freeze!
             </button>
-            <button class="btn-card-action" onclick="openFusionCelebrationModal()" style="padding: 0.85rem 1.35rem; background: linear-gradient(135deg, rgba(219, 39, 119, 0.2), rgba(99, 102, 241, 0.2)); border: 1px solid var(--accent-magenta); color: #fff; font-weight: 700; border-radius: var(--radius-md); cursor: pointer;">
-              <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-              🎬 Mid-Activity Fusion Celebration
+            <button class="btn-card-action" onclick="exportPanIndiaLedger()" style="padding: 0.85rem 1.35rem; background: rgba(255, 255, 255, 0.08); border: 1px solid var(--border-glass); color: #fff; font-weight: 700; border-radius: var(--radius-md); cursor: pointer;">
+              <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Export Pan-India Dossier
             </button>
           </div>
         </div>
+
       </div>
     </section>
 
@@ -463,7 +500,7 @@
           <div class="inquiry-number-badge">Inquiry 03 • Synthesis Principle</div>
           <h4>Deconstructing "Many in the One"</h4>
           <p style="color: var(--text-muted); font-size: 0.85rem;">
-            When all 8 dance forms performed together in Phase 3, did individual dances lose their unique identity, or did their uniqueness make the whole symphony richer?
+            When all regional traditions and state resources were synthesized in Phase 3, did individual cultures lose their unique identity, or did their uniqueness make the unified Indian tapestry richer?
           </p>
           <textarea id="debrief-q3" class="inquiry-textarea" placeholder="Record student reflection here..."></textarea>
         </div>
@@ -472,7 +509,7 @@
           <div class="inquiry-number-badge">Inquiry 04 • Real-World Transfer</div>
           <h4>Modern Societal Application</h4>
           <p style="color: var(--text-muted); font-size: 0.85rem;">
-            How can our classroom apply this "Dance Matrix principle" when working in diverse project teams with people of different languages, talents, and backgrounds?
+            How can our classroom apply this "Cultural Matrix principle" when working in diverse project teams with people of different languages, talents, and backgrounds?
           </p>
           <textarea id="debrief-q4" class="inquiry-textarea" placeholder="Record student reflection here..."></textarea>
         </div>
@@ -515,7 +552,7 @@
                 <td style="font-weight: 700; color: #fff;">Kinesthetic Expression (Communication)</td>
                 <td>Hesitant physical movement; minimal rhythmic alignment or Mudra clarity.</td>
                 <td>Clear execution of Mudras and rhythm loops; stays synchronized with group tempo.</td>
-                <td>Expressive, highly precise posture, gesture execution, and dynamic energy in full symphony.</td>
+                <td>Expressive, highly precise posture, gesture execution, and dynamic energy in full Pan-India harmonization.</td>
               </tr>
               <tr>
                 <td style="font-weight: 700; color: #fff;">Collaborative Synthesis (Social / Thinking)</td>

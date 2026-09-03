@@ -209,6 +209,350 @@ const SimState = {
     { name: 'Team Zeta', dance: 'Cheraw', mudra: 4, sync: 4, xp: 80 },
     { name: 'Team Eta', dance: 'Lavani', mudra: 4, sync: 4, xp: 80 },
     { name: 'Team Theta', dance: 'Chhau', mudra: 5, sync: 5, xp: 100 }
+  ],
+
+  // Active State & Simulation Data for Phase 3 Interactive Map Matrix
+  activeStateId: 'punjab',
+  selectedRegionFilter: 'all',
+  simMode: 'explore', // 'explore' | 'quest'
+  voiceMuted: false,
+
+  aiQuest: {
+    active: false,
+    currentQuestIndex: 0,
+    solvedCount: 0,
+    quests: [
+      {
+        targetStateId: 'punjab',
+        title: 'The Land of Five Rivers',
+        clue: 'Identify the vibrant northern state known as the Granary of India, famous for fertile river plains, Golden Temple heritage, and explosive Bhangra Dhol rhythms!',
+        rewardXP: 100
+      },
+      {
+        targetStateId: 'gujarat',
+        title: 'The Western Maritime Circle',
+        clue: 'Navigate to the coastal state in Western India where millions dance in concentric 3-Taali circles during Navratri, famous for diamond processing and ports in Kutch.',
+        rewardXP: 100
+      },
+      {
+        targetStateId: 'tamil_nadu',
+        title: 'Temple Geometry & Natyashastra',
+        clue: 'Locate the southern cultural capital home to ancient Chola bronze sculptures, Bharatanatyam Aramandi geometry, and Kanchipuram silk weaving!',
+        rewardXP: 100
+      },
+      {
+        targetStateId: 'assam',
+        title: 'Brahmaputra Valley & Golden Silk',
+        clue: 'Fly to the lush Northeast state along the mighty Brahmaputra river, renowned worldwide for golden Muga silk, tea gardens, and spring Bihu wrist-flips!',
+        rewardXP: 100
+      },
+      {
+        targetStateId: 'maharashtra',
+        title: 'The Deccan Bridge & Theatrical Rhythm',
+        clue: 'Select the western industrial and cultural powerhouse bridging North and South, home to Mumbai, fast 6/8 Dholki Lavani poetry, and Warli tribal arts.',
+        rewardXP: 100
+      },
+      {
+        targetStateId: 'mizoram',
+        title: 'Bamboo Matrix & Communal Trust',
+        clue: 'Discover the lush northeastern hill state where agile dancers step flawlessly inside sliding bamboo grids with zero margin for error!',
+        rewardXP: 100
+      },
+      {
+        targetStateId: 'kerala',
+        title: 'The Spice Coast & Chenda Melam',
+        clue: 'Locate the southern coastal state famous for Kathakali facial mudras, serene backwaters, cardamom spices, and thunderous Chenda temple drums.',
+        rewardXP: 100
+      },
+      {
+        targetStateId: 'west_bengal',
+        title: 'The Delta of Poetry & Baul Melody',
+        clue: 'Navigate to the eastern delta celebrated for UNESCO Durga Puja heritage, Darjeeling tea, terracotta temples, and mystical Baul songs.',
+        rewardXP: 100
+      },
+      {
+        targetStateId: 'rajasthan',
+        title: 'Desert Forts & Royal Pirouettes',
+        clue: 'Find the royal desert state of magnificent sandstone forts, famous for sweeping circular Ghoomar pirouettes, blue pottery, and solar energy!',
+        rewardXP: 100
+      },
+      {
+        targetStateId: 'madhya_pradesh',
+        title: 'The Heartland Nexus of India',
+        clue: 'Click the central geographical heart of India, where UNESCO Sanchi Stupas and Khajuraho heritage harmonize North, South, East, and West!',
+        rewardXP: 100
+      }
+    ]
+  },
+
+  // 14 Detailed Indian State Dossiers across all 6 Regions
+  indianStates: [
+    {
+      id: 'punjab',
+      name: 'Punjab',
+      capital: 'Chandigarh',
+      region: 'north',
+      regionTitle: 'North India',
+      citiesCount: 16,
+      districtsCount: 23,
+      majorCities: ['Amritsar', 'Ludhiana', 'Jalandhar', 'Patiala', 'Bathinda', 'Mohali', 'Pathankot'],
+      resources: ['Granary of India (Wheat & Mustard)', '5 Major River Tributaries (Sutlej, Beas, Ravi...)', 'Fertile Alluvial Plains', 'Agro-processing & Light Engineering'],
+      specialties: ['Bhangra & Giddha Folk Dances', 'Golden Temple & Sikh Spiritual Heritage', 'Phulkari Hand Embroidery', 'Baisakhi & Lohri Harvest Festivals', 'Makki di Roti & Sarson da Saag'],
+      danceId: 'bhangra',
+      rhythmBols: 'Buhll-lay! Ghay! Buhll-lay! Chaal! Hud-dee-paa! Ghay! Hud-dee-paa! Oye!',
+      unityRole: 'Provides national food security through agricultural vitality and energizes India with celebratory, inclusive folk brotherhood.',
+      explored: true,
+      nx: 0.33,
+      ny: 0.22,
+      color: '#ec4899'
+    },
+    {
+      id: 'gujarat',
+      name: 'Gujarat',
+      capital: 'Gandhinagar',
+      region: 'west',
+      regionTitle: 'West India',
+      citiesCount: 20,
+      districtsCount: 33,
+      majorCities: ['Ahmedabad', 'Surat', 'Vadodara', 'Rajkot', 'Bhavnagar', 'Jamnagar', 'Gandhinagar'],
+      resources: ['Longest Coastline in India (1600 km)', 'Petrochemicals & Green Hydrogen Hub', 'Cotton & Diamond Cutting/Polishing (Surat)', 'Kutch Solar & Wind Energy Parks'],
+      specialties: ['Garba & Dandiya Raas (UNESCO Heritage)', 'World\'s Longest Dance Festival (Navratri)', 'Patola Double Ikat Silk & Bandhani', 'Rann of Kutch White Desert Utsav', 'Dhokla, Khandvi & Gujarati Thali'],
+      danceId: 'garba',
+      rhythmBols: 'Taalee! Chutkee! Taalee! Heench! Taalee! Ghoom! Taalee! Hay!',
+      unityRole: 'Acts as India\'s maritime trade nexus while symbolizing communal circular harmony where people of all backgrounds dance as one.',
+      explored: false,
+      nx: 0.25,
+      ny: 0.44,
+      color: '#06b6d4'
+    },
+    {
+      id: 'maharashtra',
+      name: 'Maharashtra',
+      capital: 'Mumbai',
+      region: 'west',
+      regionTitle: 'West India (Deccan)',
+      citiesCount: 28,
+      districtsCount: 36,
+      majorCities: ['Mumbai', 'Pune', 'Nagpur', 'Nashik', 'Chhatrapati Sambhajinagar', 'Kolhapur', 'Solapur'],
+      resources: ['Financial Capital of India (Mumbai)', 'Deccan Volcanic Black Cotton Soil', 'Automobile & Technology Hub (Pune)', 'Western Ghats UNESCO Biodiversity'],
+      specialties: ['Lavani & Koli Folk Dances', 'Dholki Percussion & Tutari Horns', 'Ganeshotsav Public Festival', 'Warli Tribal Painting Heritage', 'Paithani Pure Gold Zari Sarees'],
+      danceId: 'lavani',
+      rhythmBols: 'Dhaa! Ghay! Naa! Teen! Teet! Taa! Dhaa! Khuh-duhk!',
+      unityRole: 'Serves as the nation\'s economic engine and cultural crossroads, uniting Northern and Southern traditions through bold theatrical expressions.',
+      explored: false,
+      nx: 0.35,
+      ny: 0.58,
+      color: '#ec4899'
+    },
+    {
+      id: 'tamil_nadu',
+      name: 'Tamil Nadu',
+      capital: 'Chennai',
+      region: 'south',
+      regionTitle: 'South India',
+      citiesCount: 22,
+      districtsCount: 38,
+      majorCities: ['Chennai', 'Coimbatore', 'Madurai', 'Tiruchirappalli', 'Salem', 'Tirunelveli', 'Vellore'],
+      resources: ['Kaveri River Agricultural Basin', 'Coromandel Deepwater Ports', 'Automobile Manufacturing ("Detroit of Asia")', 'Wind Power & Granite Reserves'],
+      specialties: ['Bharatanatyam Classical Dance', 'Carnatic Music Classical Sangeet', 'Chola Grand Living Dravidian Temples', 'Kanchipuram Silk Sarees & Bronze Castings', 'Pongal Harvest Festival & Idli-Dosa'],
+      danceId: 'bharatanatyam',
+      rhythmBols: 'Taa! Kaa! Dhee! Mee! Thomm! Naam! Thaa-Kaa! Jhaa-Nu!',
+      unityRole: 'Anchors India in ancient Natyashastra classical geometric discipline, sacred temple architectural mastery, and timeless Carnatic ragas.',
+      explored: false,
+      nx: 0.46,
+      ny: 0.82,
+      color: '#f59e0b'
+    },
+    {
+      id: 'uttar_pradesh',
+      name: 'Uttar Pradesh',
+      capital: 'Lucknow',
+      region: 'north',
+      regionTitle: 'North India',
+      citiesCount: 35,
+      districtsCount: 75,
+      majorCities: ['Lucknow', 'Varanasi', 'Agra', 'Kanpur', 'Prayagraj', 'Noida', 'Mathura', 'Ayodhya'],
+      resources: ['Gangetic River Alluvial Plains', 'India\'s Largest Sugar & Foodgrain Belt', 'Traditional Handicrafts (Chikankari, Brassware, Glassware)', 'Spiritual Heritage Tourism'],
+      specialties: ['Kathak Classical Court Dance', 'Hindustani Classical Vocal Sangeet', 'Varanasi Ganga Aarti & Ghats', 'Taj Mahal & Mughal Architecture', 'Awadhi Royal Cuisine & Braj Holi'],
+      danceId: 'kathak',
+      rhythmBols: 'Dhaa! Dheen! Dheen! Dhaa! Dhaa! Teen! Taa! Dheen!',
+      unityRole: 'The civilizational cradle where spiritual philosophy, classical courtly poetry, and lightning-fast pirouette spins synthesized over millennia.',
+      explored: false,
+      nx: 0.44,
+      ny: 0.29,
+      color: '#f59e0b'
+    },
+    {
+      id: 'rajasthan',
+      name: 'Rajasthan',
+      capital: 'Jaipur',
+      region: 'north',
+      regionTitle: 'North / West India',
+      citiesCount: 18,
+      districtsCount: 50,
+      majorCities: ['Jaipur', 'Jodhpur', 'Udaipur', 'Kota', 'Bikaner', 'Ajmer', 'Jaisalmer'],
+      resources: ['Thar Desert Solar Energy Capital', 'Marble & Sandstone Quarries (Makrana)', 'Zinc, Lead & Copper Mineral Mines', 'Mustard, Pulses & Camel Livestock'],
+      specialties: ['Ghoomar & Kalbelia Folk Dances', 'Ravanahatha String Instrument', 'Jaipur Blue Pottery & Block Printing', 'Desert Fortresses & Palaces (UNESCO)', 'Dal Baati Churma & Ghevar'],
+      danceId: 'kathak',
+      rhythmBols: 'Dheen! Taa! Kaa! Taa! Ghoom-Ghoom! Dha!',
+      unityRole: 'Exemplifies desert resilience and royal craftsmanship, infusing the Indian identity with vivid colors, heroic ballads, and sweeping turns.',
+      explored: false,
+      nx: 0.30,
+      ny: 0.33,
+      color: '#f59e0b'
+    },
+    {
+      id: 'assam',
+      name: 'Assam',
+      capital: 'Dispur (Guwahati)',
+      region: 'northeast',
+      regionTitle: 'Northeast India',
+      citiesCount: 12,
+      districtsCount: 35,
+      majorCities: ['Guwahati', 'Dibrugarh', 'Silchar', 'Jorhat', 'Tezpur', 'Nagaon', 'Tinsukia'],
+      resources: ['Brahmaputra River Basin', 'World\'s Largest Tea Growing Region', 'Crude Petroleum & Natural Gas (Digboi)', 'Kaziranga Biodiversity & One-Horned Rhino', 'Muga Natural Golden Silk'],
+      specialties: ['Rongali Bihu Spring Dance', 'Pepa (Buffalo Horn) & Dhol Percussion', 'Majuli Island Sattriya Monastic Culture', 'Bohag Bihu New Year Celebrations', 'Assam Gamusa & Pitha Delicacies'],
+      danceId: 'bihu',
+      rhythmBols: 'Dhaa! Ghay! Dhaa! Teet! Dhaa! Dheen! Pay-paa! Hey!',
+      unityRole: 'Connects the northeastern river valleys to the nation, celebrating seasonal renewal and energetic wrist-pulse syncopation.',
+      explored: false,
+      nx: 0.81,
+      ny: 0.30,
+      color: '#f59e0b'
+    },
+    {
+      id: 'mizoram',
+      name: 'Mizoram',
+      capital: 'Aizawl',
+      region: 'northeast',
+      regionTitle: 'Northeast India',
+      citiesCount: 8,
+      districtsCount: 11,
+      majorCities: ['Aizawl', 'Lunglei', 'Champhai', 'Kolasib', 'Serchhip', 'Lawngtlai'],
+      resources: ['Vast Bamboo Forest Ecosystems (50%+ Forest Cover)', 'Hydroelectric Water Resources', 'Exotic Floriculture (Anthuriums)', 'Organic Spices & High Altitude Agriculture'],
+      specialties: ['Cheraw Bamboo Dance (Agility Matrix)', 'Chapchar Kut Spring Festival', 'Khuallam Traditional Community Dance', 'Puan Intricate Handwoven Textiles', 'Mizo Bamboo Craftsmanship'],
+      danceId: 'cheraw',
+      rhythmBols: 'Thump! Clack! Open! Clack! Step! Clack! Jump! Sync!',
+      unityRole: 'Demonstrates ancient tribal teamwork, mutual trust, and precision balance where individuals synchronize perfectly within a collective matrix.',
+      explored: false,
+      nx: 0.84,
+      ny: 0.43,
+      color: '#06b6d4'
+    },
+    {
+      id: 'odisha_jharkhand',
+      name: 'Odisha & Jharkhand',
+      capital: 'Bhubaneswar / Ranchi',
+      region: 'east',
+      regionTitle: 'East India',
+      citiesCount: 20,
+      districtsCount: 54,
+      majorCities: ['Bhubaneswar', 'Ranchi', 'Jamshedpur', 'Cuttack', 'Puri', 'Dhanbad', 'Rourkela'],
+      resources: ['Mineral Heartland of India (Iron Ore, Coal, Bauxite, Mica)', 'Steel Plants (Jamshedpur & Rourkela)', 'Bay of Bengal Deep Coastline', 'Dense Sal & Teak Forest Reserves'],
+      specialties: ['Chhau Martial Mask Dance (UNESCO)', 'Odissi Classical Temple Dance', 'Puri Jagannath Rath Yatra', 'Dokra Metal Art & Pattachitra Scroll Paintings', 'Chhena Poda & Tribal Folk Traditions'],
+      danceId: 'chhau',
+      rhythmBols: 'Dhoom! Taa! Dhoom! Oof-lee! Dhaa! Taa! Nuh-gaa-raa! Shabash!',
+      unityRole: 'Supplies the industrial minerals that build modern India while preserving primordial tribal martial arts and classical temple sculpture.',
+      explored: false,
+      nx: 0.65,
+      ny: 0.47,
+      color: '#ec4899'
+    },
+    {
+      id: 'karnataka',
+      name: 'Karnataka',
+      capital: 'Bengaluru',
+      region: 'south',
+      regionTitle: 'South India',
+      citiesCount: 20,
+      districtsCount: 31,
+      majorCities: ['Bengaluru', 'Mysuru', 'Hubballi', 'Mangaluru', 'Belagavi', 'Kalaburagi', 'Shivamogga'],
+      resources: ['Silicon Valley & Aerospace Hub of India', 'Coffee Plantations of Western Ghats (Coorg/Chikkamagaluru)', 'Sandalwood & Mulberry Raw Silk', 'Arabian Sea Marine Coastline'],
+      specialties: ['Yakshagana Grand Dance-Theatre', 'Mysore Dasara Royal Procession', 'Carnatic Vocal & Veena Traditions', 'Bidriware Inlaid Silver Craft', 'Bisi Bele Bath & Mysore Pak'],
+      danceId: 'bharatanatyam',
+      rhythmBols: 'Taa-Kaa-Dhee-Mee! Chande! Dheem-Taa!',
+      unityRole: 'Pioneers global cutting-edge tech innovation while honoring millennia of rich folklore, Carnatic music, and royal cultural patronage.',
+      explored: false,
+      nx: 0.38,
+      ny: 0.70,
+      color: '#f59e0b'
+    },
+    {
+      id: 'kerala',
+      name: 'Kerala',
+      capital: 'Thiruvananthapuram',
+      region: 'south',
+      regionTitle: 'South India',
+      citiesCount: 14,
+      districtsCount: 14,
+      majorCities: ['Kochi', 'Kozhikode', 'Thiruvananthapuram', 'Thrissur', 'Kollam', 'Kannur', 'Alappuzha'],
+      resources: ['Ancient Spice Coast (Cardamom, Black Pepper)', 'Natural Rubber & Coconut Plantations', 'Tropical Backwaters & Marine Resources', 'Ayurvedic Botanical Reserves'],
+      specialties: ['Kathakali & Mohiniyattam Classical Arts', 'Chenda Melam Temple Drum Ensembles', 'Kalaripayattu Martial Art (Mother of Martial Arts)', 'Onam & Vallam Kali Snake Boat Race', 'Traditional Kerala Sadya Feast'],
+      danceId: 'bharatanatyam',
+      rhythmBols: 'Thaa-Kee-Taa! Thaa-Kaa-Dhee-Mee! Chenda! Dhum!',
+      unityRole: 'The maritime spice gateway that introduced Indian culture to global travelers, celebrated for exquisite artistic storytelling and drum synchronization.',
+      explored: false,
+      nx: 0.40,
+      ny: 0.88,
+      color: '#06b6d4'
+    },
+    {
+      id: 'west_bengal',
+      name: 'West Bengal',
+      capital: 'Kolkata',
+      region: 'east',
+      regionTitle: 'East India',
+      citiesCount: 18,
+      districtsCount: 23,
+      majorCities: ['Kolkata', 'Howrah', 'Asansol', 'Siliguri', 'Durgapur', 'Darjeeling', 'Kharagpur'],
+      resources: ['Ganges-Brahmaputra Fertile Delta', 'World Famous Darjeeling Himalayan Tea', 'Jute Mills & River Ports (Haldia)', 'Sundarbans Royal Bengal Tiger Mangroves'],
+      specialties: ['Durga Puja (UNESCO Intangible Cultural Heritage)', 'Baul Mystical Ektara Folk Music', 'Rabindra Sangeet & Bengali Literature', 'Kantha Embroidery & Terracotta Temples', 'Rasgulla, Sandesh & Shorshe Ilish'],
+      danceId: 'chhau',
+      rhythmBols: 'Dhaa! Dheen! Taa! Ektara! Baul! Anandam!',
+      unityRole: 'The intellectual and literary renaissance beacon that gave India its national anthem and universal philosophy of human unity.',
+      explored: false,
+      nx: 0.66,
+      ny: 0.38,
+      color: '#ec4899'
+    },
+    {
+      id: 'madhya_pradesh',
+      name: 'Madhya Pradesh',
+      capital: 'Bhopal',
+      region: 'central',
+      regionTitle: 'Central India',
+      citiesCount: 20,
+      districtsCount: 55,
+      majorCities: ['Indore', 'Bhopal', 'Gwalior', 'Jabalpur', 'Ujjain', 'Sagar', 'Rewa'],
+      resources: ['The Geographical Heartland of India', 'Diamond Mines (Panna) & Copper Ore', 'Narmada & Tapti River Basins', 'Central Forest Belt & National Tiger Reserves'],
+      specialties: ['Sanchi Buddhist Stupa & Khajuraho Sculptures (UNESCO)', 'Gwalior Gharana Classical Music Heritage', 'Gond & Bhil Indigenous Tribal Painting', 'Chanderi & Maheshwari Handloom Weaving', 'Poha-Jalebi & Dal Bafla'],
+      danceId: 'kathak',
+      rhythmBols: 'Dhaa! Ghay! Naa! Central Unity! Dheem!',
+      unityRole: 'The central geographical and spiritual nexus where North, South, East, and West blend into one harmonious cultural melting pot.',
+      explored: false,
+      nx: 0.48,
+      ny: 0.50,
+      color: '#f59e0b'
+    },
+    {
+      id: 'jammu_kashmir',
+      name: 'Jammu & Kashmir / Ladakh',
+      capital: 'Srinagar / Jammu',
+      region: 'north',
+      regionTitle: 'Far North India',
+      citiesCount: 10,
+      districtsCount: 22,
+      majorCities: ['Srinagar', 'Jammu', 'Anantnag', 'Baramulla', 'Leh', 'Kargil', 'Udhampur'],
+      resources: ['Himalayan Glaciers & Freshwater Rivers', 'Pampore Saffron Cultivation', 'Pashmina & Kashmiri Mulberry Silk', 'Walnut, Apple & Saffron Orchards'],
+      specialties: ['Rouf Folk Dance & Santoor Instrument', 'Sufiana Kalam & Ladakhi Monastic Music', 'Shikaras & Houseboats on Dal Lake', 'Papier-mâché Crafts & Kashmiri Carpets', 'Kahwa Tea & Wazwan Feast'],
+      danceId: 'kathak',
+      rhythmBols: 'Dhum-Dhum-Taa! Rouf Wave! Santoor!',
+      unityRole: 'The crowning Himalayan summit of India symbolizing meditative serenity, musical subtlety, and enduring resilience.',
+      explored: false,
+      nx: 0.35,
+      ny: 0.12,
+      color: '#06b6d4'
+    }
   ]
 };
 
@@ -1202,96 +1546,18 @@ function setupSimulatorLogic(dance) {
 }
 
 // ==========================================================
-// PHASE 3: INDIA DIVERSITY & UNITY MAP ("MANY IN THE ONE")
+// PHASE 3: PAN-INDIA GEOSPATIAL & CULTURAL MATRIX
 // ==========================================================
+
 function renderPhase3() {
-  const btnLayer1 = document.getElementById('btnToggleLayer1');
-  const btnLayer2 = document.getElementById('btnToggleLayer2');
-  const btnLayer3 = document.getElementById('btnToggleLayer3');
-  const cardLayer1 = document.getElementById('cardLayer1');
-  const cardLayer2 = document.getElementById('cardLayer2');
-  const cardLayer3 = document.getElementById('cardLayer3');
-  const tempoSlider = document.getElementById('tempoSlider');
-  const tempoVal = document.getElementById('tempoDisplayVal');
-  const btnFreeze = document.getElementById('btnSynthesisFreeze');
-
-  function updateLayerUI() {
-    const l1 = window.RhythmEngine.activeLayers.layer1;
-    const l2 = window.RhythmEngine.activeLayers.layer2;
-    const l3 = window.RhythmEngine.activeLayers.layer3;
-
-    if (btnLayer1) {
-      btnLayer1.classList.toggle('active', l1);
-      btnLayer1.innerHTML = l1 ? `${DanceVectors.icon('check')} Layer 1 Active` : `${DanceVectors.icon('play')} Activate Layer 1`;
-    }
-    if (cardLayer1) cardLayer1.classList.toggle('active', l1);
-
-    if (btnLayer2) {
-      btnLayer2.classList.toggle('active', l2);
-      btnLayer2.innerHTML = l2 ? `${DanceVectors.icon('check')} Layer 2 Active` : `${DanceVectors.icon('play')} Activate Layer 2`;
-    }
-    if (cardLayer2) cardLayer2.classList.toggle('active', l2);
-
-    if (btnLayer3) {
-      btnLayer3.classList.toggle('active', l3);
-      btnLayer3.innerHTML = l3 ? `${DanceVectors.icon('check')} Layer 3 Active` : `${DanceVectors.icon('play')} Activate Layer 3`;
-    }
-    if (cardLayer3) cardLayer3.classList.toggle('active', l3);
-
-    const statusBadge = document.getElementById('symphonyStatusBadge');
-    if (statusBadge) {
-      if (l1 && l2 && l3) {
-        statusBadge.textContent = 'Status: FULL PAN-INDIA UNITY IN DIVERSITY HARMONY ("MANY IN THE ONE")';
-        statusBadge.style.color = '#fde047';
-      } else if (l1 || l2 || l3) {
-        statusBadge.textContent = 'Status: Harmonizing Regional Traditions Across India...';
-        statusBadge.style.color = '#38bdf8';
-      } else {
-        statusBadge.textContent = 'Status: Standby • Activate Regional Layers Below';
-        statusBadge.style.color = '#94a3b8';
-      }
-    }
-  }
-
-  if (btnLayer1) {
-    btnLayer1.addEventListener('click', () => {
-      window.RhythmEngine.activeLayers.layer1 = !window.RhythmEngine.activeLayers.layer1;
-      if (!window.RhythmEngine.isPlaying) window.RhythmEngine.startFusionEngine();
-      updateLayerUI();
-      notifyCoachAction('layer1');
-    });
-  }
-
-  if (btnLayer2) {
-    btnLayer2.addEventListener('click', () => {
-      window.RhythmEngine.activeLayers.layer2 = !window.RhythmEngine.activeLayers.layer2;
-      if (!window.RhythmEngine.isPlaying) window.RhythmEngine.startFusionEngine();
-      updateLayerUI();
-      notifyCoachAction('layer2');
-    });
-  }
-
-  if (btnLayer3) {
-    btnLayer3.addEventListener('click', () => {
-      window.RhythmEngine.activeLayers.layer3 = !window.RhythmEngine.activeLayers.layer3;
-      if (!window.RhythmEngine.isPlaying) window.RhythmEngine.startFusionEngine();
-      updateLayerUI();
-      notifyCoachAction('layer3');
-    });
-  }
-
-  if (tempoSlider) {
-    tempoSlider.addEventListener('input', (e) => {
-      const bpm = parseInt(e.target.value);
-      window.RhythmEngine.setBpm(bpm);
-      if (tempoVal) tempoVal.textContent = `${bpm} BPM`;
-      notifyCoachAction('tempo');
-    });
-  }
+  renderStateQuickChips();
+  renderActiveStateDossier();
+  updateSimExploredCounter();
 
   // Synthesis Freeze Protocol
+  const btnFreeze = document.getElementById('btnSynthesisFreeze');
   if (btnFreeze) {
-    btnFreeze.addEventListener('click', () => {
+    btnFreeze.onclick = () => {
       const flash = document.getElementById('freezeFlashOverlay');
       if (flash) {
         flash.classList.add('active');
@@ -1302,13 +1568,326 @@ function renderPhase3() {
         openFusionCelebrationModal();
         notifyCoachAction('freeze');
       });
-      updateLayerUI();
-    });
+    };
   }
 }
 
+/**
+ * Renders Quick State Selection Chips in the bottom bar of the map
+ */
+function renderStateQuickChips() {
+  const container = document.getElementById('mapStateQuickBar');
+  if (!container) return;
+
+  const filter = SimState.selectedRegionFilter || 'all';
+  const filteredStates = filter === 'all' 
+    ? SimState.indianStates 
+    : SimState.indianStates.filter(s => s.region === filter);
+
+  container.innerHTML = filteredStates.map(st => `
+    <button class="map-state-chip ${st.id === SimState.activeStateId ? 'active' : ''}" onclick="selectSimState('${st.id}')">
+      ${st.name} ${st.explored ? '✓' : ''}
+    </button>
+  `).join('');
+}
+
+/**
+ * Renders the full Cultural & Economic Dossier for the active state
+ */
+function renderActiveStateDossier() {
+  const container = document.getElementById('stateDossierCard');
+  if (!container) return;
+
+  const state = SimState.indianStates.find(s => s.id === SimState.activeStateId) || SimState.indianStates[0];
+  if (!state) return;
+
+  container.innerHTML = `
+    <div class="dossier-header-bar">
+      <div class="dossier-title-area">
+        <h3>${state.name}</h3>
+        <div class="dossier-sub-geo">
+          📍 Capital: <strong>${state.capital}</strong> • ${state.regionTitle}
+        </div>
+      </div>
+      <span class="dossier-badge-pill" style="background: ${state.color}22; border: 1px solid ${state.color}; color: ${state.color};">
+        ${state.regionTitle}
+      </span>
+    </div>
+
+    <!-- Metrics: Cities, Districts, Resources -->
+    <div class="dossier-metrics-grid">
+      <div class="dossier-metric-box">
+        <div class="metric-label">🏙️ Urban Centers</div>
+        <div class="metric-value">${state.citiesCount} Major Cities</div>
+        <div class="metric-sub">${state.districtsCount} Administrative Districts (${state.majorCities.slice(0, 4).join(', ')}...)</div>
+      </div>
+
+      <div class="dossier-metric-box">
+        <div class="metric-label">🌾 Strategic Resources</div>
+        <div class="metric-value">${state.resources[0]}</div>
+        <div class="metric-sub">${state.resources.slice(1).join(' • ')}</div>
+      </div>
+    </div>
+
+    <!-- Cultural Specialties -->
+    <div class="dossier-list-box">
+      <h5>🎭 Cultural Heritage & Specialties</h5>
+      <div class="dossier-tags-wrap">
+        ${state.specialties.map(spec => `<span class="dossier-tag-pill">${spec}</span>`).join('')}
+      </div>
+    </div>
+
+    <!-- Traditional Rhythm Signature -->
+    <div class="dossier-list-box" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem;">
+      <div>
+        <h5 style="margin-bottom: 0.25rem;">🥁 Regional Rhythmic Signature</h5>
+        <span style="font-family: 'Space Grotesk', sans-serif; font-size: 0.82rem; color: #fde047; font-weight: 700;">
+          "${state.rhythmBols}"
+        </span>
+      </div>
+      <button class="btn-play-state-rhythm" onclick="playStateRhythm('${state.id}')">
+        <svg class="svg-icon" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        Play Traditional Beat
+      </button>
+    </div>
+
+    <!-- Role in Unity in Diversity -->
+    <div class="dossier-unity-box">
+      <h5>🌐 Role in "Unity in Diversity" (Many in the One)</h5>
+      <p>${state.unityRole}</p>
+    </div>
+  `;
+}
+
+/**
+ * Updates Explored States Count and HUD
+ */
+function updateSimExploredCounter() {
+  const counterNum = document.getElementById('exploredCountNum');
+  if (counterNum) {
+    const explored = SimState.indianStates.filter(s => s.explored).length;
+    counterNum.textContent = explored;
+  }
+}
+
+/**
+ * Select a State in the Simulation
+ */
+function selectSimState(stateId, triggerVoice = true) {
+  const state = SimState.indianStates.find(s => s.id === stateId);
+  if (!state) return;
+
+  SimState.activeStateId = stateId;
+  state.explored = true;
+
+  renderStateQuickChips();
+  renderActiveStateDossier();
+  updateSimExploredCounter();
+
+  // If in Quest Mode, validate answer
+  if (SimState.simMode === 'quest' && SimState.aiQuest.active) {
+    checkQuestAnswer(stateId);
+  } else if (triggerVoice && !SimState.voiceMuted) {
+    // Announce state in Explorer Mode
+    const speechText = `Welcome to ${state.name}. Located in ${state.regionTitle}, its capital is ${state.capital}. It features ${state.citiesCount} major cities, and key resources such as ${state.resources[0]}. Cultural specialty includes ${state.specialties[0]}.`;
+    updateAISpeechBubble(`"Inspecting ${state.name}: ${state.resources[0]}. Cultural highlight: ${state.specialties[0]}."`);
+    window.RhythmEngine.speakVoiceAssistant(speechText, onVoiceStart, onVoiceEnd);
+  }
+}
+
+/**
+ * Filter States by Region
+ */
+function filterSimRegion(region) {
+  SimState.selectedRegionFilter = region;
+  
+  const pills = document.querySelectorAll('.sim-filter-pill');
+  pills.forEach(p => p.classList.remove('active'));
+  
+  const clickedPill = Array.from(pills).find(p => p.getAttribute('onclick')?.includes(region));
+  if (clickedPill) clickedPill.classList.add('active');
+
+  renderStateQuickChips();
+}
+
+/**
+ * Switch Simulation Mode: Explore vs Quest
+ */
+function setSimMode(mode) {
+  SimState.simMode = mode;
+  
+  const btnExplore = document.getElementById('btnModeExplore');
+  const btnQuest = document.getElementById('btnModeQuest');
+  const liveStatus = document.getElementById('mapLiveStatusText');
+
+  if (btnExplore) btnExplore.classList.toggle('active', mode === 'explore');
+  if (btnQuest) btnQuest.classList.toggle('active', mode === 'quest');
+
+  if (mode === 'quest') {
+    SimState.aiQuest.active = true;
+    if (liveStatus) liveStatus.textContent = '🎯 AI Cultural Discovery Quest Active • Solve Clues on Map';
+    startOrNextAIQuest();
+  } else {
+    SimState.aiQuest.active = false;
+    if (liveStatus) liveStatus.textContent = '🗺️ State Explorer Mode • Click any State to Inspect Dossier';
+    updateAISpeechBubble('"Explorer mode active. Click any state across India to inspect its dossier."');
+    window.RhythmEngine.stopVoiceAssistant();
+    onVoiceEnd();
+  }
+}
+
+/**
+ * AI Voice Assistant: Start or Give Next Discovery Quest Clue
+ */
+function startOrNextAIQuest() {
+  SimState.simMode = 'quest';
+  SimState.aiQuest.active = true;
+
+  const btnExplore = document.getElementById('btnModeExplore');
+  const btnQuest = document.getElementById('btnModeQuest');
+  if (btnExplore) btnExplore.classList.remove('active');
+  if (btnQuest) btnQuest.classList.add('active');
+
+  const qList = SimState.aiQuest.quests;
+  const currentIdx = SimState.aiQuest.currentQuestIndex % qList.length;
+  const quest = qList[currentIdx];
+
+  const speechText = `Quest ${currentIdx + 1}: ${quest.title}. ${quest.clue} Locate and click this state on the map!`;
+  updateAISpeechBubble(`"🎯 Quest ${currentIdx + 1}: ${quest.clue}"`);
+  
+  window.RhythmEngine.speakVoiceAssistant(speechText, onVoiceStart, onVoiceEnd);
+}
+
+/**
+ * Check Student's Map Click in Quest Mode
+ */
+function checkQuestAnswer(clickedStateId) {
+  const qList = SimState.aiQuest.quests;
+  const currentIdx = SimState.aiQuest.currentQuestIndex % qList.length;
+  const currentQuest = qList[currentIdx];
+
+  if (clickedStateId === currentQuest.targetStateId) {
+    // Correct Answer!
+    SimState.aiQuest.solvedCount++;
+    SimState.aiQuest.currentQuestIndex++;
+    SimState.unityXP += currentQuest.rewardXP;
+    renderMasterHUD();
+    renderScorecard();
+
+    const targetState = SimState.indianStates.find(s => s.id === clickedStateId);
+    const praiseText = `Brilliant navigation! You correctly identified ${targetState.name}! Plus 100 Class Unity XP unlocked!`;
+    updateAISpeechBubble(`"✨ Correct! You unlocked ${targetState.name}! (+100 XP). Click 'Next AI Quest Clue' for your next challenge!"`);
+    
+    // Play celebratory beat and voice praise
+    playStateRhythm(clickedStateId);
+    window.RhythmEngine.speakVoiceAssistant(praiseText, onVoiceStart, onVoiceEnd);
+  } else {
+    // Incorrect guess
+    const clickedState = SimState.indianStates.find(s => s.id === clickedStateId);
+    const hintText = `You selected ${clickedState.name}. That is in ${clickedState.regionTitle}. Keep searching for: ${currentQuest.clue}`;
+    updateAISpeechBubble(`"❌ That's ${clickedState.name}. Hint: ${currentQuest.clue}"`);
+    window.RhythmEngine.speakVoiceAssistant(hintText, onVoiceStart, onVoiceEnd);
+  }
+}
+
+/**
+ * Voice Assistant: Read Current State Dossier Aloud
+ */
+function speakCurrentStateDossier() {
+  const state = SimState.indianStates.find(s => s.id === SimState.activeStateId) || SimState.indianStates[0];
+  if (!state) return;
+
+  const speechText = `Dossier for ${state.name}, capital ${state.capital}. Located in ${state.regionTitle}, it features ${state.citiesCount} major cities including ${state.majorCities.slice(0, 3).join(', ')}. Key resources include ${state.resources.join(', ')}. Cultural specialties feature ${state.specialties.slice(0, 3).join(', ')}. In Indian unity, ${state.unityRole}`;
+  
+  updateAISpeechBubble(`"Reading ${state.name} dossier aloud: Capital ${state.capital}, ${state.citiesCount} cities, rich in ${state.resources[0]}."`);
+  window.RhythmEngine.speakVoiceAssistant(speechText, onVoiceStart, onVoiceEnd);
+}
+
+/**
+ * Toggle AI Voice Assistant Mute
+ */
+function toggleVoiceMute() {
+  SimState.voiceMuted = !SimState.voiceMuted;
+  const icon = document.getElementById('voiceMuteIcon');
+  const btn = document.getElementById('btnVoiceMuteToggle');
+  
+  if (SimState.voiceMuted) {
+    window.RhythmEngine.stopVoiceAssistant();
+    onVoiceEnd();
+    if (btn) btn.style.color = '#ef4444';
+    updateAISpeechBubble('"Voice assistant muted."');
+  } else {
+    if (btn) btn.style.color = '#94a3b8';
+    updateAISpeechBubble('"Voice assistant unmuted and active."');
+    window.RhythmEngine.speakVoiceAssistant('Voice assistant online.', onVoiceStart, onVoiceEnd);
+  }
+}
+
+/**
+ * Play Traditional Rhythmic Pattern for State
+ */
+function playStateRhythm(stateId) {
+  const state = SimState.indianStates.find(s => s.id === stateId);
+  if (!state) return;
+
+  window.RhythmEngine.init();
+  window.RhythmEngine.playSoloPracticeBeat(state.danceId || 'kathak');
+}
+
+/**
+ * Voice Speech Animation Callbacks
+ */
+function onVoiceStart() {
+  const eq = document.getElementById('voiceEqualizer');
+  const status = document.getElementById('aiVoiceStatus');
+  if (eq) eq.classList.add('speaking');
+  if (status) status.textContent = 'Voice Synthesis: Speaking...';
+}
+
+function onVoiceEnd() {
+  const eq = document.getElementById('voiceEqualizer');
+  const status = document.getElementById('aiVoiceStatus');
+  if (eq) eq.classList.remove('speaking');
+  if (status) status.textContent = 'Voice Synthesis: Online • Ready';
+}
+
+function updateAISpeechBubble(text) {
+  const el = document.getElementById('aiSpeechText');
+  if (el) el.textContent = text;
+}
+
+/**
+ * Export Pan-India Field Research Dossier
+ */
+function exportPanIndiaLedger() {
+  const exploredStates = SimState.indianStates.filter(s => s.explored);
+  let report = `# PAN-INDIA DIVERSITY & UNITY FIELD DOSSIER\n`;
+  report += `Generated on: ${new Date().toLocaleDateString()}\n`;
+  report += `Total States Explored: ${exploredStates.length} / ${SimState.indianStates.length}\n`;
+  report += `Total Class Unity XP: ${SimState.unityXP}\n\n`;
+  report += `==========================================================\n\n`;
+
+  SimState.indianStates.forEach(s => {
+    report += `### [${s.explored ? 'EXPLORED' : 'PENDING'}] ${s.name} (${s.regionTitle})\n`;
+    report += `- Capital: ${s.capital}\n`;
+    report += `- Major Cities (${s.citiesCount}): ${s.majorCities.join(', ')}\n`;
+    report += `- Economic & Natural Resources: ${s.resources.join('; ')}\n`;
+    report += `- Cultural Heritage & Specialties: ${s.specialties.join('; ')}\n`;
+    report += `- Rhythmic Signature: "${s.rhythmBols}"\n`;
+    report += `- Role in Unity in Diversity: ${s.unityRole}\n\n`;
+  });
+
+  const blob = new Blob([report], { type: 'text/markdown;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `Pan_India_Diversity_Dossier_${Date.now()}.md`;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
 // ==========================================================
-// INTERACTIVE INDIA DIVERSITY & UNITY MAP VISUALIZER
+// INTERACTIVE INDIA DIVERSITY & UNITY CANVAS MAP
 // ==========================================================
 function initCanvasVisualizer() {
   const canvas = document.getElementById('symphonyCanvas');
@@ -1322,9 +1901,9 @@ function initCanvasVisualizer() {
   resize();
   window.addEventListener('resize', resize);
 
-  let angle = 0;
-  let hoveredNode = null;
+  let hoveredState = null;
   let mousePos = { x: -1, y: -1 };
+  let pulseAngle = 0;
 
   // Track mouse on canvas
   canvas.addEventListener('mousemove', (e) => {
@@ -1336,457 +1915,274 @@ function initCanvasVisualizer() {
   canvas.addEventListener('mouseleave', () => {
     mousePos.x = -1;
     mousePos.y = -1;
-    hoveredNode = null;
+    hoveredState = null;
   });
 
   canvas.addEventListener('click', () => {
-    if (hoveredNode) {
-      // If clicked on a dance node, trigger solo practice beat or preview
-      openVideoModal(hoveredNode.id);
+    if (hoveredState) {
+      selectSimState(hoveredState.id, true);
     }
   });
 
   // Flowing energy particles
   const particles = [];
-  for (let i = 0; i < 48; i++) {
+  for (let i = 0; i < 40; i++) {
     particles.push({
       progress: Math.random(),
-      speed: 0.003 + Math.random() * 0.006,
-      nodeIndex: Math.floor(Math.random() * 8),
+      speed: 0.003 + Math.random() * 0.005,
+      stateIndex: Math.floor(Math.random() * SimState.indianStates.length),
       size: Math.random() * 2.5 + 1.5,
       color: ['#06b6d4', '#f59e0b', '#ec4899', '#10b981', '#fde047'][Math.floor(Math.random() * 5)]
     });
   }
 
-  // Authentic geographic map nodes for India's 8 regional dances
-  const indiaMapNodes = [
-    {
-      id: 'bhangra',
-      name: 'Bhangra',
-      regionTitle: 'Punjab (North)',
-      nx: 0.33,
-      ny: 0.22,
-      layer: 3,
-      rhythm: 'Dhol Boom & Saap Claps',
-      unityNote: 'Dynamic high-energy vitality powering the northern pulse',
-      color: '#ec4899'
-    },
-    {
-      id: 'kathak',
-      name: 'Kathak',
-      regionTitle: 'UP / Rajasthan (North)',
-      nx: 0.44,
-      ny: 0.29,
-      layer: 2,
-      rhythm: 'Teental 16-Beat Tatkar',
-      unityNote: 'Storytelling grace & pirouette precision of northern courts',
-      color: '#f59e0b'
-    },
-    {
-      id: 'garba',
-      name: 'Garba',
-      regionTitle: 'Gujarat (West)',
-      nx: 0.25,
-      ny: 0.44,
-      layer: 1,
-      rhythm: '3-Count Clap Loop (Taali)',
-      unityNote: 'Concentric community circle celebrating shared harmony',
-      color: '#06b6d4'
-    },
-    {
-      id: 'lavani',
-      name: 'Lavani',
-      regionTitle: 'Maharashtra (West/Deccan)',
-      nx: 0.35,
-      ny: 0.58,
-      layer: 3,
-      rhythm: 'Fast Dholki 6/8 Shuffle',
-      unityNote: 'Expressive rhythm poetry & theatrical vitality of Maharashtra',
-      color: '#ec4899'
-    },
-    {
-      id: 'bharatanatyam',
-      name: 'Bharatanatyam',
-      regionTitle: 'Tamil Nadu (South)',
-      nx: 0.46,
-      ny: 0.82,
-      layer: 2,
-      rhythm: 'Adi Tala (Ta-Dhi-Thom-Nam)',
-      unityNote: 'Sacred temple geometric alignment & Natyashastra balance',
-      color: '#f59e0b'
-    },
-    {
-      id: 'chhau',
-      name: 'Chhau',
-      regionTitle: 'Jharkhand/Odisha (East)',
-      nx: 0.65,
-      ny: 0.47,
-      layer: 3,
-      rhythm: 'Nagara War Drum & Shehnai',
-      unityNote: 'Martial strength & acrobatic mask heritage of eastern hills',
-      color: '#ec4899'
-    },
-    {
-      id: 'bihu',
-      name: 'Bihu',
-      regionTitle: 'Assam (Northeast)',
-      nx: 0.81,
-      ny: 0.30,
-      layer: 2,
-      rhythm: 'Dhol-Pepa Spring Syncopation',
-      unityNote: 'Joyous spring harvest celebration along Brahmaputra valley',
-      color: '#f59e0b'
-    },
-    {
-      id: 'cheraw',
-      name: 'Cheraw',
-      regionTitle: 'Mizoram (Northeast)',
-      nx: 0.84,
-      ny: 0.43,
-      layer: 1,
-      rhythm: '4/4 Sliding Bamboo Clack',
-      unityNote: 'Precision bamboo matrix requiring total mutual trust',
-      color: '#06b6d4'
-    }
-  ];
-
-  function drawIndiaOutline(w, h, allActive) {
-    // Map bounds scaling
+  function drawIndiaOutline(w, h) {
     const ox = w * 0.12;
     const oy = h * 0.05;
     const mw = w * 0.76;
     const mh = h * 0.88;
 
     ctx.save();
+    ctx.shadowColor = 'rgba(0, 0, 0, 0.7)';
+    ctx.shadowBlur = 18;
 
-    // Map shadow
-    ctx.shadowColor = allActive ? 'rgba(245, 158, 11, 0.4)' : 'rgba(0, 0, 0, 0.6)';
-    ctx.shadowBlur = allActive ? 25 : 15;
-
-    // Draw stylized India Geographic Polygon / Contour
+    // Stylized India Geographic Contour
     ctx.beginPath();
-    // Kashmir Crown
     ctx.moveTo(ox + mw * 0.34, oy + mh * 0.02);
     ctx.quadraticCurveTo(ox + mw * 0.40, oy + mh * 0.01, ox + mw * 0.44, oy + mh * 0.06);
     ctx.lineTo(ox + mw * 0.46, oy + mh * 0.14);
-    // Himachal / Uttarakhand / Nepal border
     ctx.lineTo(ox + mw * 0.52, oy + mh * 0.20);
     ctx.lineTo(ox + mw * 0.60, oy + mh * 0.25);
-    // Chicken Neck corridor to Northeast
     ctx.lineTo(ox + mw * 0.68, oy + mh * 0.26);
     ctx.lineTo(ox + mw * 0.74, oy + mh * 0.20);
-    // Arunachal / Assam / Nagaland / Mizoram
     ctx.quadraticCurveTo(ox + mw * 0.88, oy + mh * 0.21, ox + mw * 0.89, oy + mh * 0.28);
     ctx.lineTo(ox + mw * 0.87, oy + mh * 0.46);
     ctx.lineTo(ox + mw * 0.80, oy + mh * 0.45);
     ctx.lineTo(ox + mw * 0.74, oy + mh * 0.36);
-    // Bay of Bengal / Bengal delta / Odisha
     ctx.lineTo(ox + mw * 0.68, oy + mh * 0.40);
     ctx.quadraticCurveTo(ox + mw * 0.66, oy + mh * 0.52, ox + mw * 0.60, oy + mh * 0.62);
-    // Coromandel Coast to Kanyakumari
     ctx.lineTo(ox + mw * 0.52, oy + mh * 0.82);
-    ctx.lineTo(ox + mw * 0.46, oy + mh * 0.96); // Kanyakumari Cape
-    // Malabar Coast / Kerala / Goa / Konkan
+    ctx.lineTo(ox + mw * 0.46, oy + mh * 0.96);
     ctx.lineTo(ox + mw * 0.42, oy + mh * 0.85);
     ctx.quadraticCurveTo(ox + mw * 0.34, oy + mh * 0.68, ox + mw * 0.31, oy + mh * 0.58);
-    // Gujarat / Kathiawar Peninsula / Rann of Kutch
     ctx.lineTo(ox + mw * 0.23, oy + mh * 0.50);
     ctx.quadraticCurveTo(ox + mw * 0.16, oy + mh * 0.47, ox + mw * 0.18, oy + mh * 0.39);
     ctx.lineTo(ox + mw * 0.26, oy + mh * 0.36);
-    // Rajasthan border to Punjab / Kashmir
     ctx.lineTo(ox + mw * 0.28, oy + mh * 0.24);
     ctx.lineTo(ox + mw * 0.31, oy + mh * 0.12);
     ctx.closePath();
 
-    // Map background fill gradient
     const mapGrad = ctx.createRadialGradient(ox + mw * 0.50, oy + mh * 0.50, 20, ox + mw * 0.50, oy + mh * 0.50, mw * 0.6);
-    if (allActive) {
-      mapGrad.addColorStop(0, 'rgba(245, 158, 11, 0.22)');
-      mapGrad.addColorStop(0.5, 'rgba(16, 185, 129, 0.15)');
-      mapGrad.addColorStop(1, 'rgba(6, 182, 212, 0.10)');
-    } else {
-      mapGrad.addColorStop(0, 'rgba(30, 41, 79, 0.35)');
-      mapGrad.addColorStop(0.7, 'rgba(15, 23, 42, 0.45)');
-      mapGrad.addColorStop(1, 'rgba(4, 5, 13, 0.60)');
-    }
+    mapGrad.addColorStop(0, 'rgba(24, 34, 72, 0.45)');
+    mapGrad.addColorStop(0.7, 'rgba(12, 18, 42, 0.55)');
+    mapGrad.addColorStop(1, 'rgba(4, 6, 16, 0.75)');
 
     ctx.fillStyle = mapGrad;
     ctx.fill();
 
-    // Map border contour stroke
-    ctx.lineWidth = allActive ? 2.5 : 1.5;
-    ctx.strokeStyle = allActive ? 'rgba(253, 224, 71, 0.7)' : 'rgba(148, 163, 184, 0.35)';
+    ctx.lineWidth = 1.8;
+    ctx.strokeStyle = 'rgba(6, 182, 212, 0.4)';
     ctx.stroke();
 
-    // Draw Regional Boundary Curves / Meridians inside India
+    // Internal Meridians
     ctx.lineWidth = 1;
-    ctx.strokeStyle = 'rgba(255, 255, 255, 0.06)';
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.05)';
     ctx.setLineDash([4, 6]);
 
-    // North-South cultural meridian
     ctx.beginPath();
     ctx.moveTo(ox + mw * 0.42, oy + mh * 0.10);
     ctx.quadraticCurveTo(ox + mw * 0.48, oy + mh * 0.48, ox + mw * 0.46, oy + mh * 0.94);
     ctx.stroke();
 
-    // West-East cultural parallel
     ctx.beginPath();
-    ctx.moveTo(ox + mw * 0.20, oy + mh * 0.43);
-    ctx.quadraticCurveTo(ox + mw * 0.48, oy + mh * 0.48, ox + mw * 0.85, oy + mh * 0.35);
+    ctx.moveTo(ox + mw * 0.20, oy + mh * 0.44);
+    ctx.quadraticCurveTo(ox + mw * 0.50, oy + mh * 0.46, ox + mw * 0.86, oy + mh * 0.32);
     ctx.stroke();
 
     ctx.setLineDash([]);
     ctx.restore();
   }
 
-  function draw() {
-    ctx.fillStyle = 'rgba(4, 6, 15, 0.35)';
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
+  function drawUnityCenterHub(cx, cy) {
+    ctx.save();
+    // Glowing central core
+    const hubGrad = ctx.createRadialGradient(cx, cy, 2, cx, cy, 32);
+    hubGrad.addColorStop(0, 'rgba(253, 224, 71, 0.9)');
+    hubGrad.addColorStop(0.5, 'rgba(245, 158, 11, 0.4)');
+    hubGrad.addColorStop(1, 'rgba(219, 39, 119, 0.0)');
 
+    ctx.fillStyle = hubGrad;
+    ctx.beginPath();
+    ctx.arc(cx, cy, 32, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Ashoka / Unity Chakra Ring
+    ctx.strokeStyle = 'rgba(253, 224, 71, 0.75)';
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    ctx.arc(cx, cy, 18, 0, Math.PI * 2);
+    ctx.stroke();
+
+    // Rotating 24-spoke emblem
+    ctx.save();
+    ctx.translate(cx, cy);
+    ctx.rotate(pulseAngle * 0.5);
+    for (let s = 0; s < 12; s++) {
+      ctx.beginPath();
+      ctx.moveTo(0, 0);
+      const spokeAngle = (s * Math.PI) / 6;
+      ctx.lineTo(Math.cos(spokeAngle) * 16, Math.sin(spokeAngle) * 16);
+      ctx.strokeStyle = 'rgba(253, 224, 71, 0.35)';
+      ctx.stroke();
+    }
+    ctx.restore();
+
+    ctx.restore();
+  }
+
+  function renderLoop() {
     const w = canvas.width;
     const h = canvas.height;
-    const l1 = window.RhythmEngine.activeLayers.layer1;
-    const l2 = window.RhythmEngine.activeLayers.layer2;
-    const l3 = window.RhythmEngine.activeLayers.layer3;
-    const allActive = l1 && l2 && l3;
+    ctx.clearRect(0, 0, w, h);
 
-    // Draw Map Silhouette & Cultural Grid
-    drawIndiaOutline(w, h, allActive);
+    pulseAngle += 0.025;
 
-    // Central Unity Lotus & Ashoka Core (Central India - Madhya Pradesh / Vidisha)
-    const coreX = w * 0.48;
-    const coreY = h * 0.50;
+    // Draw India Map Base
+    drawIndiaOutline(w, h);
 
-    // Draw Harmonic Energy Rays from Active Regional Nodes to Central Unity Core
-    hoveredNode = null;
+    const ox = w * 0.12;
+    const oy = h * 0.05;
+    const mw = w * 0.76;
+    const mh = h * 0.88;
+    const centerHubX = ox + mw * 0.48;
+    const centerHubY = oy + mh * 0.50;
 
-    indiaMapNodes.forEach((node, idx) => {
-      const px = w * node.nx;
-      const py = h * node.ny;
+    // Draw Central Unity Hub in Madhya Pradesh
+    drawUnityCenterHub(centerHubX, centerHubY);
 
-      const isLayerActive = (node.layer === 1 && l1) || (node.layer === 2 && l2) || (node.layer === 3 && l3);
+    hoveredState = null;
 
-      // Check hover
-      const dist = Math.hypot(mousePos.x - px, mousePos.y - py);
-      if (dist < 22) {
-        hoveredNode = node;
-      }
+    // Filter by selected region
+    const activeRegion = SimState.selectedRegionFilter || 'all';
 
-      // Draw Energy Ray to Center when layer is active
-      if (isLayerActive) {
-        ctx.save();
-        ctx.beginPath();
-        // Curving bezier ray
-        const midX = (px + coreX) / 2 + Math.sin(angle * 3 + idx) * 12;
-        const midY = (py + coreY) / 2 + Math.cos(angle * 3 + idx) * 12;
-        ctx.moveTo(px, py);
-        ctx.quadraticCurveTo(midX, midY, coreX, coreY);
+    // Draw connecting energy lines to Center
+    SimState.indianStates.forEach((state) => {
+      const sx = ox + mw * state.nx;
+      const sy = oy + mh * state.ny;
 
-        ctx.strokeStyle = node.color;
-        ctx.lineWidth = allActive ? 3.0 : 2.0;
-        ctx.globalAlpha = 0.55 + Math.sin(angle * 4 + idx) * 0.25;
-        ctx.shadowColor = node.color;
-        ctx.shadowBlur = 12;
-        ctx.stroke();
-        ctx.restore();
-      }
-
-      // Constellation connection lines between neighboring regional hubs
-      const nextNode = indiaMapNodes[(idx + 1) % indiaMapNodes.length];
-      const npx = w * nextNode.nx;
-      const npy = h * nextNode.ny;
+      ctx.save();
+      ctx.strokeStyle = state.explored ? 'rgba(245, 158, 11, 0.25)' : 'rgba(255, 255, 255, 0.08)';
+      ctx.lineWidth = state.explored ? 1.5 : 0.8;
+      ctx.setLineDash([3, 5]);
       ctx.beginPath();
-      ctx.moveTo(px, py);
-      ctx.lineTo(npx, npy);
-      ctx.strokeStyle = 'rgba(255, 255, 255, 0.05)';
-      ctx.lineWidth = 1;
+      ctx.moveTo(sx, sy);
+      ctx.lineTo(centerHubX, centerHubY);
       ctx.stroke();
+      ctx.restore();
     });
 
-    // Draw Flowing Particles along rays to the Center
-    particles.forEach(p => {
-      const node = indiaMapNodes[p.nodeIndex];
-      const isLayerActive = (node.layer === 1 && l1) || (node.layer === 2 && l2) || (node.layer === 3 && l3);
-      if (isLayerActive || allActive) {
-        p.progress += p.speed;
-        if (p.progress > 1) p.progress = 0;
+    // Draw dynamic energy particles
+    particles.forEach((p) => {
+      p.progress += p.speed;
+      if (p.progress >= 1) p.progress = 0;
 
-        const startX = w * node.nx;
-        const startY = h * node.ny;
-        const curX = startX + (coreX - startX) * p.progress;
-        const curY = startY + (coreY - startY) * p.progress;
+      const state = SimState.indianStates[p.stateIndex];
+      const sx = ox + mw * state.nx;
+      const sy = oy + mh * state.ny;
 
-        ctx.beginPath();
-        ctx.arc(curX, curY, p.size, 0, Math.PI * 2);
-        ctx.fillStyle = node.color;
-        ctx.shadowColor = node.color;
-        ctx.shadowBlur = 8;
-        ctx.fill();
-      }
+      const px = sx + (centerHubX - sx) * p.progress;
+      const py = sy + (centerHubY - sy) * p.progress;
+
+      ctx.save();
+      ctx.fillStyle = p.color;
+      ctx.shadowColor = p.color;
+      ctx.shadowBlur = 8;
+      ctx.beginPath();
+      ctx.arc(px, py, p.size, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
     });
 
-    // Draw Central Unity Core (Lotus & Ashoka Emblem)
-    ctx.save();
-    const pulse = Math.sin(angle * 3) * 6;
-    const coreRadius = allActive ? 32 + pulse : 24;
+    // Draw State Nodes & Interactive Pins
+    SimState.indianStates.forEach((state) => {
+      const sx = ox + mw * state.nx;
+      const sy = oy + mh * state.ny;
 
-    // Glowing Aura Rings around Central India
-    ctx.beginPath();
-    ctx.arc(coreX, coreY, coreRadius + (allActive ? 18 : 8), 0, Math.PI * 2);
-    ctx.strokeStyle = allActive ? 'rgba(253, 224, 71, 0.4)' : 'rgba(255, 255, 255, 0.1)';
-    ctx.lineWidth = 2;
-    ctx.setLineDash([4, 4]);
-    ctx.stroke();
-    ctx.setLineDash([]);
+      const isMatchingRegion = activeRegion === 'all' || state.region === activeRegion;
+      const isActiveState = state.id === SimState.activeStateId;
 
-    // Core Solid Circle
-    ctx.beginPath();
-    ctx.arc(coreX, coreY, coreRadius, 0, Math.PI * 2);
-    ctx.fillStyle = allActive ? '#fde047' : (l1 || l2 || l3) ? 'rgba(56, 189, 248, 0.9)' : 'rgba(30, 41, 59, 0.85)';
-    ctx.shadowColor = allActive ? '#f59e0b' : '#38bdf8';
-    ctx.shadowBlur = allActive ? 30 : 15;
-    ctx.fill();
-    ctx.strokeStyle = '#fff';
-    ctx.lineWidth = 2.5;
-    ctx.stroke();
-
-    // Central 24-spoke Ashoka / Unity Ray Pattern
-    const spokes = 12;
-    for (let s = 0; s < spokes; s++) {
-      const sa = (s * (Math.PI * 2) / spokes) + angle * (allActive ? 1.5 : 0.5);
-      const sx1 = coreX + Math.cos(sa) * 4;
-      const sy1 = coreY + Math.sin(sa) * 4;
-      const sx2 = coreX + Math.cos(sa) * (coreRadius - 4);
-      const sy2 = coreY + Math.sin(sa) * (coreRadius - 4);
-      ctx.beginPath();
-      ctx.moveTo(sx1, sy1);
-      ctx.lineTo(sx2, sy2);
-      ctx.strokeStyle = allActive ? '#78350f' : '#ffffff';
-      ctx.lineWidth = 1.5;
-      ctx.stroke();
-    }
-
-    // Core Center Dot
-    ctx.beginPath();
-    ctx.arc(coreX, coreY, 5, 0, Math.PI * 2);
-    ctx.fillStyle = allActive ? '#b45309' : '#ffffff';
-    ctx.fill();
-
-    // Central Title Banner below core
-    ctx.fillStyle = allActive ? '#fde047' : '#94a3b8';
-    ctx.font = 'bold 11px "Space Grotesk", sans-serif';
-    ctx.textAlign = 'center';
-    ctx.shadowColor = 'rgba(0, 0, 0, 0.9)';
-    ctx.shadowBlur = 6;
-    ctx.fillText(allActive ? '★ UNITY IN DIVERSITY ★' : 'CENTRAL UNITY CORE', coreX, coreY + coreRadius + 16);
-    ctx.font = '9px "Space Grotesk", sans-serif';
-    ctx.fillStyle = '#cbd5e1';
-    ctx.fillText('"Many in the One"', coreX, coreY + coreRadius + 28);
-    ctx.restore();
-
-    // Draw 8 Regional Dance Pins & Markers
-    indiaMapNodes.forEach((node, idx) => {
-      const px = w * node.nx;
-      const py = h * node.ny;
-      const isLayerActive = (node.layer === 1 && l1) || (node.layer === 2 && l2) || (node.layer === 3 && l3);
-      const isHovered = (hoveredNode === node);
+      // Mouse Hover check (radius 22px)
+      const dist = Math.hypot(mousePos.x - sx, mousePos.y - sy);
+      const isHovered = dist < 22 && isMatchingRegion;
+      if (isHovered) hoveredState = state;
 
       ctx.save();
 
-      // Pulsing Ring for active layers
-      if (isLayerActive || isHovered) {
+      // Active / Explored Pulsing Ring
+      if (isActiveState || state.explored) {
+        const pulseR = 14 + Math.sin(pulseAngle + state.nx * 10) * 4;
+        ctx.strokeStyle = isActiveState ? '#fde047' : state.color;
+        ctx.lineWidth = isActiveState ? 2.5 : 1.5;
         ctx.beginPath();
-        const pRing = 14 + Math.sin(angle * 4 + idx) * 4;
-        ctx.arc(px, py, pRing, 0, Math.PI * 2);
-        ctx.strokeStyle = node.color;
-        ctx.lineWidth = 1.8;
-        ctx.globalAlpha = 0.7;
+        ctx.arc(sx, sy, pulseR, 0, Math.PI * 2);
         ctx.stroke();
       }
 
-      // Pin Base Circle
+      // State Node Core Circle
+      ctx.fillStyle = isActiveState ? '#fde047' : isHovered ? '#ffffff' : state.color;
+      ctx.shadowColor = state.color;
+      ctx.shadowBlur = isHovered ? 20 : isActiveState ? 16 : 8;
       ctx.beginPath();
-      ctx.arc(px, py, isHovered ? 13 : 10, 0, Math.PI * 2);
-      ctx.fillStyle = isLayerActive ? node.color : 'rgba(30, 41, 59, 0.9)';
-      ctx.shadowColor = node.color;
-      ctx.shadowBlur = isLayerActive ? 18 : 8;
-      ctx.fill();
-      ctx.strokeStyle = '#ffffff';
-      ctx.lineWidth = 2;
-      ctx.stroke();
-
-      // Pin Inner Dot / Layer Indicator
-      ctx.beginPath();
-      ctx.arc(px, py, isHovered ? 5 : 3.5, 0, Math.PI * 2);
-      ctx.fillStyle = isLayerActive ? '#ffffff' : node.color;
+      ctx.arc(sx, sy, isHovered ? 9 : 7, 0, Math.PI * 2);
       ctx.fill();
 
-      // Dance Name & State Badge
-      ctx.font = isHovered ? 'bold 11px "Space Grotesk", sans-serif' : '10px "Space Grotesk", sans-serif';
-      ctx.textAlign = px > coreX ? 'left' : 'right';
-      ctx.fillStyle = isLayerActive ? '#ffffff' : '#cbd5e1';
-      ctx.shadowColor = '#000000';
-      ctx.shadowBlur = 6;
-
-      const labelOffset = px > coreX ? 16 : -16;
-      ctx.fillText(node.name, px + labelOffset, py - 2);
-
-      ctx.font = '8.5px "Space Grotesk", sans-serif';
-      ctx.fillStyle = node.color;
-      ctx.fillText(node.regionTitle, px + labelOffset, py + 10);
+      // State Label
+      ctx.shadowBlur = 0;
+      ctx.font = `${isActiveState ? '700 11px' : '600 10px'} 'Space Grotesk', sans-serif`;
+      ctx.fillStyle = isActiveState ? '#fde047' : isHovered ? '#ffffff' : isMatchingRegion ? '#cbd5e1' : '#64748b';
+      ctx.textAlign = 'center';
+      ctx.fillText(state.name, sx, sy + 18);
 
       ctx.restore();
     });
 
-    // Draw Interactive Tooltip when hovering over a node
-    if (hoveredNode) {
-      const hx = Math.min(Math.max(w * hoveredNode.nx, 130), w - 150);
-      const hy = Math.max(h * hoveredNode.ny - 65, 55);
-
+    // Draw Floating Hover Tooltip
+    if (hoveredState) {
       ctx.save();
-      const cardW = 240;
-      const cardH = 76;
-      const cx = hx - cardW / 2;
-      const cy = hy - cardH;
+      const tx = Math.min(Math.max(mousePos.x, 140), w - 140);
+      const ty = Math.max(mousePos.y - 45, 50);
 
-      ctx.fillStyle = 'rgba(10, 15, 30, 0.95)';
-      ctx.strokeStyle = hoveredNode.color;
+      ctx.fillStyle = 'rgba(10, 14, 30, 0.95)';
+      ctx.strokeStyle = hoveredState.color;
       ctx.lineWidth = 1.5;
-      ctx.shadowColor = 'rgba(0,0,0,0.8)';
-      ctx.shadowBlur = 15;
+      ctx.shadowColor = 'rgba(0, 0, 0, 0.8)';
+      ctx.shadowBlur = 12;
 
-      // Rounded rect
       ctx.beginPath();
-      ctx.roundRect(cx, cy, cardW, cardH, 8);
+      ctx.roundRect(tx - 110, ty - 30, 220, 56, 8);
       ctx.fill();
       ctx.stroke();
 
-      // Tooltip Text
-      ctx.fillStyle = hoveredNode.color;
-      ctx.font = 'bold 11px "Space Grotesk", sans-serif';
-      ctx.textAlign = 'left';
-      ctx.fillText(`✨ ${hoveredNode.name} • ${hoveredNode.regionTitle}`, cx + 10, cy + 18);
+      ctx.fillStyle = '#ffffff';
+      ctx.font = "700 12px 'Space Grotesk', sans-serif";
+      ctx.textAlign = 'center';
+      ctx.fillText(`📍 ${hoveredState.name} (${hoveredState.regionTitle})`, tx, ty - 12);
 
       ctx.fillStyle = '#fde047';
-      ctx.font = '10px "Space Grotesk", sans-serif';
-      ctx.fillText(`Rhythm: ${hoveredNode.rhythm}`, cx + 10, cy + 34);
+      ctx.font = "600 10px 'Space Grotesk', sans-serif";
+      ctx.fillText(`🏙️ ${hoveredState.citiesCount} Cities • ${hoveredState.specialties[0]}`, tx, ty + 6);
 
       ctx.fillStyle = '#94a3b8';
-      ctx.font = '9px "Space Grotesk", sans-serif';
-      ctx.fillText(`Unity: ${hoveredNode.unityNote.substring(0, 38)}...`, cx + 10, cy + 50);
-
-      ctx.fillStyle = '#38bdf8';
-      ctx.font = 'italic 8.5px "Space Grotesk", sans-serif';
-      ctx.fillText(`👉 Click to watch performance video`, cx + 10, cy + 65);
+      ctx.font = "500 9px 'Space Grotesk', sans-serif";
+      ctx.fillText(`Click to inspect full dossier & rhythm`, tx, ty + 18);
 
       ctx.restore();
     }
 
-    angle += 0.015;
-    requestAnimationFrame(draw);
+    requestAnimationFrame(renderLoop);
   }
 
-  draw();
+  renderLoop();
 }
 
 // ==========================================================

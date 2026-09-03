@@ -35,14 +35,14 @@ class RhythmAudioEngine {
 
     // Authentic Rhythmic Vocal Bols for all Dance Traditions
     this.vocalBols = {
-      bharatanatyam: ['Ta', 'Ka', 'Dhi', 'Mi', 'Thom', 'Nam', 'Tha-Ka', 'Jha-Nu'],
-      kathak: ['Dha', 'Dhin', 'Dhin', 'Dha', 'Dha', 'Tin', 'Ta', 'Dhin'],
-      bihu: ['Dha', 'Ghe', 'Dha', 'Tit', 'Dha', 'Dhin', 'Pepa', 'Hey!'],
-      garba: ['Taali!', 'Chutki', 'Taali!', 'Hinch', 'Taali!', 'Ghoom', 'Taali!', 'He!'],
-      bhangra: ['Balle!', 'Ge', 'Balle!', 'Chaal', 'Haddipa!', 'Ge', 'Haddipa!', 'Oi!'],
+      bharatanatyam: ['Taa', 'Kaa', 'Dhee', 'Mee', 'Thomm', 'Naam', 'Thaa-Kaa', 'Jhaa-Nu'],
+      kathak: ['Dhaa', 'Dheen', 'Dheen', 'Dhaa', 'Dhaa', 'Teen', 'Taa', 'Dheen'],
+      bihu: ['Dhaa', 'Ghay', 'Dhaa', 'Teet', 'Dhaa', 'Dheen', 'Pay-paa', 'Hey!'],
+      garba: ['Taalee!', 'Chutkee', 'Taalee!', 'Heench', 'Taalee!', 'Ghoom', 'Taalee!', 'Hay!'],
+      bhangra: ['Buhll-lay!', 'Ghay', 'Buhll-lay!', 'Chaal', 'Hud-dee-paa!', 'Ghay', 'Hud-dee-paa!', 'Oye!'],
       cheraw: ['Thump', 'Clack', 'Open', 'Clack', 'Step', 'Clack', 'Jump', 'Sync!'],
-      lavani: ['Dha', 'Ge', 'Na', 'Tin', 'Tit', 'Ta', 'Dha', 'Khadak!'],
-      chhau: ['Dhum!', 'Ta', 'Dhum!', 'Ufli', 'Dha!', 'Ta', 'Nagara!', 'Shabash!']
+      lavani: ['Dhaa', 'Ghay', 'Naa', 'Teen', 'Teet', 'Taa', 'Dhaa', 'Khuh-duhk!'],
+      chhau: ['Dhoom!', 'Taa', 'Dhoom!', 'Oof-lee', 'Dhaa!', 'Taa', 'Nuh-gaa-raa!', 'Shabash!']
     };
   }
 
@@ -77,28 +77,67 @@ class RhythmAudioEngine {
   }
 
   // =========================================================================
+  // AI VOICE ASSISTANT SPEECH SYNTHESIS ("INDIRA")
+  // =========================================================================
+
+  speakVoiceAssistant(text, onStart, onEnd) {
+    if (!('speechSynthesis' in window)) return;
+    try {
+      window.speechSynthesis.cancel(); // Stop any pending speech immediately
+      if (!text || this.isMuted) return;
+
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.rate = 0.98;
+      utterance.pitch = 1.05;
+      utterance.volume = 0.95;
+
+      // Select best voice if available (Indian English, UK English, or natural female/pleasant voice)
+      const voices = window.speechSynthesis.getVoices();
+      if (voices && voices.length > 0) {
+        const inVoice = voices.find(v => v.lang.includes('IN') || v.lang.includes('hi') || v.name.includes('India') || v.name.includes('Google UK English Female') || v.name.includes('Natural') || v.name.includes('Samantha') || v.name.includes('Zira'));
+        if (inVoice) utterance.voice = inVoice;
+      }
+
+      if (onStart) utterance.onstart = onStart;
+      if (onEnd) utterance.onend = onEnd;
+      utterance.onerror = () => { if (onEnd) onEnd(); };
+
+      window.speechSynthesis.speak(utterance);
+    } catch (e) {
+      console.warn('Speech synthesis exception:', e);
+      if (onEnd) onEnd();
+    }
+  }
+
+  stopVoiceAssistant() {
+    if ('speechSynthesis' in window) {
+      window.speechSynthesis.cancel();
+    }
+  }
+
+  // =========================================================================
   // VOCAL SOLKATTU & BOL CHANTING ENGINE
   // =========================================================================
 
   /**
-   * Chants the authentic rhythmic syllable on the exact beat.
-   * Uses Web Speech Synthesis with low latency + Acoustic Formant Synthesis.
+   * Synthesizes the authentic rhythmic sound / syllable on the exact beat.
+   * Uses Acoustic Formant Synthesis in Web Audio + optional phonetic utterance.
    */
   playVocalBol(danceId, beatIndex, time) {
-    if (!this.vocalsEnabled) return;
     const bols = this.vocalBols[danceId] || this.vocalBols.kathak;
     const bolText = bols[beatIndex % bols.length];
 
-    // 1. Acoustic Vocal Formant Sound Synthesis in Web Audio
+    // 1. Acoustic Vocal Formant Sound Synthesis in Web Audio (natural acoustic resonator)
     this.synthesizeVocalFormant(time, bolText);
 
-    // 2. Browser Speech Voice Synthesis
-    if ('speechSynthesis' in window && !this.isMuted) {
+    // 2. Browser Speech Voice Synthesis (only when vocals explicitly enabled and not in high-speed loop)
+    if (this.vocalsEnabled && 'speechSynthesis' in window && !this.isMuted) {
       try {
+        window.speechSynthesis.cancel();
         const utter = new SpeechSynthesisUtterance(bolText);
-        utter.rate = Math.max(1.1, (this.bpm / 90) * 1.3);
-        utter.pitch = danceId === 'bharatanatyam' || danceId === 'kathak' ? 1.15 : 1.0;
-        utter.volume = 0.7;
+        utter.rate = 1.25;
+        utter.pitch = 1.05;
+        utter.volume = 0.6;
         window.speechSynthesis.speak(utter);
       } catch (e) {
         // SpeechSynthesis silent catch
