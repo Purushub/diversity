@@ -645,6 +645,10 @@ function switchPhase(phaseId) {
       sec.classList.add('active');
       SimState.activePhase = phaseId;
       sec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      
+      if (phaseId === 'phase3') {
+        renderPhase3();
+      }
     } else {
       sec.classList.remove('active');
     }
@@ -1889,27 +1893,24 @@ function exportPanIndiaLedger() {
 // ==========================================================
 // INTERACTIVE INDIA DIVERSITY & UNITY CANVAS MAP
 // ==========================================================
+// INTERACTIVE INDIA DIVERSITY & UNITY CANVAS MAP
+// ==========================================================
 function initCanvasVisualizer() {
   const canvas = document.getElementById('symphonyCanvas');
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
 
-  function resize() {
-    canvas.width = canvas.parentElement.clientWidth;
-    canvas.height = canvas.parentElement.clientHeight;
-  }
-  resize();
-  window.addEventListener('resize', resize);
-
   let hoveredState = null;
   let mousePos = { x: -1, y: -1 };
   let pulseAngle = 0;
 
-  // Track mouse on canvas
+  // Accurate mouse tracking with coordinate scaling
   canvas.addEventListener('mousemove', (e) => {
     const rect = canvas.getBoundingClientRect();
-    mousePos.x = e.clientX - rect.left;
-    mousePos.y = e.clientY - rect.top;
+    if (rect.width > 0 && rect.height > 0) {
+      mousePos.x = (e.clientX - rect.left) * (canvas.width / rect.width);
+      mousePos.y = (e.clientY - rect.top) * (canvas.height / rect.height);
+    }
   });
 
   canvas.addEventListener('mouseleave', () => {
@@ -1937,66 +1938,70 @@ function initCanvasVisualizer() {
   }
 
   function drawIndiaOutline(w, h) {
-    const ox = w * 0.12;
-    const oy = h * 0.05;
-    const mw = w * 0.76;
-    const mh = h * 0.88;
+    const ox = w * 0.10;
+    const oy = h * 0.04;
+    const mw = w * 0.80;
+    const mh = h * 0.90;
 
     ctx.save();
-    ctx.shadowColor = 'rgba(0, 0, 0, 0.7)';
-    ctx.shadowBlur = 18;
 
-    // Stylized India Geographic Contour
+    // Stylized India Geographic Contour Path
     ctx.beginPath();
-    ctx.moveTo(ox + mw * 0.34, oy + mh * 0.02);
-    ctx.quadraticCurveTo(ox + mw * 0.40, oy + mh * 0.01, ox + mw * 0.44, oy + mh * 0.06);
+    ctx.moveTo(ox + mw * 0.34, oy + mh * 0.03); // Kashmir Apex
+    ctx.quadraticCurveTo(ox + mw * 0.40, oy + mh * 0.02, ox + mw * 0.44, oy + mh * 0.07);
     ctx.lineTo(ox + mw * 0.46, oy + mh * 0.14);
-    ctx.lineTo(ox + mw * 0.52, oy + mh * 0.20);
-    ctx.lineTo(ox + mw * 0.60, oy + mh * 0.25);
-    ctx.lineTo(ox + mw * 0.68, oy + mh * 0.26);
-    ctx.lineTo(ox + mw * 0.74, oy + mh * 0.20);
-    ctx.quadraticCurveTo(ox + mw * 0.88, oy + mh * 0.21, ox + mw * 0.89, oy + mh * 0.28);
-    ctx.lineTo(ox + mw * 0.87, oy + mh * 0.46);
-    ctx.lineTo(ox + mw * 0.80, oy + mh * 0.45);
-    ctx.lineTo(ox + mw * 0.74, oy + mh * 0.36);
-    ctx.lineTo(ox + mw * 0.68, oy + mh * 0.40);
-    ctx.quadraticCurveTo(ox + mw * 0.66, oy + mh * 0.52, ox + mw * 0.60, oy + mh * 0.62);
-    ctx.lineTo(ox + mw * 0.52, oy + mh * 0.82);
-    ctx.lineTo(ox + mw * 0.46, oy + mh * 0.96);
-    ctx.lineTo(ox + mw * 0.42, oy + mh * 0.85);
-    ctx.quadraticCurveTo(ox + mw * 0.34, oy + mh * 0.68, ox + mw * 0.31, oy + mh * 0.58);
-    ctx.lineTo(ox + mw * 0.23, oy + mh * 0.50);
-    ctx.quadraticCurveTo(ox + mw * 0.16, oy + mh * 0.47, ox + mw * 0.18, oy + mh * 0.39);
+    ctx.lineTo(ox + mw * 0.52, oy + mh * 0.20); // Nepal border / Uttarakhand
+    ctx.lineTo(ox + mw * 0.60, oy + mh * 0.25); // Sikkim
+    ctx.lineTo(ox + mw * 0.68, oy + mh * 0.26); // Siliguri corridor
+    ctx.lineTo(ox + mw * 0.74, oy + mh * 0.20); // Assam North / Arunachal
+    ctx.quadraticCurveTo(ox + mw * 0.90, oy + mh * 0.21, ox + mw * 0.91, oy + mh * 0.29);
+    ctx.lineTo(ox + mw * 0.88, oy + mh * 0.48); // Mizoram / Tripura South
+    ctx.lineTo(ox + mw * 0.80, oy + mh * 0.46);
+    ctx.lineTo(ox + mw * 0.74, oy + mh * 0.36); // Bangladesh border
+    ctx.lineTo(ox + mw * 0.68, oy + mh * 0.40); // Bengal Delta
+    ctx.quadraticCurveTo(ox + mw * 0.66, oy + mh * 0.52, ox + mw * 0.60, oy + mh * 0.62); // Odisha Coast
+    ctx.lineTo(ox + mw * 0.52, oy + mh * 0.82); // Andhra / Tamil Nadu
+    ctx.lineTo(ox + mw * 0.46, oy + mh * 0.96); // Kanyakumari Cape
+    ctx.lineTo(ox + mw * 0.42, oy + mh * 0.85); // Kerala Malabar
+    ctx.quadraticCurveTo(ox + mw * 0.34, oy + mh * 0.68, ox + mw * 0.31, oy + mh * 0.58); // Goa / Konkan
+    ctx.lineTo(ox + mw * 0.23, oy + mh * 0.50); // Gujarat Gulf of Khambhat
+    ctx.quadraticCurveTo(ox + mw * 0.15, oy + mh * 0.47, ox + mw * 0.17, oy + mh * 0.38); // Rann of Kutch
     ctx.lineTo(ox + mw * 0.26, oy + mh * 0.36);
-    ctx.lineTo(ox + mw * 0.28, oy + mh * 0.24);
-    ctx.lineTo(ox + mw * 0.31, oy + mh * 0.12);
+    ctx.lineTo(ox + mw * 0.28, oy + mh * 0.24); // Rajasthan border
+    ctx.lineTo(ox + mw * 0.31, oy + mh * 0.12); // Punjab / Jammu
     ctx.closePath();
 
-    const mapGrad = ctx.createRadialGradient(ox + mw * 0.50, oy + mh * 0.50, 20, ox + mw * 0.50, oy + mh * 0.50, mw * 0.6);
-    mapGrad.addColorStop(0, 'rgba(24, 34, 72, 0.45)');
-    mapGrad.addColorStop(0.7, 'rgba(12, 18, 42, 0.55)');
-    mapGrad.addColorStop(1, 'rgba(4, 6, 16, 0.75)');
+    // Map base background gradient
+    const mapGrad = ctx.createRadialGradient(ox + mw * 0.48, oy + mh * 0.50, 30, ox + mw * 0.48, oy + mh * 0.50, mw * 0.65);
+    mapGrad.addColorStop(0, 'rgba(28, 42, 88, 0.65)');
+    mapGrad.addColorStop(0.5, 'rgba(15, 23, 54, 0.75)');
+    mapGrad.addColorStop(1, 'rgba(6, 10, 26, 0.90)');
 
     ctx.fillStyle = mapGrad;
+    ctx.shadowColor = 'rgba(6, 182, 212, 0.3)';
+    ctx.shadowBlur = 25;
     ctx.fill();
 
-    ctx.lineWidth = 1.8;
-    ctx.strokeStyle = 'rgba(6, 182, 212, 0.4)';
+    // Neon Map border stroke
+    ctx.lineWidth = 2.2;
+    ctx.strokeStyle = 'rgba(6, 182, 212, 0.65)';
     ctx.stroke();
 
-    // Internal Meridians
+    // Draw Internal Cultural Zones & Meridians
     ctx.lineWidth = 1;
-    ctx.strokeStyle = 'rgba(255, 255, 255, 0.05)';
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.08)';
     ctx.setLineDash([4, 6]);
 
+    // Longitude Meridian (Kashmir to Kanyakumari)
     ctx.beginPath();
     ctx.moveTo(ox + mw * 0.42, oy + mh * 0.10);
     ctx.quadraticCurveTo(ox + mw * 0.48, oy + mh * 0.48, ox + mw * 0.46, oy + mh * 0.94);
     ctx.stroke();
 
+    // Latitude Parallel (Kutch to Northeast)
     ctx.beginPath();
-    ctx.moveTo(ox + mw * 0.20, oy + mh * 0.44);
-    ctx.quadraticCurveTo(ox + mw * 0.50, oy + mh * 0.46, ox + mw * 0.86, oy + mh * 0.32);
+    ctx.moveTo(ox + mw * 0.19, oy + mh * 0.44);
+    ctx.quadraticCurveTo(ox + mw * 0.50, oy + mh * 0.46, ox + mw * 0.88, oy + mh * 0.32);
     ctx.stroke();
 
     ctx.setLineDash([]);
@@ -2006,21 +2011,21 @@ function initCanvasVisualizer() {
   function drawUnityCenterHub(cx, cy) {
     ctx.save();
     // Glowing central core
-    const hubGrad = ctx.createRadialGradient(cx, cy, 2, cx, cy, 32);
-    hubGrad.addColorStop(0, 'rgba(253, 224, 71, 0.9)');
-    hubGrad.addColorStop(0.5, 'rgba(245, 158, 11, 0.4)');
+    const hubGrad = ctx.createRadialGradient(cx, cy, 2, cx, cy, 36);
+    hubGrad.addColorStop(0, 'rgba(253, 224, 71, 0.95)');
+    hubGrad.addColorStop(0.4, 'rgba(245, 158, 11, 0.5)');
     hubGrad.addColorStop(1, 'rgba(219, 39, 119, 0.0)');
 
     ctx.fillStyle = hubGrad;
     ctx.beginPath();
-    ctx.arc(cx, cy, 32, 0, Math.PI * 2);
+    ctx.arc(cx, cy, 36, 0, Math.PI * 2);
     ctx.fill();
 
     // Ashoka / Unity Chakra Ring
-    ctx.strokeStyle = 'rgba(253, 224, 71, 0.75)';
-    ctx.lineWidth = 1.5;
+    ctx.strokeStyle = 'rgba(253, 224, 71, 0.85)';
+    ctx.lineWidth = 2;
     ctx.beginPath();
-    ctx.arc(cx, cy, 18, 0, Math.PI * 2);
+    ctx.arc(cx, cy, 20, 0, Math.PI * 2);
     ctx.stroke();
 
     // Rotating 24-spoke emblem
@@ -2031,29 +2036,50 @@ function initCanvasVisualizer() {
       ctx.beginPath();
       ctx.moveTo(0, 0);
       const spokeAngle = (s * Math.PI) / 6;
-      ctx.lineTo(Math.cos(spokeAngle) * 16, Math.sin(spokeAngle) * 16);
-      ctx.strokeStyle = 'rgba(253, 224, 71, 0.35)';
+      ctx.lineTo(Math.cos(spokeAngle) * 18, Math.sin(spokeAngle) * 18);
+      ctx.strokeStyle = 'rgba(253, 224, 71, 0.45)';
       ctx.stroke();
     }
     ctx.restore();
+
+    ctx.font = "800 8.5px 'Space Grotesk', sans-serif";
+    ctx.fillStyle = '#fde047';
+    ctx.textAlign = 'center';
+    ctx.fillText('UNITY HUB', cx, cy + 32);
 
     ctx.restore();
   }
 
   function renderLoop() {
+    // Dynamic size synchronization with parent container
+    const parent = canvas.parentElement;
+    const parentW = parent ? parent.clientWidth : 0;
+    const parentH = parent ? parent.clientHeight : 0;
+
+    if (parentW > 50 && parentH > 50) {
+      if (canvas.width !== parentW || canvas.height !== parentH) {
+        canvas.width = parentW;
+        canvas.height = parentH;
+      }
+    } else if (canvas.width <= 0 || canvas.height <= 0) {
+      canvas.width = 680;
+      canvas.height = 480;
+    }
+
     const w = canvas.width;
     const h = canvas.height;
+
     ctx.clearRect(0, 0, w, h);
 
     pulseAngle += 0.025;
 
-    // Draw India Map Base
+    // Draw India Map Base Contour
     drawIndiaOutline(w, h);
 
-    const ox = w * 0.12;
-    const oy = h * 0.05;
-    const mw = w * 0.76;
-    const mh = h * 0.88;
+    const ox = w * 0.10;
+    const oy = h * 0.04;
+    const mw = w * 0.80;
+    const mh = h * 0.90;
     const centerHubX = ox + mw * 0.48;
     const centerHubY = oy + mh * 0.50;
 
@@ -2065,13 +2091,13 @@ function initCanvasVisualizer() {
     // Filter by selected region
     const activeRegion = SimState.selectedRegionFilter || 'all';
 
-    // Draw connecting energy lines to Center
+    // Draw connecting energy rays to Center
     SimState.indianStates.forEach((state) => {
       const sx = ox + mw * state.nx;
       const sy = oy + mh * state.ny;
 
       ctx.save();
-      ctx.strokeStyle = state.explored ? 'rgba(245, 158, 11, 0.25)' : 'rgba(255, 255, 255, 0.08)';
+      ctx.strokeStyle = state.explored ? 'rgba(245, 158, 11, 0.35)' : 'rgba(255, 255, 255, 0.10)';
       ctx.lineWidth = state.explored ? 1.5 : 0.8;
       ctx.setLineDash([3, 5]);
       ctx.beginPath();
@@ -2113,15 +2139,15 @@ function initCanvasVisualizer() {
 
       // Mouse Hover check (radius 22px)
       const dist = Math.hypot(mousePos.x - sx, mousePos.y - sy);
-      const isHovered = dist < 22 && isMatchingRegion;
+      const isHovered = dist < 24 && isMatchingRegion;
       if (isHovered) hoveredState = state;
 
       ctx.save();
 
       // Active / Explored Pulsing Ring
-      if (isActiveState || state.explored) {
+      if (isActiveState || isHovered || state.explored) {
         const pulseR = 14 + Math.sin(pulseAngle + state.nx * 10) * 4;
-        ctx.strokeStyle = isActiveState ? '#fde047' : state.color;
+        ctx.strokeStyle = isActiveState ? '#fde047' : isHovered ? '#ffffff' : state.color;
         ctx.lineWidth = isActiveState ? 2.5 : 1.5;
         ctx.beginPath();
         ctx.arc(sx, sy, pulseR, 0, Math.PI * 2);
@@ -2131,15 +2157,15 @@ function initCanvasVisualizer() {
       // State Node Core Circle
       ctx.fillStyle = isActiveState ? '#fde047' : isHovered ? '#ffffff' : state.color;
       ctx.shadowColor = state.color;
-      ctx.shadowBlur = isHovered ? 20 : isActiveState ? 16 : 8;
+      ctx.shadowBlur = isHovered ? 22 : isActiveState ? 18 : 8;
       ctx.beginPath();
       ctx.arc(sx, sy, isHovered ? 9 : 7, 0, Math.PI * 2);
       ctx.fill();
 
       // State Label
       ctx.shadowBlur = 0;
-      ctx.font = `${isActiveState ? '700 11px' : '600 10px'} 'Space Grotesk', sans-serif`;
-      ctx.fillStyle = isActiveState ? '#fde047' : isHovered ? '#ffffff' : isMatchingRegion ? '#cbd5e1' : '#64748b';
+      ctx.font = `${isActiveState ? '700 11.5px' : '600 10.5px'} 'Space Grotesk', sans-serif`;
+      ctx.fillStyle = isActiveState ? '#fde047' : isHovered ? '#ffffff' : isMatchingRegion ? '#e2e8f0' : '#64748b';
       ctx.textAlign = 'center';
       ctx.fillText(state.name, sx, sy + 18);
 
