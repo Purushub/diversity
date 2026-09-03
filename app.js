@@ -302,8 +302,8 @@ const SimState = {
       rhythmBols: 'Buhll-lay! Ghay! Buhll-lay! Chaal! Hud-dee-paa! Ghay! Hud-dee-paa! Oye!',
       unityRole: 'Provides national food security through agricultural vitality and energizes India with celebratory, inclusive folk brotherhood.',
       explored: true,
-      nx: 0.33,
-      ny: 0.22,
+      nx: 0.36,
+      ny: 0.23,
       color: '#ec4899'
     },
     {
@@ -321,8 +321,8 @@ const SimState = {
       rhythmBols: 'Taalee! Chutkee! Taalee! Heench! Taalee! Ghoom! Taalee! Hay!',
       unityRole: 'Acts as India\'s maritime trade nexus while symbolizing communal circular harmony where people of all backgrounds dance as one.',
       explored: false,
-      nx: 0.25,
-      ny: 0.44,
+      nx: 0.28,
+      ny: 0.52,
       color: '#06b6d4'
     },
     {
@@ -340,8 +340,8 @@ const SimState = {
       rhythmBols: 'Dhaa! Ghay! Naa! Teen! Teet! Taa! Dhaa! Khuh-duhk!',
       unityRole: 'Serves as the nation\'s economic engine and cultural crossroads, uniting Northern and Southern traditions through bold theatrical expressions.',
       explored: false,
-      nx: 0.35,
-      ny: 0.58,
+      nx: 0.38,
+      ny: 0.62,
       color: '#ec4899'
     },
     {
@@ -360,7 +360,7 @@ const SimState = {
       unityRole: 'Anchors India in ancient Natyashastra classical geometric discipline, sacred temple architectural mastery, and timeless Carnatic ragas.',
       explored: false,
       nx: 0.46,
-      ny: 0.82,
+      ny: 0.88,
       color: '#f59e0b'
     },
     {
@@ -379,7 +379,7 @@ const SimState = {
       unityRole: 'The civilizational cradle where spiritual philosophy, classical courtly poetry, and lightning-fast pirouette spins synthesized over millennia.',
       explored: false,
       nx: 0.44,
-      ny: 0.29,
+      ny: 0.35,
       color: '#f59e0b'
     },
     {
@@ -397,8 +397,8 @@ const SimState = {
       rhythmBols: 'Dheen! Taa! Kaa! Taa! Ghoom-Ghoom! Dha!',
       unityRole: 'Exemplifies desert resilience and royal craftsmanship, infusing the Indian identity with vivid colors, heroic ballads, and sweeping turns.',
       explored: false,
-      nx: 0.30,
-      ny: 0.33,
+      nx: 0.31,
+      ny: 0.37,
       color: '#f59e0b'
     },
     {
@@ -416,8 +416,8 @@ const SimState = {
       rhythmBols: 'Dhaa! Ghay! Dhaa! Teet! Dhaa! Dheen! Pay-paa! Hey!',
       unityRole: 'Connects the northeastern river valleys to the nation, celebrating seasonal renewal and energetic wrist-pulse syncopation.',
       explored: false,
-      nx: 0.81,
-      ny: 0.30,
+      nx: 0.75,
+      ny: 0.36,
       color: '#f59e0b'
     },
     {
@@ -435,7 +435,7 @@ const SimState = {
       rhythmBols: 'Thump! Clack! Open! Clack! Step! Clack! Jump! Sync!',
       unityRole: 'Demonstrates ancient tribal teamwork, mutual trust, and precision balance where individuals synchronize perfectly within a collective matrix.',
       explored: false,
-      nx: 0.84,
+      nx: 0.80,
       ny: 0.43,
       color: '#06b6d4'
     },
@@ -454,8 +454,8 @@ const SimState = {
       rhythmBols: 'Dhoom! Taa! Dhoom! Oof-lee! Dhaa! Taa! Nuh-gaa-raa! Shabash!',
       unityRole: 'Supplies the industrial minerals that build modern India while preserving primordial tribal martial arts and classical temple sculpture.',
       explored: false,
-      nx: 0.65,
-      ny: 0.47,
+      nx: 0.59,
+      ny: 0.56,
       color: '#ec4899'
     },
     {
@@ -473,8 +473,8 @@ const SimState = {
       rhythmBols: 'Taa-Kaa-Dhee-Mee! Chande! Dheem-Taa!',
       unityRole: 'Pioneers global cutting-edge tech innovation while honoring millennia of rich folklore, Carnatic music, and royal cultural patronage.',
       explored: false,
-      nx: 0.38,
-      ny: 0.70,
+      nx: 0.41,
+      ny: 0.74,
       color: '#f59e0b'
     },
     {
@@ -492,8 +492,8 @@ const SimState = {
       rhythmBols: 'Thaa-Kee-Taa! Thaa-Kaa-Dhee-Mee! Chenda! Dhum!',
       unityRole: 'The maritime spice gateway that introduced Indian culture to global travelers, celebrated for exquisite artistic storytelling and drum synchronization.',
       explored: false,
-      nx: 0.40,
-      ny: 0.88,
+      nx: 0.36,
+      ny: 0.86,
       color: '#06b6d4'
     },
     {
@@ -511,8 +511,8 @@ const SimState = {
       rhythmBols: 'Dhaa! Dheen! Taa! Ektara! Baul! Anandam!',
       unityRole: 'The intellectual and literary renaissance beacon that gave India its national anthem and universal philosophy of human unity.',
       explored: false,
-      nx: 0.66,
-      ny: 0.38,
+      nx: 0.65,
+      ny: 0.48,
       color: '#ec4899'
     },
     {
@@ -530,8 +530,8 @@ const SimState = {
       rhythmBols: 'Dhaa! Ghay! Naa! Central Unity! Dheem!',
       unityRole: 'The central geographical and spiritual nexus where North, South, East, and West blend into one harmonious cultural melting pot.',
       explored: false,
-      nx: 0.48,
-      ny: 0.50,
+      nx: 0.47,
+      ny: 0.48,
       color: '#f59e0b'
     },
     {
@@ -549,7 +549,7 @@ const SimState = {
       rhythmBols: 'Dhum-Dhum-Taa! Rouf Wave! Santoor!',
       unityRole: 'The crowning Himalayan summit of India symbolizing meditative serenity, musical subtlety, and enduring resilience.',
       explored: false,
-      nx: 0.35,
+      nx: 0.38,
       ny: 0.12,
       color: '#06b6d4'
     }
@@ -2011,21 +2011,23 @@ function initCanvasVisualizer() {
   function drawUnityCenterHub(cx, cy) {
     ctx.save();
     // Glowing central core
-    const hubGrad = ctx.createRadialGradient(cx, cy, 2, cx, cy, 36);
+    const hubGrad = ctx.createRadialGradient(cx, cy, 2, cx, cy, 32);
     hubGrad.addColorStop(0, 'rgba(253, 224, 71, 0.95)');
-    hubGrad.addColorStop(0.4, 'rgba(245, 158, 11, 0.5)');
+    hubGrad.addColorStop(0.4, 'rgba(245, 158, 11, 0.6)');
     hubGrad.addColorStop(1, 'rgba(219, 39, 119, 0.0)');
 
     ctx.fillStyle = hubGrad;
     ctx.beginPath();
-    ctx.arc(cx, cy, 36, 0, Math.PI * 2);
+    ctx.arc(cx, cy, 32, 0, Math.PI * 2);
     ctx.fill();
 
     // Ashoka / Unity Chakra Ring
-    ctx.strokeStyle = 'rgba(253, 224, 71, 0.85)';
+    ctx.strokeStyle = '#fde047';
     ctx.lineWidth = 2;
+    ctx.shadowColor = 'rgba(0,0,0,0.8)';
+    ctx.shadowBlur = 6;
     ctx.beginPath();
-    ctx.arc(cx, cy, 20, 0, Math.PI * 2);
+    ctx.arc(cx, cy, 18, 0, Math.PI * 2);
     ctx.stroke();
 
     // Rotating 24-spoke emblem
@@ -2036,16 +2038,25 @@ function initCanvasVisualizer() {
       ctx.beginPath();
       ctx.moveTo(0, 0);
       const spokeAngle = (s * Math.PI) / 6;
-      ctx.lineTo(Math.cos(spokeAngle) * 18, Math.sin(spokeAngle) * 18);
-      ctx.strokeStyle = 'rgba(253, 224, 71, 0.45)';
+      ctx.lineTo(Math.cos(spokeAngle) * 16, Math.sin(spokeAngle) * 16);
+      ctx.strokeStyle = 'rgba(253, 224, 71, 0.7)';
       ctx.stroke();
     }
     ctx.restore();
 
+    // Unity Badge text with dark backdrop
+    ctx.fillStyle = 'rgba(10, 14, 30, 0.85)';
+    ctx.beginPath();
+    ctx.roundRect(cx - 36, cy + 22, 72, 18, 9);
+    ctx.fill();
+    ctx.strokeStyle = '#fde047';
+    ctx.lineWidth = 1;
+    ctx.stroke();
+
     ctx.font = "800 8.5px 'Space Grotesk', sans-serif";
     ctx.fillStyle = '#fde047';
     ctx.textAlign = 'center';
-    ctx.fillText('UNITY HUB', cx, cy + 32);
+    ctx.fillText('UNITY HUB', cx, cy + 34);
 
     ctx.restore();
   }
@@ -2063,7 +2074,7 @@ function initCanvasVisualizer() {
       }
     } else if (canvas.width <= 0 || canvas.height <= 0) {
       canvas.width = 680;
-      canvas.height = 480;
+      canvas.height = 520;
     }
 
     const w = canvas.width;
@@ -2073,15 +2084,17 @@ function initCanvasVisualizer() {
 
     pulseAngle += 0.025;
 
-    // Draw India Map Base Contour
-    drawIndiaOutline(w, h);
+    // Subtle edge vignette overlay
+    ctx.save();
+    const borderGrad = ctx.createRadialGradient(w * 0.5, h * 0.5, w * 0.3, w * 0.5, h * 0.5, w * 0.65);
+    borderGrad.addColorStop(0, 'rgba(0, 0, 0, 0)');
+    borderGrad.addColorStop(1, 'rgba(10, 14, 30, 0.45)');
+    ctx.fillStyle = borderGrad;
+    ctx.fillRect(0, 0, w, h);
+    ctx.restore();
 
-    const ox = w * 0.10;
-    const oy = h * 0.04;
-    const mw = w * 0.80;
-    const mh = h * 0.90;
-    const centerHubX = ox + mw * 0.48;
-    const centerHubY = oy + mh * 0.50;
+    const centerHubX = w * 0.47;
+    const centerHubY = h * 0.48;
 
     // Draw Central Unity Hub in Madhya Pradesh
     drawUnityCenterHub(centerHubX, centerHubY);
@@ -2091,14 +2104,14 @@ function initCanvasVisualizer() {
     // Filter by selected region
     const activeRegion = SimState.selectedRegionFilter || 'all';
 
-    // Draw connecting energy rays to Center
+    // Draw connecting golden energy rays to Center
     SimState.indianStates.forEach((state) => {
-      const sx = ox + mw * state.nx;
-      const sy = oy + mh * state.ny;
+      const sx = w * state.nx;
+      const sy = h * state.ny;
 
       ctx.save();
-      ctx.strokeStyle = state.explored ? 'rgba(245, 158, 11, 0.35)' : 'rgba(255, 255, 255, 0.10)';
-      ctx.lineWidth = state.explored ? 1.5 : 0.8;
+      ctx.strokeStyle = state.explored ? 'rgba(245, 158, 11, 0.45)' : 'rgba(255, 255, 255, 0.15)';
+      ctx.lineWidth = state.explored ? 1.8 : 0.9;
       ctx.setLineDash([3, 5]);
       ctx.beginPath();
       ctx.moveTo(sx, sy);
@@ -2113,8 +2126,8 @@ function initCanvasVisualizer() {
       if (p.progress >= 1) p.progress = 0;
 
       const state = SimState.indianStates[p.stateIndex];
-      const sx = ox + mw * state.nx;
-      const sy = oy + mh * state.ny;
+      const sx = w * state.nx;
+      const sy = h * state.ny;
 
       const px = sx + (centerHubX - sx) * p.progress;
       const py = sy + (centerHubY - sy) * p.progress;
@@ -2129,22 +2142,22 @@ function initCanvasVisualizer() {
       ctx.restore();
     });
 
-    // Draw State Nodes & Interactive Pins
+    // Draw State Nodes & Interactive Pins over the Illustrated Background
     SimState.indianStates.forEach((state) => {
-      const sx = ox + mw * state.nx;
-      const sy = oy + mh * state.ny;
+      const sx = w * state.nx;
+      const sy = h * state.ny;
 
       const isMatchingRegion = activeRegion === 'all' || state.region === activeRegion;
       const isActiveState = state.id === SimState.activeStateId;
 
-      // Mouse Hover check (radius 22px)
+      // Mouse Hover check (radius 24px)
       const dist = Math.hypot(mousePos.x - sx, mousePos.y - sy);
       const isHovered = dist < 24 && isMatchingRegion;
       if (isHovered) hoveredState = state;
 
       ctx.save();
 
-      // Active / Explored Pulsing Ring
+      // Active / Explored Pulsing Radar Halo
       if (isActiveState || isHovered || state.explored) {
         const pulseR = 14 + Math.sin(pulseAngle + state.nx * 10) * 4;
         ctx.strokeStyle = isActiveState ? '#fde047' : isHovered ? '#ffffff' : state.color;
@@ -2154,35 +2167,55 @@ function initCanvasVisualizer() {
         ctx.stroke();
       }
 
-      // State Node Core Circle
+      // State Pin Outer Disc with Shadow
       ctx.fillStyle = isActiveState ? '#fde047' : isHovered ? '#ffffff' : state.color;
-      ctx.shadowColor = state.color;
-      ctx.shadowBlur = isHovered ? 22 : isActiveState ? 18 : 8;
+      ctx.shadowColor = 'rgba(0, 0, 0, 0.9)';
+      ctx.shadowBlur = isHovered ? 20 : isActiveState ? 16 : 8;
       ctx.beginPath();
       ctx.arc(sx, sy, isHovered ? 9 : 7, 0, Math.PI * 2);
       ctx.fill();
+      ctx.strokeStyle = '#000000';
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
 
-      // State Label
-      ctx.shadowBlur = 0;
-      ctx.font = `${isActiveState ? '700 11.5px' : '600 10.5px'} 'Space Grotesk', sans-serif`;
-      ctx.fillStyle = isActiveState ? '#fde047' : isHovered ? '#ffffff' : isMatchingRegion ? '#e2e8f0' : '#64748b';
+      // State Label Badge with Dark Glass Backing for high readability
+      const labelText = state.name;
+      ctx.font = `${isActiveState ? '800 11px' : '700 10px'} 'Space Grotesk', sans-serif`;
+      const textWidth = ctx.measureText(labelText).width;
+      const badgeW = textWidth + 14;
+      const badgeH = 18;
+      const badgeX = sx - badgeW / 2;
+      const badgeY = sy + 12;
+
+      ctx.shadowBlur = 6;
+      ctx.fillStyle = isActiveState ? 'rgba(15, 23, 42, 0.92)' : 'rgba(10, 14, 30, 0.85)';
+      ctx.beginPath();
+      ctx.roundRect(badgeX, badgeY, badgeW, badgeH, 9);
+      ctx.fill();
+
+      ctx.strokeStyle = isActiveState ? '#fde047' : isHovered ? '#ffffff' : 'rgba(255, 255, 255, 0.15)';
+      ctx.lineWidth = isActiveState ? 1.5 : 0.8;
+      ctx.stroke();
+
+      // Text inside badge
+      ctx.fillStyle = isActiveState ? '#fde047' : isHovered ? '#ffffff' : isMatchingRegion ? '#ffffff' : '#94a3b8';
       ctx.textAlign = 'center';
-      ctx.fillText(state.name, sx, sy + 18);
+      ctx.fillText(labelText, sx, badgeY + 12.5);
 
       ctx.restore();
     });
 
-    // Draw Floating Hover Tooltip
+    // Draw Floating Hover Tooltip HUD
     if (hoveredState) {
       ctx.save();
       const tx = Math.min(Math.max(mousePos.x, 140), w - 140);
       const ty = Math.max(mousePos.y - 45, 50);
 
-      ctx.fillStyle = 'rgba(10, 14, 30, 0.95)';
+      ctx.fillStyle = 'rgba(10, 14, 30, 0.96)';
       ctx.strokeStyle = hoveredState.color;
-      ctx.lineWidth = 1.5;
-      ctx.shadowColor = 'rgba(0, 0, 0, 0.8)';
-      ctx.shadowBlur = 12;
+      ctx.lineWidth = 1.8;
+      ctx.shadowColor = 'rgba(0, 0, 0, 0.9)';
+      ctx.shadowBlur = 18;
 
       ctx.beginPath();
       ctx.roundRect(tx - 110, ty - 30, 220, 56, 8);
@@ -2190,7 +2223,7 @@ function initCanvasVisualizer() {
       ctx.stroke();
 
       ctx.fillStyle = '#ffffff';
-      ctx.font = "700 12px 'Space Grotesk', sans-serif";
+      ctx.font = "800 12px 'Space Grotesk', sans-serif";
       ctx.textAlign = 'center';
       ctx.fillText(`📍 ${hoveredState.name} (${hoveredState.regionTitle})`, tx, ty - 12);
 
