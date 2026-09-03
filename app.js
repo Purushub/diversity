@@ -27,7 +27,7 @@ const SimState = {
       team: 'Team Alpha',
       completed: false,
       xp: 100,
-      videoId: 'R3n0N6PZq-E',
+      videoId: 'JWhA3ldZcyY',
       videoTitle: 'Kalakshetra Bharatanatyam: Nritta & Alarippu Recital',
       videoTradition: 'Classical (Natya Shastra Temple & Stage Heritage)',
       videoHighlights: [
@@ -73,7 +73,7 @@ const SimState = {
       team: 'Team Gamma',
       completed: false,
       xp: 100,
-      videoId: 'e_p107H9UvI',
+      videoId: '0-o8JrC2lYA',
       videoTitle: 'Rongali Bihu: Assamese Spring Harvest Festival Celebration',
       videoTradition: 'Folk / Brahmaputra Valley Harvest Heritage',
       videoHighlights: [
@@ -96,7 +96,7 @@ const SimState = {
       team: 'Team Delta',
       completed: false,
       xp: 100,
-      videoId: 'gD3V5h75x_g',
+      videoId: 'BwBIU_E5lbQ',
       videoTitle: 'Traditional Navratri Raas Garba: 3-Taali Circle Dance',
       videoTradition: 'Folk / Devotional Circle Celebration',
       videoHighlights: [
@@ -119,7 +119,7 @@ const SimState = {
       team: 'Team Epsilon',
       completed: false,
       xp: 100,
-      videoId: '4Y6qgX8wKj0',
+      videoId: 'uMhW--Rov_M',
       videoTitle: 'High-Energy Punjabi Bhangra: Folk Power & Dhol Chaal Beats',
       videoTradition: 'Folk / Vaisakhi Harvest Celebration',
       videoHighlights: [
@@ -142,7 +142,7 @@ const SimState = {
       team: 'Team Zeta',
       completed: false,
       xp: 100,
-      videoId: '6xYq6U04d-s',
+      videoId: 'BRb89Vs0c4w',
       videoTitle: 'Cheraw Bamboo Dance: Rhythmic Agility & Precision Matrix',
       videoTradition: 'Folk / Ancient Mizo Tribal Heritage',
       videoHighlights: [
@@ -165,7 +165,7 @@ const SimState = {
       team: 'Team Eta',
       completed: false,
       xp: 100,
-      videoId: 'tWcSBql597s',
+      videoId: 'DowhhfP11UU',
       videoTitle: 'Doordarshan Archives: Traditional Maharashtrian Lavani',
       videoTradition: 'Folk / Theatrical Musical Heritage of Maharashtra',
       videoHighlights: [
@@ -336,11 +336,11 @@ const interactiveMissions = [
   {
     step: 3,
     phase: 'phase3',
-    targetSelector: '#phase3 .symphony-layer-stack',
-    title: 'Mission 3: Polyrhythmic Fusion Symphony',
-    instruction: '👉 <strong>Live Action:</strong> Click <strong>"Activate Layer 1"</strong> and <strong>"Activate Layer 2"</strong> to build the polyrhythmic groove, then move the <strong>Master Tempo Slider</strong>!',
-    statusWaiting: '⚡ Waiting for you to activate a rhythm layer...',
-    statusDone: '✓ Polyrhythms Harmonized! +150 Class Unity XP Unlocked!'
+    targetSelector: '#phase3 .layers-orchestrator-grid',
+    title: 'Mission 3: India Diversity & Unity Map',
+    instruction: '👉 <strong>Live Action:</strong> Click <strong>"Activate Layer 1"</strong>, <strong>"Layer 2"</strong>, and <strong>"Layer 3"</strong> to light up India\'s regional traditions, and adjust the <strong>Master Tempo Slider</strong> to see how regional diversity unites into "Many in the One"!',
+    statusWaiting: '⚡ Waiting for you to activate a rhythm layer on the India map...',
+    statusDone: '✓ Regional Traditions Harmonized! +150 Class Unity XP Unlocked!'
   },
   {
     step: 4,
@@ -1195,14 +1195,14 @@ function setupSimulatorLogic(dance) {
       // Check if all completed
       const allDone = SimState.dances.every(d => d.completed);
       if (allDone) {
-        alert('All 8 Regional Quests Mastered! Proceed to Phase 3: The Antigravity Fusion Symphony to orchestrate "Many in the One"!');
+        alert('All 8 Regional Quests Mastered! Proceed to Phase 3: The India Diversity & Unity Map to orchestrate "Many in the One"!');
       }
     });
   }
 }
 
 // ==========================================================
-// PHASE 3: ANTIGRAVITY FUSION SYMPHONY ("MANY IN THE ONE")
+// PHASE 3: INDIA DIVERSITY & UNITY MAP ("MANY IN THE ONE")
 // ==========================================================
 function renderPhase3() {
   const btnLayer1 = document.getElementById('btnToggleLayer1');
@@ -1241,13 +1241,13 @@ function renderPhase3() {
     const statusBadge = document.getElementById('symphonyStatusBadge');
     if (statusBadge) {
       if (l1 && l2 && l3) {
-        statusBadge.textContent = 'Status: FULL CLASS FUSION SYMPHONY ("MANY IN THE ONE")';
+        statusBadge.textContent = 'Status: FULL PAN-INDIA UNITY IN DIVERSITY HARMONY ("MANY IN THE ONE")';
         statusBadge.style.color = '#fde047';
       } else if (l1 || l2 || l3) {
-        statusBadge.textContent = 'Status: Harmonizing Regional Layers...';
+        statusBadge.textContent = 'Status: Harmonizing Regional Traditions Across India...';
         statusBadge.style.color = '#38bdf8';
       } else {
-        statusBadge.textContent = 'Status: Standby • Activate Layers Below';
+        statusBadge.textContent = 'Status: Standby • Activate Regional Layers Below';
         statusBadge.style.color = '#94a3b8';
       }
     }
@@ -1308,7 +1308,7 @@ function renderPhase3() {
 }
 
 // ==========================================================
-// CANVAS 2D PARTICLE & DANCE AURA VISUALIZER
+// INTERACTIVE INDIA DIVERSITY & UNITY MAP VISUALIZER
 // ==========================================================
 function initCanvasVisualizer() {
   const canvas = document.getElementById('symphonyCanvas');
@@ -1323,93 +1323,466 @@ function initCanvasVisualizer() {
   window.addEventListener('resize', resize);
 
   let angle = 0;
+  let hoveredNode = null;
+  let mousePos = { x: -1, y: -1 };
+
+  // Track mouse on canvas
+  canvas.addEventListener('mousemove', (e) => {
+    const rect = canvas.getBoundingClientRect();
+    mousePos.x = e.clientX - rect.left;
+    mousePos.y = e.clientY - rect.top;
+  });
+
+  canvas.addEventListener('mouseleave', () => {
+    mousePos.x = -1;
+    mousePos.y = -1;
+    hoveredNode = null;
+  });
+
+  canvas.addEventListener('click', () => {
+    if (hoveredNode) {
+      // If clicked on a dance node, trigger solo practice beat or preview
+      openVideoModal(hoveredNode.id);
+    }
+  });
+
+  // Flowing energy particles
   const particles = [];
-  for (let i = 0; i < 60; i++) {
+  for (let i = 0; i < 48; i++) {
     particles.push({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      radius: Math.random() * 3 + 1,
-      vx: (Math.random() - 0.5) * 1.5,
-      vy: (Math.random() - 0.5) * 1.5,
-      color: ['#f59e0b', '#ec4899', '#06b6d4', '#10b981', '#6366f1'][Math.floor(Math.random() * 5)]
+      progress: Math.random(),
+      speed: 0.003 + Math.random() * 0.006,
+      nodeIndex: Math.floor(Math.random() * 8),
+      size: Math.random() * 2.5 + 1.5,
+      color: ['#06b6d4', '#f59e0b', '#ec4899', '#10b981', '#fde047'][Math.floor(Math.random() * 5)]
     });
   }
 
+  // Authentic geographic map nodes for India's 8 regional dances
+  const indiaMapNodes = [
+    {
+      id: 'bhangra',
+      name: 'Bhangra',
+      regionTitle: 'Punjab (North)',
+      nx: 0.33,
+      ny: 0.22,
+      layer: 3,
+      rhythm: 'Dhol Boom & Saap Claps',
+      unityNote: 'Dynamic high-energy vitality powering the northern pulse',
+      color: '#ec4899'
+    },
+    {
+      id: 'kathak',
+      name: 'Kathak',
+      regionTitle: 'UP / Rajasthan (North)',
+      nx: 0.44,
+      ny: 0.29,
+      layer: 2,
+      rhythm: 'Teental 16-Beat Tatkar',
+      unityNote: 'Storytelling grace & pirouette precision of northern courts',
+      color: '#f59e0b'
+    },
+    {
+      id: 'garba',
+      name: 'Garba',
+      regionTitle: 'Gujarat (West)',
+      nx: 0.25,
+      ny: 0.44,
+      layer: 1,
+      rhythm: '3-Count Clap Loop (Taali)',
+      unityNote: 'Concentric community circle celebrating shared harmony',
+      color: '#06b6d4'
+    },
+    {
+      id: 'lavani',
+      name: 'Lavani',
+      regionTitle: 'Maharashtra (West/Deccan)',
+      nx: 0.35,
+      ny: 0.58,
+      layer: 3,
+      rhythm: 'Fast Dholki 6/8 Shuffle',
+      unityNote: 'Expressive rhythm poetry & theatrical vitality of Maharashtra',
+      color: '#ec4899'
+    },
+    {
+      id: 'bharatanatyam',
+      name: 'Bharatanatyam',
+      regionTitle: 'Tamil Nadu (South)',
+      nx: 0.46,
+      ny: 0.82,
+      layer: 2,
+      rhythm: 'Adi Tala (Ta-Dhi-Thom-Nam)',
+      unityNote: 'Sacred temple geometric alignment & Natyashastra balance',
+      color: '#f59e0b'
+    },
+    {
+      id: 'chhau',
+      name: 'Chhau',
+      regionTitle: 'Jharkhand/Odisha (East)',
+      nx: 0.65,
+      ny: 0.47,
+      layer: 3,
+      rhythm: 'Nagara War Drum & Shehnai',
+      unityNote: 'Martial strength & acrobatic mask heritage of eastern hills',
+      color: '#ec4899'
+    },
+    {
+      id: 'bihu',
+      name: 'Bihu',
+      regionTitle: 'Assam (Northeast)',
+      nx: 0.81,
+      ny: 0.30,
+      layer: 2,
+      rhythm: 'Dhol-Pepa Spring Syncopation',
+      unityNote: 'Joyous spring harvest celebration along Brahmaputra valley',
+      color: '#f59e0b'
+    },
+    {
+      id: 'cheraw',
+      name: 'Cheraw',
+      regionTitle: 'Mizoram (Northeast)',
+      nx: 0.84,
+      ny: 0.43,
+      layer: 1,
+      rhythm: '4/4 Sliding Bamboo Clack',
+      unityNote: 'Precision bamboo matrix requiring total mutual trust',
+      color: '#06b6d4'
+    }
+  ];
+
+  function drawIndiaOutline(w, h, allActive) {
+    // Map bounds scaling
+    const ox = w * 0.12;
+    const oy = h * 0.05;
+    const mw = w * 0.76;
+    const mh = h * 0.88;
+
+    ctx.save();
+
+    // Map shadow
+    ctx.shadowColor = allActive ? 'rgba(245, 158, 11, 0.4)' : 'rgba(0, 0, 0, 0.6)';
+    ctx.shadowBlur = allActive ? 25 : 15;
+
+    // Draw stylized India Geographic Polygon / Contour
+    ctx.beginPath();
+    // Kashmir Crown
+    ctx.moveTo(ox + mw * 0.34, oy + mh * 0.02);
+    ctx.quadraticCurveTo(ox + mw * 0.40, oy + mh * 0.01, ox + mw * 0.44, oy + mh * 0.06);
+    ctx.lineTo(ox + mw * 0.46, oy + mh * 0.14);
+    // Himachal / Uttarakhand / Nepal border
+    ctx.lineTo(ox + mw * 0.52, oy + mh * 0.20);
+    ctx.lineTo(ox + mw * 0.60, oy + mh * 0.25);
+    // Chicken Neck corridor to Northeast
+    ctx.lineTo(ox + mw * 0.68, oy + mh * 0.26);
+    ctx.lineTo(ox + mw * 0.74, oy + mh * 0.20);
+    // Arunachal / Assam / Nagaland / Mizoram
+    ctx.quadraticCurveTo(ox + mw * 0.88, oy + mh * 0.21, ox + mw * 0.89, oy + mh * 0.28);
+    ctx.lineTo(ox + mw * 0.87, oy + mh * 0.46);
+    ctx.lineTo(ox + mw * 0.80, oy + mh * 0.45);
+    ctx.lineTo(ox + mw * 0.74, oy + mh * 0.36);
+    // Bay of Bengal / Bengal delta / Odisha
+    ctx.lineTo(ox + mw * 0.68, oy + mh * 0.40);
+    ctx.quadraticCurveTo(ox + mw * 0.66, oy + mh * 0.52, ox + mw * 0.60, oy + mh * 0.62);
+    // Coromandel Coast to Kanyakumari
+    ctx.lineTo(ox + mw * 0.52, oy + mh * 0.82);
+    ctx.lineTo(ox + mw * 0.46, oy + mh * 0.96); // Kanyakumari Cape
+    // Malabar Coast / Kerala / Goa / Konkan
+    ctx.lineTo(ox + mw * 0.42, oy + mh * 0.85);
+    ctx.quadraticCurveTo(ox + mw * 0.34, oy + mh * 0.68, ox + mw * 0.31, oy + mh * 0.58);
+    // Gujarat / Kathiawar Peninsula / Rann of Kutch
+    ctx.lineTo(ox + mw * 0.23, oy + mh * 0.50);
+    ctx.quadraticCurveTo(ox + mw * 0.16, oy + mh * 0.47, ox + mw * 0.18, oy + mh * 0.39);
+    ctx.lineTo(ox + mw * 0.26, oy + mh * 0.36);
+    // Rajasthan border to Punjab / Kashmir
+    ctx.lineTo(ox + mw * 0.28, oy + mh * 0.24);
+    ctx.lineTo(ox + mw * 0.31, oy + mh * 0.12);
+    ctx.closePath();
+
+    // Map background fill gradient
+    const mapGrad = ctx.createRadialGradient(ox + mw * 0.50, oy + mh * 0.50, 20, ox + mw * 0.50, oy + mh * 0.50, mw * 0.6);
+    if (allActive) {
+      mapGrad.addColorStop(0, 'rgba(245, 158, 11, 0.22)');
+      mapGrad.addColorStop(0.5, 'rgba(16, 185, 129, 0.15)');
+      mapGrad.addColorStop(1, 'rgba(6, 182, 212, 0.10)');
+    } else {
+      mapGrad.addColorStop(0, 'rgba(30, 41, 79, 0.35)');
+      mapGrad.addColorStop(0.7, 'rgba(15, 23, 42, 0.45)');
+      mapGrad.addColorStop(1, 'rgba(4, 5, 13, 0.60)');
+    }
+
+    ctx.fillStyle = mapGrad;
+    ctx.fill();
+
+    // Map border contour stroke
+    ctx.lineWidth = allActive ? 2.5 : 1.5;
+    ctx.strokeStyle = allActive ? 'rgba(253, 224, 71, 0.7)' : 'rgba(148, 163, 184, 0.35)';
+    ctx.stroke();
+
+    // Draw Regional Boundary Curves / Meridians inside India
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.06)';
+    ctx.setLineDash([4, 6]);
+
+    // North-South cultural meridian
+    ctx.beginPath();
+    ctx.moveTo(ox + mw * 0.42, oy + mh * 0.10);
+    ctx.quadraticCurveTo(ox + mw * 0.48, oy + mh * 0.48, ox + mw * 0.46, oy + mh * 0.94);
+    ctx.stroke();
+
+    // West-East cultural parallel
+    ctx.beginPath();
+    ctx.moveTo(ox + mw * 0.20, oy + mh * 0.43);
+    ctx.quadraticCurveTo(ox + mw * 0.48, oy + mh * 0.48, ox + mw * 0.85, oy + mh * 0.35);
+    ctx.stroke();
+
+    ctx.setLineDash([]);
+    ctx.restore();
+  }
+
   function draw() {
-    ctx.fillStyle = 'rgba(4, 5, 13, 0.25)';
+    ctx.fillStyle = 'rgba(4, 6, 15, 0.35)';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    const centerX = canvas.width / 2;
-    const centerY = canvas.height / 2;
-    const radius = Math.min(centerX, centerY) * 0.7;
-
+    const w = canvas.width;
+    const h = canvas.height;
     const l1 = window.RhythmEngine.activeLayers.layer1;
     const l2 = window.RhythmEngine.activeLayers.layer2;
     const l3 = window.RhythmEngine.activeLayers.layer3;
+    const allActive = l1 && l2 && l3;
 
-    // Draw 8 Regional Nodes
-    const dances = SimState.dances;
-    for (let i = 0; i < 8; i++) {
-      const theta = (i * Math.PI / 4) + angle * 0.2;
-      const nx = centerX + Math.cos(theta) * radius;
-      const ny = centerY + Math.sin(theta) * radius;
+    // Draw Map Silhouette & Cultural Grid
+    drawIndiaOutline(w, h, allActive);
 
-      // Node ring
+    // Central Unity Lotus & Ashoka Core (Central India - Madhya Pradesh / Vidisha)
+    const coreX = w * 0.48;
+    const coreY = h * 0.50;
+
+    // Draw Harmonic Energy Rays from Active Regional Nodes to Central Unity Core
+    hoveredNode = null;
+
+    indiaMapNodes.forEach((node, idx) => {
+      const px = w * node.nx;
+      const py = h * node.ny;
+
+      const isLayerActive = (node.layer === 1 && l1) || (node.layer === 2 && l2) || (node.layer === 3 && l3);
+
+      // Check hover
+      const dist = Math.hypot(mousePos.x - px, mousePos.y - py);
+      if (dist < 22) {
+        hoveredNode = node;
+      }
+
+      // Draw Energy Ray to Center when layer is active
+      if (isLayerActive) {
+        ctx.save();
+        ctx.beginPath();
+        // Curving bezier ray
+        const midX = (px + coreX) / 2 + Math.sin(angle * 3 + idx) * 12;
+        const midY = (py + coreY) / 2 + Math.cos(angle * 3 + idx) * 12;
+        ctx.moveTo(px, py);
+        ctx.quadraticCurveTo(midX, midY, coreX, coreY);
+
+        ctx.strokeStyle = node.color;
+        ctx.lineWidth = allActive ? 3.0 : 2.0;
+        ctx.globalAlpha = 0.55 + Math.sin(angle * 4 + idx) * 0.25;
+        ctx.shadowColor = node.color;
+        ctx.shadowBlur = 12;
+        ctx.stroke();
+        ctx.restore();
+      }
+
+      // Constellation connection lines between neighboring regional hubs
+      const nextNode = indiaMapNodes[(idx + 1) % indiaMapNodes.length];
+      const npx = w * nextNode.nx;
+      const npy = h * nextNode.ny;
       ctx.beginPath();
-      ctx.arc(nx, ny, 16, 0, Math.PI * 2);
-      ctx.fillStyle = dances[i].layer === 1 ? '#06b6d4' : dances[i].layer === 2 ? '#f59e0b' : '#ec4899';
+      ctx.moveTo(px, py);
+      ctx.lineTo(npx, npy);
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.05)';
+      ctx.lineWidth = 1;
+      ctx.stroke();
+    });
+
+    // Draw Flowing Particles along rays to the Center
+    particles.forEach(p => {
+      const node = indiaMapNodes[p.nodeIndex];
+      const isLayerActive = (node.layer === 1 && l1) || (node.layer === 2 && l2) || (node.layer === 3 && l3);
+      if (isLayerActive || allActive) {
+        p.progress += p.speed;
+        if (p.progress > 1) p.progress = 0;
+
+        const startX = w * node.nx;
+        const startY = h * node.ny;
+        const curX = startX + (coreX - startX) * p.progress;
+        const curY = startY + (coreY - startY) * p.progress;
+
+        ctx.beginPath();
+        ctx.arc(curX, curY, p.size, 0, Math.PI * 2);
+        ctx.fillStyle = node.color;
+        ctx.shadowColor = node.color;
+        ctx.shadowBlur = 8;
+        ctx.fill();
+      }
+    });
+
+    // Draw Central Unity Core (Lotus & Ashoka Emblem)
+    ctx.save();
+    const pulse = Math.sin(angle * 3) * 6;
+    const coreRadius = allActive ? 32 + pulse : 24;
+
+    // Glowing Aura Rings around Central India
+    ctx.beginPath();
+    ctx.arc(coreX, coreY, coreRadius + (allActive ? 18 : 8), 0, Math.PI * 2);
+    ctx.strokeStyle = allActive ? 'rgba(253, 224, 71, 0.4)' : 'rgba(255, 255, 255, 0.1)';
+    ctx.lineWidth = 2;
+    ctx.setLineDash([4, 4]);
+    ctx.stroke();
+    ctx.setLineDash([]);
+
+    // Core Solid Circle
+    ctx.beginPath();
+    ctx.arc(coreX, coreY, coreRadius, 0, Math.PI * 2);
+    ctx.fillStyle = allActive ? '#fde047' : (l1 || l2 || l3) ? 'rgba(56, 189, 248, 0.9)' : 'rgba(30, 41, 59, 0.85)';
+    ctx.shadowColor = allActive ? '#f59e0b' : '#38bdf8';
+    ctx.shadowBlur = allActive ? 30 : 15;
+    ctx.fill();
+    ctx.strokeStyle = '#fff';
+    ctx.lineWidth = 2.5;
+    ctx.stroke();
+
+    // Central 24-spoke Ashoka / Unity Ray Pattern
+    const spokes = 12;
+    for (let s = 0; s < spokes; s++) {
+      const sa = (s * (Math.PI * 2) / spokes) + angle * (allActive ? 1.5 : 0.5);
+      const sx1 = coreX + Math.cos(sa) * 4;
+      const sy1 = coreY + Math.sin(sa) * 4;
+      const sx2 = coreX + Math.cos(sa) * (coreRadius - 4);
+      const sy2 = coreY + Math.sin(sa) * (coreRadius - 4);
+      ctx.beginPath();
+      ctx.moveTo(sx1, sy1);
+      ctx.lineTo(sx2, sy2);
+      ctx.strokeStyle = allActive ? '#78350f' : '#ffffff';
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
+    }
+
+    // Core Center Dot
+    ctx.beginPath();
+    ctx.arc(coreX, coreY, 5, 0, Math.PI * 2);
+    ctx.fillStyle = allActive ? '#b45309' : '#ffffff';
+    ctx.fill();
+
+    // Central Title Banner below core
+    ctx.fillStyle = allActive ? '#fde047' : '#94a3b8';
+    ctx.font = 'bold 11px "Space Grotesk", sans-serif';
+    ctx.textAlign = 'center';
+    ctx.shadowColor = 'rgba(0, 0, 0, 0.9)';
+    ctx.shadowBlur = 6;
+    ctx.fillText(allActive ? '★ UNITY IN DIVERSITY ★' : 'CENTRAL UNITY CORE', coreX, coreY + coreRadius + 16);
+    ctx.font = '9px "Space Grotesk", sans-serif';
+    ctx.fillStyle = '#cbd5e1';
+    ctx.fillText('"Many in the One"', coreX, coreY + coreRadius + 28);
+    ctx.restore();
+
+    // Draw 8 Regional Dance Pins & Markers
+    indiaMapNodes.forEach((node, idx) => {
+      const px = w * node.nx;
+      const py = h * node.ny;
+      const isLayerActive = (node.layer === 1 && l1) || (node.layer === 2 && l2) || (node.layer === 3 && l3);
+      const isHovered = (hoveredNode === node);
+
+      ctx.save();
+
+      // Pulsing Ring for active layers
+      if (isLayerActive || isHovered) {
+        ctx.beginPath();
+        const pRing = 14 + Math.sin(angle * 4 + idx) * 4;
+        ctx.arc(px, py, pRing, 0, Math.PI * 2);
+        ctx.strokeStyle = node.color;
+        ctx.lineWidth = 1.8;
+        ctx.globalAlpha = 0.7;
+        ctx.stroke();
+      }
+
+      // Pin Base Circle
+      ctx.beginPath();
+      ctx.arc(px, py, isHovered ? 13 : 10, 0, Math.PI * 2);
+      ctx.fillStyle = isLayerActive ? node.color : 'rgba(30, 41, 59, 0.9)';
+      ctx.shadowColor = node.color;
+      ctx.shadowBlur = isLayerActive ? 18 : 8;
       ctx.fill();
-      ctx.strokeStyle = '#fff';
+      ctx.strokeStyle = '#ffffff';
       ctx.lineWidth = 2;
       ctx.stroke();
 
-      // Connect to center if layer is active
-      const isLayerActive = (dances[i].layer === 1 && l1) || (dances[i].layer === 2 && l2) || (dances[i].layer === 3 && l3);
-      if (isLayerActive) {
-        ctx.beginPath();
-        ctx.moveTo(nx, ny);
-        ctx.lineTo(centerX, centerY);
-        ctx.strokeStyle = ctx.fillStyle;
-        ctx.lineWidth = 2.5;
-        ctx.globalAlpha = 0.6;
-        ctx.stroke();
-        ctx.globalAlpha = 1.0;
-      }
-
-      // Text label
-      ctx.fillStyle = '#e2e8f0';
-      ctx.font = '10px "Space Grotesk", sans-serif';
-      ctx.textAlign = 'center';
-      ctx.fillText(dances[i].name, nx, ny + 28);
-    }
-
-    // Central Unity Lotus Core
-    ctx.beginPath();
-    ctx.arc(centerX, centerY, 30 + Math.sin(angle * 2) * 5, 0, Math.PI * 2);
-    ctx.fillStyle = (l1 && l2 && l3) ? '#fde047' : 'rgba(255, 255, 255, 0.15)';
-    ctx.fill();
-    ctx.strokeStyle = '#f59e0b';
-    ctx.lineWidth = 3;
-    ctx.stroke();
-
-    ctx.fillStyle = (l1 && l2 && l3) ? '#000' : '#fff';
-    ctx.font = 'bold 11px "Space Grotesk", sans-serif';
-    ctx.fillText((l1 && l2 && l3) ? 'UNITY' : 'FUSION', centerX, centerY + 4);
-
-    // Particle Swarm
-    particles.forEach(p => {
-      p.x += p.vx;
-      p.y += p.vy;
-      if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
-      if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
-
+      // Pin Inner Dot / Layer Indicator
       ctx.beginPath();
-      ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-      ctx.fillStyle = p.color;
+      ctx.arc(px, py, isHovered ? 5 : 3.5, 0, Math.PI * 2);
+      ctx.fillStyle = isLayerActive ? '#ffffff' : node.color;
       ctx.fill();
+
+      // Dance Name & State Badge
+      ctx.font = isHovered ? 'bold 11px "Space Grotesk", sans-serif' : '10px "Space Grotesk", sans-serif';
+      ctx.textAlign = px > coreX ? 'left' : 'right';
+      ctx.fillStyle = isLayerActive ? '#ffffff' : '#cbd5e1';
+      ctx.shadowColor = '#000000';
+      ctx.shadowBlur = 6;
+
+      const labelOffset = px > coreX ? 16 : -16;
+      ctx.fillText(node.name, px + labelOffset, py - 2);
+
+      ctx.font = '8.5px "Space Grotesk", sans-serif';
+      ctx.fillStyle = node.color;
+      ctx.fillText(node.regionTitle, px + labelOffset, py + 10);
+
+      ctx.restore();
     });
 
-    angle += 0.01;
+    // Draw Interactive Tooltip when hovering over a node
+    if (hoveredNode) {
+      const hx = Math.min(Math.max(w * hoveredNode.nx, 130), w - 150);
+      const hy = Math.max(h * hoveredNode.ny - 65, 55);
+
+      ctx.save();
+      const cardW = 240;
+      const cardH = 76;
+      const cx = hx - cardW / 2;
+      const cy = hy - cardH;
+
+      ctx.fillStyle = 'rgba(10, 15, 30, 0.95)';
+      ctx.strokeStyle = hoveredNode.color;
+      ctx.lineWidth = 1.5;
+      ctx.shadowColor = 'rgba(0,0,0,0.8)';
+      ctx.shadowBlur = 15;
+
+      // Rounded rect
+      ctx.beginPath();
+      ctx.roundRect(cx, cy, cardW, cardH, 8);
+      ctx.fill();
+      ctx.stroke();
+
+      // Tooltip Text
+      ctx.fillStyle = hoveredNode.color;
+      ctx.font = 'bold 11px "Space Grotesk", sans-serif';
+      ctx.textAlign = 'left';
+      ctx.fillText(`✨ ${hoveredNode.name} • ${hoveredNode.regionTitle}`, cx + 10, cy + 18);
+
+      ctx.fillStyle = '#fde047';
+      ctx.font = '10px "Space Grotesk", sans-serif';
+      ctx.fillText(`Rhythm: ${hoveredNode.rhythm}`, cx + 10, cy + 34);
+
+      ctx.fillStyle = '#94a3b8';
+      ctx.font = '9px "Space Grotesk", sans-serif';
+      ctx.fillText(`Unity: ${hoveredNode.unityNote.substring(0, 38)}...`, cx + 10, cy + 50);
+
+      ctx.fillStyle = '#38bdf8';
+      ctx.font = 'italic 8.5px "Space Grotesk", sans-serif';
+      ctx.fillText(`👉 Click to watch performance video`, cx + 10, cy + 65);
+
+      ctx.restore();
+    }
+
+    angle += 0.015;
     requestAnimationFrame(draw);
   }
 

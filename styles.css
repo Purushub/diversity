@@ -70,6 +70,14 @@
   --shadow-card: 0 12px 32px -8px rgba(15, 23, 42, 0.08), 0 0 0 1px rgba(15, 23, 42, 0.06);
 }
 
+[data-theme="light"] body {
+  background-image: 
+    radial-gradient(circle at 15% 15%, rgba(99, 102, 241, 0.05) 0%, transparent 40%),
+    radial-gradient(circle at 85% 85%, rgba(245, 158, 11, 0.05) 0%, transparent 40%),
+    linear-gradient(135deg, rgba(244, 246, 251, 0.94) 0%, rgba(255, 255, 255, 0.90) 50%, rgba(244, 246, 251, 0.95) 100%),
+    url('images/indian-flag-formed-by-people.jpg');
+}
+
 [data-theme="light"] body::before {
   background: radial-gradient(circle, rgba(99, 102, 241, 0.08) 0%, rgba(219, 39, 119, 0.05) 40%, transparent 70%);
 }
@@ -250,6 +258,14 @@
 body {
   font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
   background-color: var(--bg-primary);
+  background-image: 
+    radial-gradient(circle at 15% 15%, rgba(99, 102, 241, 0.14) 0%, transparent 45%),
+    radial-gradient(circle at 85% 85%, rgba(245, 158, 11, 0.12) 0%, transparent 45%),
+    linear-gradient(135deg, rgba(7, 8, 20, 0.94) 0%, rgba(14, 17, 38, 0.89) 50%, rgba(7, 8, 20, 0.95) 100%),
+    url('images/indian-flag-formed-by-people.jpg');
+  background-size: cover, cover, cover, cover;
+  background-position: center top;
+  background-attachment: fixed;
   color: var(--text-main);
   min-height: 100vh;
   line-height: 1.5;
@@ -457,7 +473,11 @@ body::after {
 
 /* Classroom Roadmap Banner */
 .classroom-roadmap-banner {
-  background: rgba(0, 0, 0, 0.25);
+  background: 
+    linear-gradient(135deg, rgba(14, 17, 38, 0.92), rgba(22, 26, 56, 0.88)),
+    url('images/mix_01.jpg');
+  background-size: cover;
+  background-position: center;
   border: 1px solid var(--border-glass);
   border-radius: var(--radius-lg);
   overflow: hidden;
@@ -466,7 +486,11 @@ body::after {
 }
 
 [data-theme="light"] .classroom-roadmap-banner {
-  background: #f8fafc;
+  background: 
+    linear-gradient(135deg, rgba(248, 250, 252, 0.94), rgba(255, 255, 255, 0.90)),
+    url('images/mix_01.jpg');
+  background-size: cover;
+  background-position: center;
 }
 
 .roadmap-header-bar {
@@ -714,10 +738,92 @@ body::after {
   margin-bottom: 2rem;
   padding: 1.75rem 2rem;
   border-radius: var(--radius-lg);
-  background: linear-gradient(135deg, rgba(22, 26, 56, 0.85), rgba(14, 17, 38, 0.95));
+  background: linear-gradient(135deg, rgba(22, 26, 56, 0.88), rgba(14, 17, 38, 0.95));
   border: 1px solid var(--border-glass);
   position: relative;
   overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+
+#phase1 .section-header-banner {
+  background: 
+    linear-gradient(135deg, rgba(14, 17, 38, 0.90), rgba(22, 26, 56, 0.88)),
+    url('images/hands-diversity-cradling-earth-with-care.jpg');
+  background-size: cover;
+  background-position: center 30%;
+}
+
+#phase2 .section-header-banner {
+  background: 
+    linear-gradient(135deg, rgba(14, 17, 38, 0.90), rgba(22, 26, 56, 0.88)),
+    url('images/crowded-indian-city.jpg');
+  background-size: cover;
+  background-position: center 40%;
+}
+
+#phase3 .section-header-banner {
+  background: 
+    linear-gradient(135deg, rgba(14, 17, 38, 0.88), rgba(22, 26, 56, 0.84)),
+    url('images/indian-flag-formed-by-people.jpg');
+  background-size: cover;
+  background-position: center 25%;
+}
+
+#scorecard .section-header-banner {
+  background: 
+    linear-gradient(135deg, rgba(14, 17, 38, 0.90), rgba(22, 26, 56, 0.88)),
+    url('images/52104.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+#debrief .section-header-banner {
+  background: 
+    linear-gradient(135deg, rgba(14, 17, 38, 0.90), rgba(22, 26, 56, 0.88)),
+    url('images/8650.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+/* Light Mode Overrides for Phase Banners */
+[data-theme="light"] #phase1 .section-header-banner {
+  background: 
+    linear-gradient(135deg, rgba(255, 255, 255, 0.93), rgba(248, 250, 252, 0.90)),
+    url('images/hands-diversity-cradling-earth-with-care.jpg');
+  background-size: cover;
+  background-position: center 30%;
+}
+
+[data-theme="light"] #phase2 .section-header-banner {
+  background: 
+    linear-gradient(135deg, rgba(255, 255, 255, 0.93), rgba(248, 250, 252, 0.90)),
+    url('images/crowded-indian-city.jpg');
+  background-size: cover;
+  background-position: center 40%;
+}
+
+[data-theme="light"] #phase3 .section-header-banner {
+  background: 
+    linear-gradient(135deg, rgba(255, 255, 255, 0.93), rgba(248, 250, 252, 0.90)),
+    url('images/indian-flag-formed-by-people.jpg');
+  background-size: cover;
+  background-position: center 25%;
+}
+
+[data-theme="light"] #scorecard .section-header-banner {
+  background: 
+    linear-gradient(135deg, rgba(255, 255, 255, 0.93), rgba(248, 250, 252, 0.90)),
+    url('images/52104.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+[data-theme="light"] #debrief .section-header-banner {
+  background: 
+    linear-gradient(135deg, rgba(255, 255, 255, 0.93), rgba(248, 250, 252, 0.90)),
+    url('images/8650.jpg');
+  background-size: cover;
+  background-position: center;
 }
 
 .section-header-banner::before {
@@ -746,6 +852,7 @@ body::after {
   font-weight: 800;
   color: #fff;
   margin-bottom: 0.5rem;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
 }
 
 .section-header-banner p {
@@ -1044,10 +1151,15 @@ body::after {
 
 .local-video-player {
   width: 100%;
-  max-height: 480px;
+  max-height: 486px;
   display: block;
   outline: none;
   border-radius: var(--radius-lg);
+}
+
+#introCinematicVideo {
+  max-height: 486px;
+  height: auto;
 }
 
 .video-embed-fallback-bar {
@@ -1847,7 +1959,7 @@ body::after {
 }
 
 /* ==========================================================
-   PHASE 3: ANTIGRAVITY FUSION SYMPHONY ("MANY IN THE ONE")
+   PHASE 3: INDIA DIVERSITY & UNITY MAP ("MANY IN THE ONE")
    ========================================================== */
 .symphony-stage-container {
   display: flex;
@@ -1856,34 +1968,36 @@ body::after {
 }
 
 .symphony-visualizer-box {
-  background: #04050d;
+  background: radial-gradient(circle at 50% 50%, #0a0d1e 0%, #03040a 100%);
   border: 1px solid var(--border-glass);
   border-radius: var(--radius-xl);
-  height: 340px;
+  height: 440px;
   position: relative;
   overflow: hidden;
-  box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.8), var(--shadow-card);
+  box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.9), var(--shadow-card);
 }
 
 #symphonyCanvas {
   width: 100%;
   height: 100%;
   display: block;
+  cursor: crosshair;
 }
 
 .symphony-hud-meter {
   position: absolute;
-  top: 16px;
-  left: 20px;
-  right: 20px;
+  top: 14px;
+  left: 18px;
+  right: 18px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(14, 17, 38, 0.7);
-  backdrop-filter: blur(10px);
+  background: rgba(10, 14, 30, 0.85);
+  backdrop-filter: blur(12px);
   padding: 0.75rem 1.25rem;
   border-radius: var(--radius-md);
   border: 1px solid var(--border-glass);
+  z-index: 10;
 }
 
 .symphony-status-badge {

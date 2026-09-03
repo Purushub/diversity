@@ -16,10 +16,11 @@ An immersive, web-based interactive experience exploring Indian classical and fo
 - **Video Performances** — Authentic dance form demonstrations
 - **Web Audio Solkattu Beats** — Rhythmic syllable patterns with real-time audio synthesis
 
-### 🎼 Phase 3: Antigravity Fusion Symphony
-- **3-Layer Audio Mixer** — Tabla, Flute, and Ghungroo layers
-- **Master Tempo Control** — Real-time BPM adjustment
-- **Golden Freeze Synthesis** — Synchronized 3-second silence ritual
+### 🗺️ Phase 3: India Diversity & Unity Map ("Many in the One")
+- **Interactive Map of India** — Dynamic geographic visualization connecting 8 regional dance traditions
+- **3-Layer Audio Mixer** — Base Rhythms, Melodic Accents, and High-Energy Martial layers
+- **Master Tempo Control** — Real-time BPM adjustment across all regions
+- **Golden Freeze Synthesis** — Synchronized 3-second silence ritual uniting all regions
 
 ### 📋 Phase 4: Assessment & Reflection
 - **Rubric Scorecard** — Facilitator grading with IB criteria
