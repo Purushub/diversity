@@ -78,14 +78,28 @@ class RhythmAudioEngine {
 
   // =========================================================================
   // =========================================================================
-  // AI VOICE ASSISTANT SPEECH SYNTHESIS ("INDIRA")
+  // AI VOICE ASSISTANT SPEECH SYNTHESIS (ElevenLabs Neural AI + Web Speech)
   // =========================================================================
 
-  selectedVoicePersona = 'indira_natural';
+  elevenLabsApiKey = 'sk_3f9800ead5132752e69125845249d9e275b3cdb762a0154a';
+  selectedVoicePersona = 'eleven_alice';
   selectedVoiceURI = '';
+  elevenLabsAudioCache = new Map();
+  currentAudioPlayer = null;
+
+  elevenLabsVoices = {
+    'eleven_alice': { voiceId: 'Xb7hH8MSUJpSbSDYk0k2', name: 'Indira (ElevenLabs Neural Educator)' },
+    'eleven_sarah': { voiceId: 'EXAVITQu4vr4xnSDxMaL', name: 'Sarah (ElevenLabs Warm & Reassuring)' },
+    'eleven_jessica': { voiceId: 'cgSgspJ2msm6clMCkdW9', name: 'Jessica (ElevenLabs Bright & Playful)' },
+    'eleven_bella': { voiceId: 'hpp4J3VqNfWAUOO0d1Us', name: 'Bella (ElevenLabs Professional & Friendly)' },
+    'eleven_lily': { voiceId: 'pFZP5JQG7iQjIQuC4Bku', name: 'Lily (ElevenLabs Expressive Female)' },
+    'eleven_george': { voiceId: 'JBFqnCBsd6RMkjVDRZzb', name: 'George (ElevenLabs Storyteller Male)' },
+    'eleven_brian': { voiceId: 'nPczCjzI2devNBz1zQrb', name: 'Brian (ElevenLabs Deep Resonant Male)' },
+    'eleven_laura': { voiceId: 'FGY2WhTYpPnrIDTdsKH5', name: 'Laura (ElevenLabs Enthusiastic Female)' }
+  };
 
   setVoicePersona(personaId, voiceURI = '') {
-    this.selectedVoicePersona = personaId || 'indira_natural';
+    this.selectedVoicePersona = personaId || 'eleven_alice';
     this.selectedVoiceURI = voiceURI;
   }
 
@@ -94,18 +108,108 @@ class RhythmAudioEngine {
     return window.speechSynthesis.getVoices() || [];
   }
 
-  speakVoiceAssistant(text, onStart, onEnd) {
-    if (!('speechSynthesis' in window)) return;
-    try {
-      window.speechSynthesis.cancel(); // Stop any pending speech immediately
-      if (!text || this.isMuted) return;
+  /**
+   * Main speech dispatcher: Uses ElevenLabs Neural AI by default with instant fallback to Web Speech
+   */
+  async speakVoiceAssistant(text, onStart, onEnd) {
+    if (!text || this.isMuted) return;
+    this.stopVoiceAssistant();
 
+    const persona = this.selectedVoicePersona || 'eleven_alice';
+
+    // 1. If ElevenLabs voice is chosen, try ElevenLabs Neural API
+    if (persona.startsWith('eleven_') && this.elevenLabsVoices[persona]) {
+      const voiceConfig = this.elevenLabsVoices[persona];
+      const cacheKey = `${voiceConfig.voiceId}_${text.trim()}`;
+
+      try {
+        // Check local memory audio cache
+        if (this.elevenLabsAudioCache.has(cacheKey)) {
+          const cachedUrl = this.elevenLabsAudioCache.get(cacheKey);
+          this.playAudioUrl(cachedUrl, onStart, onEnd);
+          return;
+        }
+
+        // Fetch from ElevenLabs Text-to-Speech API
+        const response = await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${voiceConfig.voiceId}`, {
+          method: 'POST',
+          headers: {
+            'xi-api-key': this.elevenLabsApiKey,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            text: text,
+            model_id: 'eleven_multilingual_v2',
+            voice_settings: {
+              stability: 0.5,
+              similarity_boost: 0.75,
+              style: 0.35,
+              use_speaker_boost: true
+            }
+          })
+        });
+
+        if (response.ok) {
+          const blob = await response.blob();
+          const audioUrl = URL.createObjectURL(blob);
+          this.elevenLabsAudioCache.set(cacheKey, audioUrl);
+          this.playAudioUrl(audioUrl, onStart, onEnd);
+          return;
+        } else {
+          console.warn('ElevenLabs API returned status:', response.status, 'Falling back to Web Speech.');
+        }
+      } catch (err) {
+        console.warn('ElevenLabs network exception, falling back to Web Speech:', err);
+      }
+    }
+
+    // 2. Fallback to Browser Speech Synthesis
+    this.speakWebSpeech(text, onStart, onEnd);
+  }
+
+  /**
+   * Plays audio blob URL for ElevenLabs
+   */
+  playAudioUrl(url, onStart, onEnd) {
+    try {
+      this.currentAudioPlayer = new Audio(url);
+      if (onStart) onStart();
+
+      this.currentAudioPlayer.onended = () => {
+        this.currentAudioPlayer = null;
+        if (onEnd) onEnd();
+      };
+
+      this.currentAudioPlayer.onerror = () => {
+        this.currentAudioPlayer = null;
+        if (onEnd) onEnd();
+      };
+
+      this.currentAudioPlayer.play().catch(e => {
+        console.warn('Audio play exception:', e);
+        if (onEnd) onEnd();
+      });
+    } catch (e) {
+      if (onEnd) onEnd();
+    }
+  }
+
+  /**
+   * Browser Speech Synthesis fallback
+   */
+  speakWebSpeech(text, onStart, onEnd) {
+    if (!('speechSynthesis' in window)) {
+      if (onEnd) onEnd();
+      return;
+    }
+    try {
+      window.speechSynthesis.cancel();
       const utterance = new SpeechSynthesisUtterance(text);
       const voices = window.speechSynthesis.getVoices() || [];
       const persona = this.selectedVoicePersona || 'indira_natural';
 
       // Persona Profile Tuning
-      if (persona === 'indira_natural') {
+      if (persona === 'indira_natural' || persona === 'eleven_alice') {
         utterance.rate = 0.94;
         utterance.pitch = 1.08;
         if (voices.length > 0) {
@@ -123,7 +227,7 @@ class RhythmAudioEngine {
             || voices.find(v => v.name.includes('Google हिन्दी') || v.name.includes('Natural'));
           if (matched) utterance.voice = matched;
         }
-      } else if (persona === 'ravi_male') {
+      } else if (persona === 'ravi_male' || persona === 'eleven_george' || persona === 'eleven_brian') {
         utterance.rate = 0.95;
         utterance.pitch = 0.92;
         if (voices.length > 0) {
@@ -181,6 +285,13 @@ class RhythmAudioEngine {
   }
 
   stopVoiceAssistant() {
+    if (this.currentAudioPlayer) {
+      try {
+        this.currentAudioPlayer.pause();
+        this.currentAudioPlayer.currentTime = 0;
+      } catch (e) {}
+      this.currentAudioPlayer = null;
+    }
     if ('speechSynthesis' in window) {
       window.speechSynthesis.cancel();
     }

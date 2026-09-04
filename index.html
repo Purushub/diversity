@@ -375,13 +375,23 @@
                 <div class="voice-select-group">
                   <span class="voice-icon-tag">🎙️ Voice:</span>
                   <select id="voicePersonaSelect" class="voice-persona-select" onchange="changeVoicePersona(this.value)">
-                    <option value="indira_natural">🇮🇳 Indira (Natural Warm Indian English - Female)</option>
-                    <option value="aditi_hindi">🇮🇳 Aditi (Melodic Indian Hindi / English - Female)</option>
-                    <option value="ravi_male">🇮🇳 Ravi (Clear Indian English - Male)</option>
-                    <option value="priya_natural">🇮🇳 Priya (Expressive Natural English - Female)</option>
-                    <option value="victoria_uk">🇬🇧 Victoria (Articulate British English - Female)</option>
-                    <option value="samantha_us">🇺🇸 Samantha (Clear US English - Female)</option>
-                    <option value="system_best">🌐 Auto-Detect Best Natural Voice</option>
+                    <optgroup label="👑 ElevenLabs Neural AI (Ultra Realistic)">
+                      <option value="eleven_alice" selected>👑 Indira (ElevenLabs Neural Educator)</option>
+                      <option value="eleven_sarah">✨ Sarah (ElevenLabs Warm & Reassuring)</option>
+                      <option value="eleven_jessica">🌟 Jessica (ElevenLabs Bright & Playful)</option>
+                      <option value="eleven_bella">🎙️ Bella (ElevenLabs Professional & Friendly)</option>
+                      <option value="eleven_lily">🎭 Lily (ElevenLabs Expressive Actress)</option>
+                      <option value="eleven_george">📖 George (ElevenLabs Storyteller Male)</option>
+                      <option value="eleven_brian">🔊 Brian (ElevenLabs Deep Resonant Male)</option>
+                      <option value="eleven_laura">💫 Laura (ElevenLabs Enthusiastic Female)</option>
+                    </optgroup>
+                    <optgroup label="🌐 Browser Web Speech Voices">
+                      <option value="indira_natural">🇮🇳 Indira (Indian English - Natural)</option>
+                      <option value="aditi_hindi">🇮🇳 Aditi (Hindi / Indian Accent)</option>
+                      <option value="ravi_male">🇮🇳 Ravi (Indian English - Male)</option>
+                      <option value="victoria_uk">🇬🇧 Victoria (British English)</option>
+                      <option value="samantha_us">🇺🇸 Samantha (US English)</option>
+                    </optgroup>
                   </select>
                 </div>
                 <button class="btn-voice-preview" onclick="previewCurrentVoice()" title="Test selected voice">

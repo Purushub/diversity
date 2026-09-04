@@ -359,8 +359,8 @@ const SimState = {
       rhythmBols: 'Taa! Kaa! Dhee! Mee! Thomm! Naam! Thaa-Kaa! Jhaa-Nu!',
       unityRole: 'Anchors India in ancient Natyashastra classical geometric discipline, sacred temple architectural mastery, and timeless Carnatic ragas.',
       explored: false,
-      nx: 0.450,
-      ny: 0.825,
+      nx: 0.448,
+      ny: 0.775,
       color: '#f59e0b'
     },
     {
@@ -492,8 +492,8 @@ const SimState = {
       rhythmBols: 'Thaa-Kee-Taa! Thaa-Kaa-Dhee-Mee! Chenda! Dhum!',
       unityRole: 'The maritime spice gateway that introduced Indian culture to global travelers, celebrated for exquisite artistic storytelling and drum synchronization.',
       explored: false,
-      nx: 0.355,
-      ny: 0.810,
+      nx: 0.360,
+      ny: 0.765,
       color: '#06b6d4'
     },
     {
@@ -1800,16 +1800,22 @@ function checkQuestAnswer(clickedStateId) {
 function changeVoicePersona(personaId) {
   window.RhythmEngine.setVoicePersona(personaId);
   const personaLabels = {
-    indira_natural: 'Indira (Natural Warm Indian English)',
-    aditi_hindi: 'Aditi (Melodic Hindi / English)',
-    ravi_male: 'Ravi (Clear Indian English Male)',
-    priya_natural: 'Priya (Expressive Natural English)',
-    victoria_uk: 'Victoria (Articulate British English)',
-    samantha_us: 'Samantha (Clear US English)',
-    system_best: 'Auto-Detected Best Natural Voice'
+    eleven_alice: '👑 Indira (ElevenLabs Neural Educator)',
+    eleven_sarah: '✨ Sarah (ElevenLabs Warm & Reassuring)',
+    eleven_jessica: '🌟 Jessica (ElevenLabs Bright & Playful)',
+    eleven_bella: '🎙️ Bella (ElevenLabs Professional & Friendly)',
+    eleven_lily: '🎭 Lily (ElevenLabs Expressive Actress)',
+    eleven_george: '📖 George (ElevenLabs Storyteller Male)',
+    eleven_brian: '🔊 Brian (ElevenLabs Deep Resonant Male)',
+    eleven_laura: '💫 Laura (ElevenLabs Enthusiastic Female)',
+    indira_natural: '🇮🇳 Indira (Indian English - Natural)',
+    aditi_hindi: '🇮🇳 Aditi (Hindi / Indian Accent)',
+    ravi_male: '🇮🇳 Ravi (Indian English Male)',
+    victoria_uk: '🇬🇧 Victoria (British English)',
+    samantha_us: '🇺🇸 Samantha (US English)'
   };
   const label = personaLabels[personaId] || 'Selected Persona';
-  updateAISpeechBubble(`"Voice switched to ${label}. Click 'Test Voice' or select any state on the map!"`);
+  updateAISpeechBubble(`"Voice switched to ${label}. Click 'Test Voice' or select any state on the map to hear neural speech!"`);
 }
 window.changeVoicePersona = changeVoicePersona;
 
