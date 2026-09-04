@@ -307,7 +307,8 @@ const SimState = {
       unityRole: 'Cradles classical Telugu literature and the dynamic Kuchipudi brass-plate dance while serving as India\'s satellite launch gateway.',
       explored: false,
       nx: 0.460,
-      ny: 0.690,
+      ny: 0.695,
+      labelAlign: 'right',
       color: '#f59e0b'
     },
     {
@@ -326,8 +327,9 @@ const SimState = {
       rhythmBols: 'Hop-Step-Turn! Dawn Sun! Tawang Chant! Hey!',
       unityRole: 'Guards the majestic eastern Himalayan frontiers and greets the nation\'s earliest sunbeams with pristine tribal harmony.',
       explored: false,
-      nx: 0.810,
-      ny: 0.280,
+      nx: 0.830,
+      ny: 0.270,
+      labelAlign: 'top',
       color: '#06b6d4'
     },
     {
@@ -347,7 +349,8 @@ const SimState = {
       unityRole: 'Connects the northeastern river valleys to the nation, celebrating seasonal renewal and energetic wrist-pulse syncopation.',
       explored: false,
       nx: 0.740,
-      ny: 0.355,
+      ny: 0.345,
+      labelAlign: 'top',
       color: '#f59e0b'
     },
     {
@@ -366,8 +369,9 @@ const SimState = {
       rhythmBols: 'Dha-Tin-Tin-Na! Bodhi Tree! Chhath Puja! Dha!',
       unityRole: 'Birthplace of Buddhism and Jainism, Bihar gave India its foundation of universal enlightenment, Ahimsa (non-violence), and historical governance.',
       explored: false,
-      nx: 0.550,
-      ny: 0.380,
+      nx: 0.560,
+      ny: 0.365,
+      labelAlign: 'bottom',
       color: '#ec4899'
     },
     {
@@ -387,7 +391,8 @@ const SimState = {
       unityRole: 'Supplies heavy industrial steel and electric energy while safeguarding some of the world\'s most ancient indigenous tribal craftsmanship.',
       explored: false,
       nx: 0.510,
-      ny: 0.510,
+      ny: 0.515,
+      labelAlign: 'bottom',
       color: '#10b981'
     },
     {
@@ -406,8 +411,9 @@ const SimState = {
       rhythmBols: 'Ghumat-Beat! Fugdi-Spin! Dekhnni! Dheem-Taa!',
       unityRole: 'Exemplifies seamless Indo-Portuguese maritime synthesis, vibrant coastal hospitality, and joyful communal festivals.',
       explored: false,
-      nx: 0.330,
-      ny: 0.680,
+      nx: 0.280,
+      ny: 0.690,
+      labelAlign: 'left',
       color: '#06b6d4'
     },
     {
@@ -426,8 +432,9 @@ const SimState = {
       rhythmBols: 'Taalee! Chutkee! Taalee! Heench! Taalee! Ghoom! Taalee! Hay!',
       unityRole: 'Acts as India\'s maritime trade nexus while symbolizing communal circular harmony where people of all backgrounds dance as one.',
       explored: false,
-      nx: 0.280,
-      ny: 0.490,
+      nx: 0.220,
+      ny: 0.485,
+      labelAlign: 'left',
       color: '#06b6d4'
     },
     {
@@ -446,8 +453,9 @@ const SimState = {
       rhythmBols: 'Dhamal-Taal! Saang! Ragni! Kadam-Taal!',
       unityRole: 'Fuels India\'s corporate tech innovation while dominating international athletics and producing championship Olympic athletes.',
       explored: false,
-      nx: 0.370,
+      nx: 0.345,
       ny: 0.260,
+      labelAlign: 'bottom',
       color: '#ec4899'
     },
     {
@@ -466,8 +474,9 @@ const SimState = {
       rhythmBols: 'Nati-Circle! Dhol-Nagada! Pahari-Swar! Dheem!',
       unityRole: 'Embodies tranquil mountain peace, clean renewable hydro energy, and world-renowned folk dance community circles.',
       explored: false,
-      nx: 0.395,
-      ny: 0.190,
+      nx: 0.400,
+      ny: 0.170,
+      labelAlign: 'top',
       color: '#06b6d4'
     },
     {
@@ -486,8 +495,9 @@ const SimState = {
       rhythmBols: 'Jhumair-Taal! Mandar-Thump! Chhau-Leap! Dhaa!',
       unityRole: 'Supplies the raw industrial mineral power that builds India\'s bridges, rail networks, and heavy engineering.',
       explored: false,
-      nx: 0.560,
-      ny: 0.460,
+      nx: 0.570,
+      ny: 0.455,
+      labelAlign: 'left',
       color: '#ec4899'
     },
     {
@@ -508,6 +518,7 @@ const SimState = {
       explored: false,
       nx: 0.340,
       ny: 0.720,
+      labelAlign: 'left',
       color: '#f59e0b'
     },
     {
@@ -528,6 +539,7 @@ const SimState = {
       explored: false,
       nx: 0.360,
       ny: 0.865,
+      labelAlign: 'left',
       color: '#06b6d4'
     },
     {
@@ -546,8 +558,9 @@ const SimState = {
       rhythmBols: 'Dhaa! Ghay! Naa! Central Unity! Dheem!',
       unityRole: 'The central geographical and spiritual nexus where North, South, East, and West blend into one harmonious cultural melting pot.',
       explored: false,
-      nx: 0.460,
+      nx: 0.440,
       ny: 0.465,
+      labelAlign: 'bottom',
       color: '#f59e0b'
     },
     {
@@ -566,8 +579,9 @@ const SimState = {
       rhythmBols: 'Dhaa! Ghay! Naa! Teen! Teet! Taa! Dhaa! Khuh-duhk!',
       unityRole: 'Serves as the nation\'s economic engine and cultural crossroads, uniting Northern and Southern traditions through bold theatrical expressions.',
       explored: false,
-      nx: 0.375,
+      nx: 0.340,
       ny: 0.585,
+      labelAlign: 'left',
       color: '#ec4899'
     },
     {
@@ -586,8 +600,9 @@ const SimState = {
       rhythmBols: 'Pung-Cholom! Kartal-Sync! Raas-Leela! Dha!',
       unityRole: 'Gifted India the sublime lyrical grace of classical Manipuri dance, the athletic heritage of polo, and women\'s economic empowerment.',
       explored: false,
-      nx: 0.810,
-      ny: 0.400,
+      nx: 0.835,
+      ny: 0.410,
+      labelAlign: 'right',
       color: '#ec4899'
     },
     {
@@ -607,7 +622,8 @@ const SimState = {
       unityRole: 'Teaches the world botanical bio-engineering through centuries-old Living Root Bridges and models matrilineal gender equality.',
       explored: false,
       nx: 0.710,
-      ny: 0.390,
+      ny: 0.395,
+      labelAlign: 'bottom',
       color: '#06b6d4'
     },
     {
@@ -626,8 +642,9 @@ const SimState = {
       rhythmBols: 'Thump! Clack! Open! Clack! Step! Clack! Jump! Sync!',
       unityRole: 'Demonstrates ancient tribal teamwork, mutual trust, and precision balance where individuals synchronize perfectly within a collective matrix.',
       explored: false,
-      nx: 0.780,
-      ny: 0.415,
+      nx: 0.805,
+      ny: 0.465,
+      labelAlign: 'bottom',
       color: '#06b6d4'
     },
     {
@@ -646,8 +663,9 @@ const SimState = {
       rhythmBols: 'Hornbill-Chant! Log-Drum-Beat! Warrior-Step!',
       unityRole: 'Brings 16 distinct warrior tribes together in the world-famous Hornbill Festival, symbolizing vibrant solidarity and courage.',
       explored: false,
-      nx: 0.820,
-      ny: 0.350,
+      nx: 0.845,
+      ny: 0.345,
+      labelAlign: 'right',
       color: '#f59e0b'
     },
     {
@@ -666,8 +684,9 @@ const SimState = {
       rhythmBols: 'Dhoom! Taa! Dhoom! Oof-lee! Dhaa! Taa! Nuh-gaa-raa! Shabash!',
       unityRole: 'Synthesizes primordial maritime trading heritage (Bali Yatra) with sublime classical Odissi temple dance and sacred Rath Yatra inclusivity.',
       explored: false,
-      nx: 0.580,
+      nx: 0.585,
       ny: 0.535,
+      labelAlign: 'right',
       color: '#ec4899'
     },
     {
@@ -686,8 +705,9 @@ const SimState = {
       rhythmBols: 'Buhll-lay! Ghay! Buhll-lay! Chaal! Hud-dee-paa! Ghay! Hud-dee-paa! Oye!',
       unityRole: 'Provides national food security through agricultural vitality and energizes India with celebratory, inclusive folk brotherhood.',
       explored: true,
-      nx: 0.365,
+      nx: 0.320,
       ny: 0.225,
+      labelAlign: 'left',
       color: '#ec4899'
     },
     {
@@ -706,8 +726,9 @@ const SimState = {
       rhythmBols: 'Dheen! Taa! Kaa! Taa! Ghoom-Ghoom! Dha!',
       unityRole: 'Exemplifies desert resilience and royal craftsmanship, infusing the Indian identity with vivid colors, heroic ballads, and sweeping turns.',
       explored: false,
-      nx: 0.315,
+      nx: 0.255,
       ny: 0.365,
+      labelAlign: 'left',
       color: '#f59e0b'
     },
     {
@@ -726,8 +747,9 @@ const SimState = {
       rhythmBols: 'Singhi-Chham! Mountain-Horn! Kangchenjunga! Dhum!',
       unityRole: 'World benchmark for environmental sustainability, carbon-neutral organic agriculture, and peaceful monastic co-existence.',
       explored: false,
-      nx: 0.640,
-      ny: 0.330,
+      nx: 0.650,
+      ny: 0.315,
+      labelAlign: 'top',
       color: '#10b981'
     },
     {
@@ -748,6 +770,7 @@ const SimState = {
       explored: false,
       nx: 0.448,
       ny: 0.875,
+      labelAlign: 'right',
       color: '#f59e0b'
     },
     {
@@ -766,8 +789,9 @@ const SimState = {
       rhythmBols: 'Perini-Thandavam! Dappu-Beat! Bathukamma! Dha!',
       unityRole: 'Drives India\'s life sciences and tech innovations while celebrating Deccan royal heritage and Kakatiya temple sculpture.',
       explored: false,
-      nx: 0.450,
+      nx: 0.440,
       ny: 0.610,
+      labelAlign: 'right',
       color: '#ec4899'
     },
     {
@@ -787,7 +811,8 @@ const SimState = {
       unityRole: 'Celebrates extraordinary physical balance in Hojagiri pitcher dances and anchors India\'s clean natural gas trade.',
       explored: false,
       nx: 0.745,
-      ny: 0.435,
+      ny: 0.445,
+      labelAlign: 'left',
       color: '#f59e0b'
     },
     {
@@ -806,8 +831,9 @@ const SimState = {
       rhythmBols: 'Dhaa! Dheen! Dheen! Dhaa! Dhaa! Teen! Taa! Dheen!',
       unityRole: 'The civilizational cradle where spiritual philosophy, classical courtly poetry, and lightning-fast pirouette spins synthesized over millennia.',
       explored: false,
-      nx: 0.435,
+      nx: 0.445,
       ny: 0.345,
+      labelAlign: 'right',
       color: '#f59e0b'
     },
     {
@@ -826,8 +852,9 @@ const SimState = {
       rhythmBols: 'Chholiya-Sword! Dhol-Damau! Garhwali-Rhythm!',
       unityRole: 'The spiritual source of the Ganges giving eternal life to northern India while pioneering global yoga and environmental conservation.',
       explored: false,
-      nx: 0.440,
-      ny: 0.220,
+      nx: 0.455,
+      ny: 0.215,
+      labelAlign: 'right',
       color: '#06b6d4'
     },
     {
@@ -846,8 +873,9 @@ const SimState = {
       rhythmBols: 'Dhaa! Dheen! Taa! Ektara! Baul! Anandam!',
       unityRole: 'The intellectual and literary renaissance beacon that gave India its national anthem and universal philosophy of human unity.',
       explored: false,
-      nx: 0.635,
-      ny: 0.470,
+      nx: 0.650,
+      ny: 0.465,
+      labelAlign: 'right',
       color: '#ec4899'
     },
 
@@ -856,7 +884,7 @@ const SimState = {
     // -------------------------------------------------------------
     {
       id: 'andaman_nicobar',
-      name: 'Andaman and Nicobar Islands',
+      name: 'Andaman & Nicobar Islands',
       capital: 'Port Blair',
       category: 'ut',
       region: 'islands',
@@ -870,8 +898,9 @@ const SimState = {
       rhythmBols: 'Nicobari-Dance! Island-Drum! Ocean-Wave!',
       unityRole: 'Guards India\'s southeastern maritime frontier and honors the sacred memory of freedom fighters in Cellular Jail.',
       explored: false,
-      nx: 0.820,
-      ny: 0.820,
+      nx: 0.850,
+      ny: 0.810,
+      labelAlign: 'right',
       color: '#06b6d4'
     },
     {
@@ -890,8 +919,9 @@ const SimState = {
       rhythmBols: 'City-Beat! Open-Hand! Modern-Sync!',
       unityRole: 'Symbolizes modern independent India\'s forward-looking architectural vision, orderly civic planning, and peaceful interstate cooperation.',
       explored: false,
-      nx: 0.375,
-      ny: 0.220,
+      nx: 0.360,
+      ny: 0.200,
+      labelAlign: 'top',
       color: '#10b981'
     },
     {
@@ -910,8 +940,9 @@ const SimState = {
       rhythmBols: 'Tarpa-Blow! Daman-Wave! Folk-Pulse!',
       unityRole: 'Merges ancient tribal Tarpa horn rhythms with historic coastal maritime fortresses along the Arabian sea.',
       explored: false,
-      nx: 0.310,
+      nx: 0.260,
       ny: 0.540,
+      labelAlign: 'left',
       color: '#06b6d4'
     },
     {
@@ -930,8 +961,9 @@ const SimState = {
       rhythmBols: 'Rajdhani-Pulse! Dha-Tirkit-Dha! Unity-Beat!',
       unityRole: 'The vibrant beating heart and administrative capital of the Republic of India where every regional culture, language, and tradition congregates.',
       explored: false,
-      nx: 0.390,
-      ny: 0.270,
+      nx: 0.385,
+      ny: 0.275,
+      labelAlign: 'right',
       color: '#fde047'
     },
     {
@@ -950,8 +982,9 @@ const SimState = {
       rhythmBols: 'Dhum-Dhum-Taa! Rouf Wave! Santoor!',
       unityRole: 'The crowned northern jewel of India celebrating timeless poetic romance, Santoor musical depth, and mountain serenity.',
       explored: false,
-      nx: 0.360,
-      ny: 0.130,
+      nx: 0.330,
+      ny: 0.125,
+      labelAlign: 'left',
       color: '#06b6d4'
     },
     {
@@ -971,7 +1004,8 @@ const SimState = {
       unityRole: 'Stands at the roof of India, embodying high-altitude human resilience, ancient Silk Route hospitality, and Buddhist meditation.',
       explored: false,
       nx: 0.430,
-      ny: 0.100,
+      ny: 0.090,
+      labelAlign: 'top',
       color: '#06b6d4'
     },
     {
@@ -990,8 +1024,9 @@ const SimState = {
       rhythmBols: 'Kolkali-Sync! Parichakali! Island-Rhythm!',
       unityRole: 'Anchors India\'s western coral frontiers with pristine blue lagoons, showcasing eco-conservation and stick-rhythm agility.',
       explored: false,
-      nx: 0.270,
-      ny: 0.840,
+      nx: 0.160,
+      ny: 0.850,
+      labelAlign: 'left',
       color: '#06b6d4'
     },
     {
@@ -1010,8 +1045,9 @@ const SimState = {
       rhythmBols: 'Garadi-Step! French-Konkan-Fusion! Dheem-Taa!',
       unityRole: 'Models universal human unity and spiritual synthesis at Auroville ("City of Dawn"), blending French colonial elegance with Tamil heritage.',
       explored: false,
-      nx: 0.480,
-      ny: 0.820,
+      nx: 0.490,
+      ny: 0.810,
+      labelAlign: 'right',
       color: '#ec4899'
     }
   ]
@@ -2642,33 +2678,78 @@ function initCanvasVisualizer() {
       ctx.lineWidth = 1.5;
       ctx.stroke();
 
-      // State Label Badge with Dark Glass Backing for high readability
+      // State Label Rendering with Directional Collision Avoidance
       const labelText = state.name;
-      ctx.font = `${isActiveState ? '800 11px' : '700 10px'} 'Space Grotesk', sans-serif`;
-      const textWidth = ctx.measureText(labelText).width;
-      const badgeW = textWidth + 14;
-      const badgeH = 18;
-      const badgeX = sx - badgeW / 2;
+      const align = state.labelAlign || (state.ny > 0.78 ? 'top' : 'bottom');
+      
+      let textX = sx;
+      let textY = sy + 15;
+      let tAlign = 'center';
 
-      // Intelligently place badge above pin if near the bottom edge (e.g. Kerala / Tamil Nadu)
-      const isNearBottom = state.ny > 0.75;
-      const badgeY = isNearBottom ? (sy - badgeH - 8) : (sy + 10);
-      const textY = isNearBottom ? (badgeY + 12.5) : (badgeY + 12.5);
+      if (align === 'left') {
+        textX = sx - 12;
+        textY = sy + 3.5;
+        tAlign = 'right';
+      } else if (align === 'right') {
+        textX = sx + 12;
+        textY = sy + 3.5;
+        tAlign = 'left';
+      } else if (align === 'top') {
+        textX = sx;
+        textY = sy - 12;
+        tAlign = 'center';
+      } else if (align === 'bottom') {
+        textX = sx;
+        textY = sy + 16;
+        tAlign = 'center';
+      }
 
-      ctx.shadowBlur = 6;
-      ctx.fillStyle = isActiveState ? 'rgba(15, 23, 42, 0.94)' : 'rgba(10, 14, 30, 0.88)';
-      ctx.beginPath();
-      ctx.roundRect(badgeX, badgeY, badgeW, badgeH, 9);
-      ctx.fill();
+      if (isActiveState || isHovered) {
+        // Prominent illuminated badge for Active and Hovered points
+        ctx.font = "800 11px 'Space Grotesk', sans-serif";
+        const textWidth = ctx.measureText(labelText).width;
+        const badgeW = textWidth + 16;
+        const badgeH = 20;
+        let badgeX = sx - badgeW / 2;
+        let badgeY = sy + 10;
 
-      ctx.strokeStyle = isActiveState ? '#fde047' : isHovered ? '#ffffff' : 'rgba(255, 255, 255, 0.18)';
-      ctx.lineWidth = isActiveState ? 1.5 : 0.8;
-      ctx.stroke();
+        if (align === 'left') {
+          badgeX = sx - badgeW - 10;
+          badgeY = sy - 10;
+        } else if (align === 'right') {
+          badgeX = sx + 10;
+          badgeY = sy - 10;
+        } else if (align === 'top') {
+          badgeX = sx - badgeW / 2;
+          badgeY = sy - badgeH - 8;
+        }
 
-      // Text inside badge
-      ctx.fillStyle = isActiveState ? '#fde047' : isHovered ? '#ffffff' : isMatchingRegion ? '#ffffff' : '#94a3b8';
-      ctx.textAlign = 'center';
-      ctx.fillText(labelText, sx, textY);
+        ctx.shadowBlur = 12;
+        ctx.shadowColor = isActiveState ? 'rgba(245, 158, 11, 0.6)' : 'rgba(255, 255, 255, 0.4)';
+        ctx.fillStyle = isActiveState ? 'rgba(15, 23, 42, 0.96)' : 'rgba(10, 14, 30, 0.92)';
+        ctx.beginPath();
+        ctx.roundRect(badgeX, badgeY, badgeW, badgeH, 10);
+        ctx.fill();
+
+        ctx.strokeStyle = isActiveState ? '#fde047' : '#ffffff';
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
+
+        ctx.fillStyle = isActiveState ? '#fde047' : '#ffffff';
+        ctx.textAlign = 'center';
+        ctx.fillText(labelText, badgeX + badgeW / 2, badgeY + 14);
+      } else {
+        // High-contrast clean text with dark halo outline for unhovered points
+        ctx.font = `${state.category === 'ut' ? '600 9.5px' : '700 10px'} 'Space Grotesk', sans-serif`;
+        ctx.textAlign = tAlign;
+
+        ctx.lineWidth = 3.5;
+        ctx.strokeStyle = 'rgba(10, 14, 30, 0.95)';
+        ctx.strokeText(labelText, textX, textY);
+
+        ctx.fillStyle = isMatchingRegion ? (state.category === 'ut' ? '#67e8f9' : '#ffffff') : 'rgba(255, 255, 255, 0.35)';
+        ctx.fillText(labelText, textX, textY);
+      }
 
       ctx.restore();
     });
