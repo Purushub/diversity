@@ -319,10 +319,19 @@
             <div class="map-card-header">
               <div class="map-status-title-group">
                 <span class="live-dot-pulse"></span>
-                <span id="mapLiveStatusText">Interactive Geographic Matrix • Select a State to Inspect</span>
+                <span id="mapLiveStatusText">Interactive Geographic Matrix</span>
               </div>
-              <div class="map-explored-counter" id="mapExploredCounter">
-                <span class="explored-badge">Explored: <strong id="exploredCountNum">1</strong> / 14</span>
+              <div class="map-header-actions-group">
+                <div class="map-view-select-wrapper">
+                  <span class="map-view-label">🗺️ Map:</span>
+                  <select id="mapBackgroundSelect" class="map-view-dropdown" onchange="changeMapBackground(this.value)">
+                    <option value="images/india_cultural_map_bg.jpg" selected>📜 Tapestry Map</option>
+                    <option value="images/cultural map.jpg">🎨 Cultural Map</option>
+                  </select>
+                </div>
+                <div class="map-explored-counter" id="mapExploredCounter">
+                  <span class="explored-badge">Explored: <strong id="exploredCountNum">1</strong> / 14</span>
+                </div>
               </div>
             </div>
 

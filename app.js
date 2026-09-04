@@ -360,7 +360,7 @@ const SimState = {
       unityRole: 'Anchors India in ancient Natyashastra classical geometric discipline, sacred temple architectural mastery, and timeless Carnatic ragas.',
       explored: false,
       nx: 0.448,
-      ny: 0.775,
+      ny: 0.875,
       color: '#f59e0b'
     },
     {
@@ -473,8 +473,8 @@ const SimState = {
       rhythmBols: 'Taa-Kaa-Dhee-Mee! Chande! Dheem-Taa!',
       unityRole: 'Pioneers global cutting-edge tech innovation while honoring millennia of rich folklore, Carnatic music, and royal cultural patronage.',
       explored: false,
-      nx: 0.405,
-      ny: 0.690,
+      nx: 0.340,
+      ny: 0.720,
       color: '#f59e0b'
     },
     {
@@ -493,7 +493,7 @@ const SimState = {
       unityRole: 'The maritime spice gateway that introduced Indian culture to global travelers, celebrated for exquisite artistic storytelling and drum synchronization.',
       explored: false,
       nx: 0.360,
-      ny: 0.765,
+      ny: 0.865,
       color: '#06b6d4'
     },
     {
@@ -1933,17 +1933,29 @@ function exportPanIndiaLedger() {
 // ==========================================================
 // INTERACTIVE INDIA DIVERSITY & UNITY CANVAS MAP
 // ==========================================================
-// ==========================================================
 // INTERACTIVE INDIA DIVERSITY & UNITY CANVAS MAP
 // ==========================================================
+let currentMapBgSrc = 'images/india_cultural_map_bg.jpg';
+let mapImg = new Image();
+mapImg.src = currentMapBgSrc;
+
+function changeMapBackground(src) {
+  currentMapBgSrc = src || 'images/india_cultural_map_bg.jpg';
+  mapImg = new Image();
+  mapImg.src = currentMapBgSrc;
+  mapImg.onload = () => {
+    const container = document.getElementById('indiaMapContainer');
+    if (container && mapImg.naturalWidth && mapImg.naturalHeight) {
+      container.style.aspectRatio = `${mapImg.naturalWidth} / ${mapImg.naturalHeight}`;
+    }
+  };
+}
+window.changeMapBackground = changeMapBackground;
+
 function initCanvasVisualizer() {
   const canvas = document.getElementById('symphonyCanvas');
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
-
-  // Preload illustrated cultural tapestry map background
-  const mapImg = new Image();
-  mapImg.src = 'images/india_cultural_map_bg.jpg';
 
   let hoveredState = null;
   let mousePos = { x: -1, y: -1 };
@@ -2036,19 +2048,23 @@ function initCanvasVisualizer() {
   }
 
   function renderLoop() {
-    // Dynamic size synchronization locked to 1024 / 571 natural aspect ratio
+    // Dynamic size synchronization locked to active map natural aspect ratio
+    const imgRatio = (mapImg.naturalWidth && mapImg.naturalHeight)
+      ? (mapImg.naturalWidth / mapImg.naturalHeight)
+      : (1024 / 571);
+
     const parent = canvas.parentElement;
     const parentW = parent ? parent.clientWidth : 0;
 
     if (parentW > 50) {
-      const targetH = Math.round(parentW / (1024 / 571));
+      const targetH = Math.round(parentW / imgRatio);
       if (canvas.width !== parentW || canvas.height !== targetH) {
         canvas.width = parentW;
         canvas.height = targetH;
       }
     } else if (canvas.width <= 0 || canvas.height <= 0) {
       canvas.width = 1024;
-      canvas.height = 571;
+      canvas.height = Math.round(1024 / imgRatio);
     }
 
     const w = canvas.width;
