@@ -2203,16 +2203,14 @@ body::after {
   justify-content: center;
   align-items: center;
   gap: 0.35rem 0.5rem;
-  padding: 0.75rem 1rem;
+  padding: 0.65rem 1rem;
+  max-height: 110px;
+  overflow-y: auto;
   background: rgba(10, 14, 30, 0.95);
   border-top: 1px solid var(--border-glass);
   border-bottom: 1px solid var(--border-glass);
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-
-.map-state-quick-bar::-webkit-scrollbar {
-  display: none;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(245, 158, 11, 0.3) transparent;
 }
 
 .map-state-chip {

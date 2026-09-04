@@ -283,7 +283,7 @@
         <div class="phase-number-tag">Phase 03 • Pan-India Geospatial Simulation Matrix</div>
         <h2>Interactive India Diversity & Unity Matrix ("Many in the One")</h2>
         <p>
-          Click any state on the map below to inspect its major urban centers, rich natural & economic resources, cultural specialties, and authentic rhythms. Engage with the <strong>AI Voice Assistant ("Indira")</strong> to complete interactive cultural discovery quests!
+          Click any of India's <strong>28 States & 8 Union Territories</strong> on the interactive map below to inspect urban centers, rich natural & economic resources, cultural specialties, and authentic regional rhythms. Engage with the <strong>AI Voice Assistant ("Indira")</strong> to complete interactive discovery quests!
         </p>
       </div>
 
@@ -292,13 +292,16 @@
         <!-- Top Simulation Control Toolbar -->
         <div class="sim-toolbar-bar">
           <div class="sim-region-filters" id="simRegionFilters">
-            <button class="sim-filter-pill active" onclick="filterSimRegion('all')">All India (14 States)</button>
-            <button class="sim-filter-pill" onclick="filterSimRegion('north')">North India</button>
-            <button class="sim-filter-pill" onclick="filterSimRegion('west')">West India</button>
-            <button class="sim-filter-pill" onclick="filterSimRegion('south')">South India</button>
-            <button class="sim-filter-pill" onclick="filterSimRegion('east')">East India</button>
+            <button class="sim-filter-pill active" onclick="filterSimRegion('all')">All India (36)</button>
+            <button class="sim-filter-pill" onclick="filterSimRegion('state')">States (28)</button>
+            <button class="sim-filter-pill" onclick="filterSimRegion('ut')">Union Territories (8)</button>
+            <button class="sim-filter-pill" onclick="filterSimRegion('north')">North</button>
+            <button class="sim-filter-pill" onclick="filterSimRegion('south')">South</button>
+            <button class="sim-filter-pill" onclick="filterSimRegion('west')">West</button>
+            <button class="sim-filter-pill" onclick="filterSimRegion('east')">East</button>
             <button class="sim-filter-pill" onclick="filterSimRegion('northeast')">Northeast</button>
-            <button class="sim-filter-pill" onclick="filterSimRegion('central')">Central India</button>
+            <button class="sim-filter-pill" onclick="filterSimRegion('central')">Central</button>
+            <button class="sim-filter-pill" onclick="filterSimRegion('islands')">Islands / UTs</button>
           </div>
 
           <div class="sim-mode-toggle-group">
@@ -330,7 +333,7 @@
                   </select>
                 </div>
                 <div class="map-explored-counter" id="mapExploredCounter">
-                  <span class="explored-badge">Explored: <strong id="exploredCountNum">1</strong> / 14</span>
+                  <span class="explored-badge">Explored: <strong id="exploredCountNum">1</strong> / 36</span>
                 </div>
               </div>
             </div>
