@@ -302,8 +302,8 @@ const SimState = {
       rhythmBols: 'Buhll-lay! Ghay! Buhll-lay! Chaal! Hud-dee-paa! Ghay! Hud-dee-paa! Oye!',
       unityRole: 'Provides national food security through agricultural vitality and energizes India with celebratory, inclusive folk brotherhood.',
       explored: true,
-      nx: 0.36,
-      ny: 0.23,
+      nx: 0.365,
+      ny: 0.225,
       color: '#ec4899'
     },
     {
@@ -321,8 +321,8 @@ const SimState = {
       rhythmBols: 'Taalee! Chutkee! Taalee! Heench! Taalee! Ghoom! Taalee! Hay!',
       unityRole: 'Acts as India\'s maritime trade nexus while symbolizing communal circular harmony where people of all backgrounds dance as one.',
       explored: false,
-      nx: 0.28,
-      ny: 0.52,
+      nx: 0.280,
+      ny: 0.490,
       color: '#06b6d4'
     },
     {
@@ -340,8 +340,8 @@ const SimState = {
       rhythmBols: 'Dhaa! Ghay! Naa! Teen! Teet! Taa! Dhaa! Khuh-duhk!',
       unityRole: 'Serves as the nation\'s economic engine and cultural crossroads, uniting Northern and Southern traditions through bold theatrical expressions.',
       explored: false,
-      nx: 0.38,
-      ny: 0.62,
+      nx: 0.375,
+      ny: 0.585,
       color: '#ec4899'
     },
     {
@@ -359,8 +359,8 @@ const SimState = {
       rhythmBols: 'Taa! Kaa! Dhee! Mee! Thomm! Naam! Thaa-Kaa! Jhaa-Nu!',
       unityRole: 'Anchors India in ancient Natyashastra classical geometric discipline, sacred temple architectural mastery, and timeless Carnatic ragas.',
       explored: false,
-      nx: 0.46,
-      ny: 0.88,
+      nx: 0.450,
+      ny: 0.825,
       color: '#f59e0b'
     },
     {
@@ -378,8 +378,8 @@ const SimState = {
       rhythmBols: 'Dhaa! Dheen! Dheen! Dhaa! Dhaa! Teen! Taa! Dheen!',
       unityRole: 'The civilizational cradle where spiritual philosophy, classical courtly poetry, and lightning-fast pirouette spins synthesized over millennia.',
       explored: false,
-      nx: 0.44,
-      ny: 0.35,
+      nx: 0.435,
+      ny: 0.345,
       color: '#f59e0b'
     },
     {
@@ -397,8 +397,8 @@ const SimState = {
       rhythmBols: 'Dheen! Taa! Kaa! Taa! Ghoom-Ghoom! Dha!',
       unityRole: 'Exemplifies desert resilience and royal craftsmanship, infusing the Indian identity with vivid colors, heroic ballads, and sweeping turns.',
       explored: false,
-      nx: 0.31,
-      ny: 0.37,
+      nx: 0.315,
+      ny: 0.365,
       color: '#f59e0b'
     },
     {
@@ -416,8 +416,8 @@ const SimState = {
       rhythmBols: 'Dhaa! Ghay! Dhaa! Teet! Dhaa! Dheen! Pay-paa! Hey!',
       unityRole: 'Connects the northeastern river valleys to the nation, celebrating seasonal renewal and energetic wrist-pulse syncopation.',
       explored: false,
-      nx: 0.75,
-      ny: 0.36,
+      nx: 0.740,
+      ny: 0.355,
       color: '#f59e0b'
     },
     {
@@ -435,8 +435,8 @@ const SimState = {
       rhythmBols: 'Thump! Clack! Open! Clack! Step! Clack! Jump! Sync!',
       unityRole: 'Demonstrates ancient tribal teamwork, mutual trust, and precision balance where individuals synchronize perfectly within a collective matrix.',
       explored: false,
-      nx: 0.80,
-      ny: 0.43,
+      nx: 0.780,
+      ny: 0.415,
       color: '#06b6d4'
     },
     {
@@ -454,8 +454,8 @@ const SimState = {
       rhythmBols: 'Dhoom! Taa! Dhoom! Oof-lee! Dhaa! Taa! Nuh-gaa-raa! Shabash!',
       unityRole: 'Supplies the industrial minerals that build modern India while preserving primordial tribal martial arts and classical temple sculpture.',
       explored: false,
-      nx: 0.59,
-      ny: 0.56,
+      nx: 0.580,
+      ny: 0.535,
       color: '#ec4899'
     },
     {
@@ -473,8 +473,8 @@ const SimState = {
       rhythmBols: 'Taa-Kaa-Dhee-Mee! Chande! Dheem-Taa!',
       unityRole: 'Pioneers global cutting-edge tech innovation while honoring millennia of rich folklore, Carnatic music, and royal cultural patronage.',
       explored: false,
-      nx: 0.41,
-      ny: 0.74,
+      nx: 0.405,
+      ny: 0.690,
       color: '#f59e0b'
     },
     {
@@ -492,8 +492,8 @@ const SimState = {
       rhythmBols: 'Thaa-Kee-Taa! Thaa-Kaa-Dhee-Mee! Chenda! Dhum!',
       unityRole: 'The maritime spice gateway that introduced Indian culture to global travelers, celebrated for exquisite artistic storytelling and drum synchronization.',
       explored: false,
-      nx: 0.36,
-      ny: 0.86,
+      nx: 0.355,
+      ny: 0.810,
       color: '#06b6d4'
     },
     {
@@ -511,8 +511,8 @@ const SimState = {
       rhythmBols: 'Dhaa! Dheen! Taa! Ektara! Baul! Anandam!',
       unityRole: 'The intellectual and literary renaissance beacon that gave India its national anthem and universal philosophy of human unity.',
       explored: false,
-      nx: 0.65,
-      ny: 0.48,
+      nx: 0.635,
+      ny: 0.470,
       color: '#ec4899'
     },
     {
@@ -530,8 +530,8 @@ const SimState = {
       rhythmBols: 'Dhaa! Ghay! Naa! Central Unity! Dheem!',
       unityRole: 'The central geographical and spiritual nexus where North, South, East, and West blend into one harmonious cultural melting pot.',
       explored: false,
-      nx: 0.47,
-      ny: 0.48,
+      nx: 0.460,
+      ny: 0.465,
       color: '#f59e0b'
     },
     {
@@ -549,8 +549,8 @@ const SimState = {
       rhythmBols: 'Dhum-Dhum-Taa! Rouf Wave! Santoor!',
       unityRole: 'The crowning Himalayan summit of India symbolizing meditative serenity, musical subtlety, and enduring resilience.',
       explored: false,
-      nx: 0.38,
-      ny: 0.12,
+      nx: 0.380,
+      ny: 0.125,
       color: '#06b6d4'
     }
   ]
@@ -1927,12 +1927,17 @@ function exportPanIndiaLedger() {
 // ==========================================================
 // INTERACTIVE INDIA DIVERSITY & UNITY CANVAS MAP
 // ==========================================================
+// ==========================================================
 // INTERACTIVE INDIA DIVERSITY & UNITY CANVAS MAP
 // ==========================================================
 function initCanvasVisualizer() {
   const canvas = document.getElementById('symphonyCanvas');
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
+
+  // Preload illustrated cultural tapestry map background
+  const mapImg = new Image();
+  mapImg.src = 'images/india_cultural_map_bg.jpg';
 
   let hoveredState = null;
   let mousePos = { x: -1, y: -1 };
@@ -1969,77 +1974,6 @@ function initCanvasVisualizer() {
       size: Math.random() * 2.5 + 1.5,
       color: ['#06b6d4', '#f59e0b', '#ec4899', '#10b981', '#fde047'][Math.floor(Math.random() * 5)]
     });
-  }
-
-  function drawIndiaOutline(w, h) {
-    const ox = w * 0.10;
-    const oy = h * 0.04;
-    const mw = w * 0.80;
-    const mh = h * 0.90;
-
-    ctx.save();
-
-    // Stylized India Geographic Contour Path
-    ctx.beginPath();
-    ctx.moveTo(ox + mw * 0.34, oy + mh * 0.03); // Kashmir Apex
-    ctx.quadraticCurveTo(ox + mw * 0.40, oy + mh * 0.02, ox + mw * 0.44, oy + mh * 0.07);
-    ctx.lineTo(ox + mw * 0.46, oy + mh * 0.14);
-    ctx.lineTo(ox + mw * 0.52, oy + mh * 0.20); // Nepal border / Uttarakhand
-    ctx.lineTo(ox + mw * 0.60, oy + mh * 0.25); // Sikkim
-    ctx.lineTo(ox + mw * 0.68, oy + mh * 0.26); // Siliguri corridor
-    ctx.lineTo(ox + mw * 0.74, oy + mh * 0.20); // Assam North / Arunachal
-    ctx.quadraticCurveTo(ox + mw * 0.90, oy + mh * 0.21, ox + mw * 0.91, oy + mh * 0.29);
-    ctx.lineTo(ox + mw * 0.88, oy + mh * 0.48); // Mizoram / Tripura South
-    ctx.lineTo(ox + mw * 0.80, oy + mh * 0.46);
-    ctx.lineTo(ox + mw * 0.74, oy + mh * 0.36); // Bangladesh border
-    ctx.lineTo(ox + mw * 0.68, oy + mh * 0.40); // Bengal Delta
-    ctx.quadraticCurveTo(ox + mw * 0.66, oy + mh * 0.52, ox + mw * 0.60, oy + mh * 0.62); // Odisha Coast
-    ctx.lineTo(ox + mw * 0.52, oy + mh * 0.82); // Andhra / Tamil Nadu
-    ctx.lineTo(ox + mw * 0.46, oy + mh * 0.96); // Kanyakumari Cape
-    ctx.lineTo(ox + mw * 0.42, oy + mh * 0.85); // Kerala Malabar
-    ctx.quadraticCurveTo(ox + mw * 0.34, oy + mh * 0.68, ox + mw * 0.31, oy + mh * 0.58); // Goa / Konkan
-    ctx.lineTo(ox + mw * 0.23, oy + mh * 0.50); // Gujarat Gulf of Khambhat
-    ctx.quadraticCurveTo(ox + mw * 0.15, oy + mh * 0.47, ox + mw * 0.17, oy + mh * 0.38); // Rann of Kutch
-    ctx.lineTo(ox + mw * 0.26, oy + mh * 0.36);
-    ctx.lineTo(ox + mw * 0.28, oy + mh * 0.24); // Rajasthan border
-    ctx.lineTo(ox + mw * 0.31, oy + mh * 0.12); // Punjab / Jammu
-    ctx.closePath();
-
-    // Map base background gradient
-    const mapGrad = ctx.createRadialGradient(ox + mw * 0.48, oy + mh * 0.50, 30, ox + mw * 0.48, oy + mh * 0.50, mw * 0.65);
-    mapGrad.addColorStop(0, 'rgba(28, 42, 88, 0.65)');
-    mapGrad.addColorStop(0.5, 'rgba(15, 23, 54, 0.75)');
-    mapGrad.addColorStop(1, 'rgba(6, 10, 26, 0.90)');
-
-    ctx.fillStyle = mapGrad;
-    ctx.shadowColor = 'rgba(6, 182, 212, 0.3)';
-    ctx.shadowBlur = 25;
-    ctx.fill();
-
-    // Neon Map border stroke
-    ctx.lineWidth = 2.2;
-    ctx.strokeStyle = 'rgba(6, 182, 212, 0.65)';
-    ctx.stroke();
-
-    // Draw Internal Cultural Zones & Meridians
-    ctx.lineWidth = 1;
-    ctx.strokeStyle = 'rgba(255, 255, 255, 0.08)';
-    ctx.setLineDash([4, 6]);
-
-    // Longitude Meridian (Kashmir to Kanyakumari)
-    ctx.beginPath();
-    ctx.moveTo(ox + mw * 0.42, oy + mh * 0.10);
-    ctx.quadraticCurveTo(ox + mw * 0.48, oy + mh * 0.48, ox + mw * 0.46, oy + mh * 0.94);
-    ctx.stroke();
-
-    // Latitude Parallel (Kutch to Northeast)
-    ctx.beginPath();
-    ctx.moveTo(ox + mw * 0.19, oy + mh * 0.44);
-    ctx.quadraticCurveTo(ox + mw * 0.50, oy + mh * 0.46, ox + mw * 0.88, oy + mh * 0.32);
-    ctx.stroke();
-
-    ctx.setLineDash([]);
-    ctx.restore();
   }
 
   function drawUnityCenterHub(cx, cy) {
@@ -2096,19 +2030,19 @@ function initCanvasVisualizer() {
   }
 
   function renderLoop() {
-    // Dynamic size synchronization with parent container
+    // Dynamic size synchronization locked to 1024 / 571 natural aspect ratio
     const parent = canvas.parentElement;
     const parentW = parent ? parent.clientWidth : 0;
-    const parentH = parent ? parent.clientHeight : 0;
 
-    if (parentW > 50 && parentH > 50) {
-      if (canvas.width !== parentW || canvas.height !== parentH) {
+    if (parentW > 50) {
+      const targetH = Math.round(parentW / (1024 / 571));
+      if (canvas.width !== parentW || canvas.height !== targetH) {
         canvas.width = parentW;
-        canvas.height = parentH;
+        canvas.height = targetH;
       }
     } else if (canvas.width <= 0 || canvas.height <= 0) {
-      canvas.width = 680;
-      canvas.height = 520;
+      canvas.width = 1024;
+      canvas.height = 571;
     }
 
     const w = canvas.width;
@@ -2116,19 +2050,24 @@ function initCanvasVisualizer() {
 
     ctx.clearRect(0, 0, w, h);
 
+    // 1. Draw the full background illustrated map to fill canvas perfectly
+    if (mapImg.complete && mapImg.naturalWidth > 0) {
+      ctx.drawImage(mapImg, 0, 0, w, h);
+    }
+
     pulseAngle += 0.025;
 
     // Subtle edge vignette overlay
     ctx.save();
-    const borderGrad = ctx.createRadialGradient(w * 0.5, h * 0.5, w * 0.3, w * 0.5, h * 0.5, w * 0.65);
+    const borderGrad = ctx.createRadialGradient(w * 0.5, h * 0.5, w * 0.35, w * 0.5, h * 0.5, w * 0.70);
     borderGrad.addColorStop(0, 'rgba(0, 0, 0, 0)');
-    borderGrad.addColorStop(1, 'rgba(10, 14, 30, 0.45)');
+    borderGrad.addColorStop(1, 'rgba(10, 14, 30, 0.35)');
     ctx.fillStyle = borderGrad;
     ctx.fillRect(0, 0, w, h);
     ctx.restore();
 
-    const centerHubX = w * 0.47;
-    const centerHubY = h * 0.48;
+    const centerHubX = w * 0.460;
+    const centerHubY = h * 0.465;
 
     // Draw Central Unity Hub in Madhya Pradesh
     drawUnityCenterHub(centerHubX, centerHubY);
@@ -2219,22 +2158,26 @@ function initCanvasVisualizer() {
       const badgeW = textWidth + 14;
       const badgeH = 18;
       const badgeX = sx - badgeW / 2;
-      const badgeY = sy + 12;
+
+      // Intelligently place badge above pin if near the bottom edge (e.g. Kerala / Tamil Nadu)
+      const isNearBottom = state.ny > 0.75;
+      const badgeY = isNearBottom ? (sy - badgeH - 8) : (sy + 10);
+      const textY = isNearBottom ? (badgeY + 12.5) : (badgeY + 12.5);
 
       ctx.shadowBlur = 6;
-      ctx.fillStyle = isActiveState ? 'rgba(15, 23, 42, 0.92)' : 'rgba(10, 14, 30, 0.85)';
+      ctx.fillStyle = isActiveState ? 'rgba(15, 23, 42, 0.94)' : 'rgba(10, 14, 30, 0.88)';
       ctx.beginPath();
       ctx.roundRect(badgeX, badgeY, badgeW, badgeH, 9);
       ctx.fill();
 
-      ctx.strokeStyle = isActiveState ? '#fde047' : isHovered ? '#ffffff' : 'rgba(255, 255, 255, 0.15)';
+      ctx.strokeStyle = isActiveState ? '#fde047' : isHovered ? '#ffffff' : 'rgba(255, 255, 255, 0.18)';
       ctx.lineWidth = isActiveState ? 1.5 : 0.8;
       ctx.stroke();
 
       // Text inside badge
       ctx.fillStyle = isActiveState ? '#fde047' : isHovered ? '#ffffff' : isMatchingRegion ? '#ffffff' : '#94a3b8';
       ctx.textAlign = 'center';
-      ctx.fillText(labelText, sx, badgeY + 12.5);
+      ctx.fillText(labelText, sx, textY);
 
       ctx.restore();
     });
